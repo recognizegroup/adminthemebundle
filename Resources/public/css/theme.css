@@ -1,2 +1,82 @@
-.exampleclass {
-  display: block; }
+.mainmenu {
+  background: #222222;
+  float: left;
+  width: 250px;
+  left: -250px;
+  position: fixed;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-transition: left 0.35s;
+  -moz-transition: left 0.35s;
+  -o-transition: left 0.35s;
+  transition: left 0.35s; }
+  .mainmenu.open {
+    left: 0px; }
+
+.content-area .content {
+  left: 0px;
+  -webkit-transition: left 0.35s;
+  -moz-transition: left 0.35s;
+  -o-transition: left 0.35s;
+  transition: left 0.35s; }
+  .content-area .content.open {
+    left: 250px; }
+
+.topbar {
+  width: 100%;
+  top: 0px;
+  position: fixed; }
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+  border: none; }
+
+html.js .hamburger-icon {
+  display: inline-block;
+  padding: 1.75rem 0.875rem;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.5rem; }
+  html.js .hamburger-icon:hover {
+    opacity: 1; }
+  html.js .hamburger-icon:active {
+    transition: 0;
+    background: rgba(0, 0, 0, 0.1); }
+  html.js .hamburger-icon .lines {
+    display: inline-block;
+    width: 3.5rem;
+    height: 0.5rem;
+    background: #FFFFFF;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+    position: relative;
+    /*create the upper and lower lines as pseudo-elements of the middle line*/ }
+    html.js .hamburger-icon .lines:before, html.js .hamburger-icon .lines:after {
+      display: inline-block;
+      width: 3.5rem;
+      height: 0.5rem;
+      background: #FFFFFF;
+      border-radius: 0.25rem;
+      transition: 0.3s;
+      position: absolute;
+      left: 0;
+      content: '';
+      transform-origin: 0.25rem center; }
+    html.js .hamburger-icon .lines:before {
+      top: 0.875rem; }
+    html.js .hamburger-icon .lines:after {
+      top: -0.875rem; }
+  html.js .hamburger-icon.open {
+    transform: scale3d(.8, .8, .8); }
+    html.js .hamburger-icon.open .lines:before, html.js .hamburger-icon.open .lines:after {
+      top: 0;
+      width: 1.94444rem; }
+    html.js .hamburger-icon.open .lines:before {
+      transform: rotate3d(0, 0, 1, 40deg); }
+    html.js .hamburger-icon.open .lines:after {
+      transform: rotate3d(0, 0, 1, -40deg); }
+
+.content-area .content {
+  position: relative; }

@@ -1,0 +1,32 @@
+.mainmenu {
+  background: $menu-bg-color;
+  float: left;
+  width: 250px;
+  left: -250px;
+  position: fixed;
+  height: 100%;
+  overflow-y:scroll;
+  @include menu-toggle-animation;
+
+  &.open {
+    left: 0px;
+  }
+}
+
+.content-area {
+
+  .content {
+    left: 0px;
+    @include  menu-toggle-animation;
+
+    &.open {
+      left: 250px;
+    }
+  }
+}
+
+.topbar {
+  width: 100%;
+  top: 0px;
+  position: fixed;
+}

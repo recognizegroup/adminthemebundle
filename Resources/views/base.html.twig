@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block favicons %}
+    <link rel="icon" href="{{ asset('bundles/recognizeadmintheme/images/favicon.ico') }}"/>
+    {% endblock %}
+
+    <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/animate.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/recognizeadmintheme/css/theme.css') }}" rel="stylesheet" media="screen">
+    {% block style %}{% endblock %}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizeadmintheme/vendor/js/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizeadmintheme/js/theme.js') }}"></script>
+    {% block scripts %}{% endblock %}
+    <script type="text/javascript">
+        document.documentElement.className = "js";
+    </script>
+
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+{# Maak zelf een <script> tag aan voor formatting in je editor #}
+{% block lateScript %}{% endblock %}
+</html>

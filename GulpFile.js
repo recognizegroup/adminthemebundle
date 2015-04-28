@@ -7,10 +7,16 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('sass', function() {
-    return gulp.src('Resources/theme/scss/*.scss')
+    return gulp.src('Resources/theme/scss/base.standard.scss')
         .pipe(sass())
         .pipe(concat('theme.css'))
         .pipe(gulp.dest('Resources/public/css'));
+});
+
+gulp.task('js', function() {
+    return gulp.src('Resources/theme/js/*.js')
+        .pipe(concat('theme.js'))
+        .pipe(gulp.dest('Resources/public/js'));
 });
 
 gulp.task('test', function() {

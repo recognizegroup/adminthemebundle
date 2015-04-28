@@ -1,0 +1,66 @@
+$hamburger-size : 3.5rem;
+$transition: .3s; // increase this to see the transformations in slow-motion
+
+@mixin line {
+  display: inline-block;
+  width: $hamburger-size;
+  height: $hamburger-size/7;
+  background: $hamburger-icon-line-color;
+  border-radius: $hamburger-size/14;
+  transition: $transition;
+}
+
+html.js {
+
+  .hamburger-icon {
+    display: inline-block;
+    padding: $hamburger-size/2 $hamburger-size/4;
+    transition: .3s;
+    cursor: pointer;
+    user-select: none;
+    border-radius: $hamburger-size/7;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      transition: 0;
+      background: rgba(0,0,0,.1);
+    }
+
+    .lines {
+
+      //create middle line
+      @include line;
+      position: relative;
+
+      /*create the upper and lower lines as pseudo-elements of the middle line*/
+      &:before, &:after {
+
+        @include line;
+        position: absolute;
+        left:0;
+        content: '';
+        transform-origin: $hamburger-size/14 center;
+      }
+      &:before { top: $hamburger-size/4; }
+      &:after { top: -$hamburger-size/4; }
+    }
+
+    &.open {
+      transform: scale3d(.8,.8,.8);
+
+      .lines{
+        &:before,
+        &:after {
+          top: 0;
+          width: $hamburger-size/1.8;
+        }
+
+        &:before { transform: rotate3d(0,0,1,40deg); }
+        &:after { transform: rotate3d(0,0,1,-40deg); }
+      }
+    }
+  }
+}

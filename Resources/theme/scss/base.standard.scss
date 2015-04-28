@@ -1,0 +1,13 @@
+@import 'brand.scss';
+@import 'colors.scss';
+@import 'animations.scss';
+@import 'components.scss';
+
+@import 'bootstrap_overwrites.scss';
+@import 'mobile.scss';
+
+.content-area {
+  .content {
+    position: relative;
+  }
+}
