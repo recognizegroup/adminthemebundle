@@ -1,0 +1,5 @@
+select:
+    languages: Taal kiezen
+profile:
+    settings: Instellingen
+    logout: Uitloggen

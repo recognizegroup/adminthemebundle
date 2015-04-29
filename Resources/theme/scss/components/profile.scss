@@ -1,0 +1,129 @@
+$profile-big-size: 120px;
+$profile-big-avatar-size: 70px;
+$profile-small-size: 30px;
+$profile-padding: 10px;
+$profile-scrollbar-padding: 10px;
+
+.profile {
+  @include size-transition;
+
+  padding: $profile-padding 0 $profile-padding 0;
+  right: $profile-scrollbar-padding;
+  position: absolute;
+
+  p {
+    @include size-transition;
+    @include profile-font;
+    color: $profile-text-color;
+    margin: ($profile-padding / 2) $profile-padding;
+    overflow: hidden;
+
+    display: none;
+  }
+
+  p.username {
+    display: block;
+    float: right;
+    text-align: right;
+  }
+
+  // Small sizes
+  .avatar {
+    @include size-transition;
+
+    display: inline-block;
+    height: $profile-small-size;
+    width: $profile-small-size;
+    float: right;
+    border: none;
+  }
+
+  &.big {
+    top: 0px;
+    width: $profile-big-size;
+    background: $profile-bg-color;
+
+    .avatar {
+      float: right;
+      display: block;
+      height: $profile-big-avatar-size;
+      width: $profile-big-avatar-size;
+      margin: 0 ( ($profile-big-size - $profile-big-avatar-size ) / 2);
+    }
+
+    p {
+      display: block;
+      width: $profile-big-size - $profile-padding * 2;
+    }
+
+    p.username {
+      display: none;
+    }
+
+    .options {
+      position: static;
+      display: block;
+      padding-bottom: 0;
+    }
+
+    &:hover {
+      .options {
+        position: static;
+        left: 0px;
+        display: block;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .options {
+    width: $profile-big-size;
+    background: $profile-bg-color;
+    padding: 0;
+    margin: 0;
+    padding-bottom: $profile-padding;
+    display: none;
+
+    li {
+      list-style: none;
+
+      a {
+        display: block;
+        width: 100%;
+        padding: ( $profile-padding / 2 ) $profile-padding;
+        color: $profile-options-text-color;
+        text-decoration: none;
+
+        &:active {
+          background-color: $dark-bg-selected-color;
+        }
+      }
+
+      i {
+        color: $profile-options-icon-color;
+        position: relative;
+        top: 3px;
+        float: right;
+      }
+
+      &.no-hover-style:hover {
+        background: $dark-bg-color;
+      }
+
+      &:hover{
+        background: $dark-bg-hover-color;
+      }
+
+      &.divider {
+        padding: 0;
+        height: 1px;
+        overflow: hidden;
+        background-color: $dark-bg-highlight-color;
+      }
+    }
+
+  }
+}

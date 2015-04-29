@@ -1,5 +1,5 @@
-$hamburger-size : 3.5rem;
-$transition: .3s; // increase this to see the transformations in slow-motion
+$hamburger-size : 35px;
+$transition: .35s; // increase this to see the transformations in slow-motion
 
 @mixin line {
   display: inline-block;
@@ -14,8 +14,8 @@ html.js {
 
   .hamburger-icon {
     display: inline-block;
-    padding: $hamburger-size/2 $hamburger-size/4;
-    transition: .3s;
+    padding: 12px 10px;
+    transition: $transition;
     cursor: pointer;
     user-select: none;
     border-radius: $hamburger-size/7;
@@ -25,7 +25,7 @@ html.js {
     }
 
     &:active {
-      transition: 0;
+      transition: 0s;
       background: rgba(0,0,0,.1);
     }
 
@@ -44,12 +44,12 @@ html.js {
         content: '';
         transform-origin: $hamburger-size/14 center;
       }
-      &:before { top: $hamburger-size/4; }
+      &:before { top: $hamburger-size/4 + 0.1; }
       &:after { top: -$hamburger-size/4; }
     }
 
     &.open {
-      transform: scale3d(.8,.8,.8);
+      transform: scale3d(.9,.9,.9);
 
       .lines{
         &:before,

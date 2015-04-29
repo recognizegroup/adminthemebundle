@@ -1,2 +1,11 @@
 @import 'components/hamburger-icon.scss';
 
+.xs-text-left {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .xs-text-left {
+    text-align: center;
+  }
+}

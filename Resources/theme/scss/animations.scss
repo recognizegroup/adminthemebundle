@@ -1,6 +1,15 @@
+$transition-duration: 0.35s;
+
 @mixin menu-toggle-animation {
-  -webkit-transition: left 0.35s;
-  -moz-transition: left 0.35s;
-  -o-transition: left 0.35s;
-  transition: left 0.35s;
+  -webkit-transition: left $transition-duration;
+  -moz-transition: left $transition-duration;
+  -o-transition: left $transition-duration;
+  transition: left $transition-duration;
+}
+
+@mixin size-transition {
+  -webkit-transition: width $transition-duration, height $transition-duration;
+  -moz-transition: width $transition-duration, height $transition-duration;
+  -o-transition: width $transition-duration, height $transition-duration;
+  transition: width $transition-duration, height $transition-duration;
 }

@@ -1,4 +1,7 @@
 $dark-bg-color: #222222;
+$dark-bg-hover-color: #333333;
+$dark-bg-highlight-color: #444444;
+$dark-bg-selected-color: #666;
 $light-color: #FFFFFF;
 
 // Topbar colours
@@ -8,3 +11,9 @@ $topbar-bg-color: $dark-bg-color;
 $menu-bg-color: $dark-bg-color;
 $menu-text-color: $light-color;
 $hamburger-icon-line-color: $light-color;
+
+// Profile colours
+$profile-text-color: $light-color;
+$profile-bg-color: $dark-bg-color;
+$profile-options-text-color: $light-color;
+$profile-options-icon-color: $profile-options-text-color;

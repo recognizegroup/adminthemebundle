@@ -1,0 +1,12 @@
+{% trans_default_domain 'locales' %}
+{% if allowed_languages is not defined %}
+    {% set allowed_languages = [] %}
+{% endif %}
+{% if current is not defined %}
+    {% set current = '' %}
+{% endif %}
+<div class="languages">
+    {% for language in accepted_languages %}
+        <a href="{{ path('_admin_set_language', {locale: language}) }}" alt="{{ language|trans }}" title="{{ language|trans }}" class="flag flag-{{ language }} {% if language == current %}selected{% endif %}"></a>
+    {% endfor %}
+</div>

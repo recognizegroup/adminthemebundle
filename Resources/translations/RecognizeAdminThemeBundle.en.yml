@@ -1,0 +1,5 @@
+select:
+    languages: Language
+profile:
+    settings: Settings
+    logout: Log out

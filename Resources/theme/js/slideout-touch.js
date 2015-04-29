@@ -1,34 +1,4 @@
 /**
- * Opens the menu and starts the animations
- */
-$(document).ready(function(){
-    $("a.hamburger-icon").on('click', function(){
-        $(this).toggleClass("open");
-        $('.content-area .mainmenu').toggleClass("open").attr("style", "");
-        $('.content-area .content').toggleClass("open").attr("style", "");
-    });
-});
-/**
- * Makes the profile smaller or bigger depending on the scroll position
- */
-$(document).ready(function(){
-
-    var profile_element = $('.topbar .profile');
-    var toggleBigAvatar = function(){
-        profile_element.toggleClass('big').addClass('disable-scroll');
-    };
-
-    $(window).on('scroll', function( event ){
-        if( $(window).scrollTop() > 50 ){
-            if( profile_element.hasClass('disable-scroll') == false ){
-                profile_element.removeClass('big');
-            }
-        }
-    });
-
-    profile_element.on('click', toggleBigAvatar);
-});
-/**
  * Makes the menu slide out on touch
  */
 $(document).ready(function(){

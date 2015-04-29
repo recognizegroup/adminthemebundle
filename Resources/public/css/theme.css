@@ -1,3 +1,126 @@
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.topbar {
+  width: 100%;
+  top: 0px;
+  position: fixed; }
+  .topbar nav {
+    padding-right: 20px;
+    background-color: #222222; }
+  .topbar .brand-area {
+    color: #FFFFFF;
+    font-family: Verdana;
+    float: left; }
+
+.topbar .profile .languages {
+  padding: 0 5%; }
+  .topbar .profile .languages a {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    display: inline-block;
+    width: 32px;
+    opacity: 0.5; }
+    .topbar .profile .languages a:active {
+      background-color: #222222; }
+    .topbar .profile .languages a.selected {
+      opacity: 1; }
+    .topbar .profile .languages a:hover {
+      opacity: 1; }
+
+.profile {
+  -webkit-transition: width 0.35s, height 0.35s;
+  -moz-transition: width 0.35s, height 0.35s;
+  -o-transition: width 0.35s, height 0.35s;
+  transition: width 0.35s, height 0.35s;
+  padding: 10px 0 10px 0;
+  right: 10px;
+  position: absolute; }
+  .profile p {
+    -webkit-transition: width 0.35s, height 0.35s;
+    -moz-transition: width 0.35s, height 0.35s;
+    -o-transition: width 0.35s, height 0.35s;
+    transition: width 0.35s, height 0.35s;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 5px 10px;
+    overflow: hidden;
+    display: none; }
+  .profile p.username {
+    display: block;
+    float: right;
+    text-align: right; }
+  .profile .avatar {
+    -webkit-transition: width 0.35s, height 0.35s;
+    -moz-transition: width 0.35s, height 0.35s;
+    -o-transition: width 0.35s, height 0.35s;
+    transition: width 0.35s, height 0.35s;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    float: right;
+    border: none; }
+  .profile.big {
+    top: 0px;
+    width: 120px;
+    background: #222222; }
+    .profile.big .avatar {
+      float: right;
+      display: block;
+      height: 70px;
+      width: 70px;
+      margin: 0 25px; }
+    .profile.big p {
+      display: block;
+      width: 100px; }
+    .profile.big p.username {
+      display: none; }
+    .profile.big .options {
+      position: static;
+      display: block;
+      padding-bottom: 0; }
+    .profile.big:hover .options {
+      position: static;
+      left: 0px;
+      display: block; }
+  .profile:hover {
+    cursor: pointer; }
+  .profile .options {
+    width: 120px;
+    background: #222222;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    display: none; }
+    .profile .options li {
+      list-style: none; }
+      .profile .options li a {
+        display: block;
+        width: 100%;
+        padding: 5px 10px;
+        color: #FFFFFF;
+        text-decoration: none; }
+        .profile .options li a:active {
+          background-color: #666; }
+      .profile .options li i {
+        color: #FFFFFF;
+        position: relative;
+        top: 3px;
+        float: right; }
+      .profile .options li.no-hover-style:hover {
+        background: #222222; }
+      .profile .options li:hover {
+        background: #333333; }
+      .profile .options li.divider {
+        padding: 0;
+        height: 1px;
+        overflow: hidden;
+        background-color: #444444; }
+
 .mainmenu {
   background: #222222;
   float: left;
@@ -22,11 +145,6 @@
   .content-area .content.open {
     left: 250px; }
 
-.topbar {
-  width: 100%;
-  top: 0px;
-  position: fixed; }
-
 .navbar {
   border-radius: 0px;
   margin-bottom: 0px;
@@ -34,49 +152,53 @@
 
 html.js .hamburger-icon {
   display: inline-block;
-  padding: 1.75rem 0.875rem;
-  transition: .3s;
+  padding: 12px 10px;
+  transition: 0.35s;
   cursor: pointer;
   user-select: none;
-  border-radius: 0.5rem; }
+  border-radius: 5px; }
   html.js .hamburger-icon:hover {
     opacity: 1; }
   html.js .hamburger-icon:active {
-    transition: 0;
+    transition: 0s;
     background: rgba(0, 0, 0, 0.1); }
   html.js .hamburger-icon .lines {
     display: inline-block;
-    width: 3.5rem;
-    height: 0.5rem;
+    width: 35px;
+    height: 5px;
     background: #FFFFFF;
-    border-radius: 0.25rem;
-    transition: 0.3s;
+    border-radius: 2.5px;
+    transition: 0.35s;
     position: relative;
     /*create the upper and lower lines as pseudo-elements of the middle line*/ }
     html.js .hamburger-icon .lines:before, html.js .hamburger-icon .lines:after {
       display: inline-block;
-      width: 3.5rem;
-      height: 0.5rem;
+      width: 35px;
+      height: 5px;
       background: #FFFFFF;
-      border-radius: 0.25rem;
-      transition: 0.3s;
+      border-radius: 2.5px;
+      transition: 0.35s;
       position: absolute;
       left: 0;
       content: '';
-      transform-origin: 0.25rem center; }
+      transform-origin: 2.5px center; }
     html.js .hamburger-icon .lines:before {
-      top: 0.875rem; }
+      top: 8.85px; }
     html.js .hamburger-icon .lines:after {
-      top: -0.875rem; }
+      top: -8.75px; }
   html.js .hamburger-icon.open {
-    transform: scale3d(.8, .8, .8); }
+    transform: scale3d(.9, .9, .9); }
     html.js .hamburger-icon.open .lines:before, html.js .hamburger-icon.open .lines:after {
       top: 0;
-      width: 1.94444rem; }
+      width: 19.44444px; }
     html.js .hamburger-icon.open .lines:before {
       transform: rotate3d(0, 0, 1, 40deg); }
     html.js .hamburger-icon.open .lines:after {
       transform: rotate3d(0, 0, 1, -40deg); }
 
-.content-area .content {
-  position: relative; }
+.xs-text-left {
+  text-align: left; }
+
+@media (min-width: 768px) {
+  .xs-text-left {
+    text-align: center; } }

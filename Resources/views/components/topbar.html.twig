@@ -1,10 +1,22 @@
 <!--Top bar -->
+{% set accepted_languages = ['nl', 'en', 'de'] %}
 <div class="topbar" style="z-index: 1000">
     <nav class="navbar navbar-inverse">
-        <div class="visible-xs">
-            <a class="hamburger-icon" role="button" aria-label="Toggle Navigation">
-                <div class="lines"></div>
-            </a>
+
+        <div class="pull-left">
+            <div class="visible-xs-inline">
+                <a class="hamburger-icon" role="button" aria-label="Toggle Navigation">
+                    <div class="lines"></div>
+                </a>
+            </div>
+        </div>
+
+        <span class="brand-area xs-text-left">
+            <img class="logo" src="" /><p>Company backend</p>
+        </span>
+
+        <div class="pull-right">
+            {% include 'RecognizeAdminThemeBundle::components/profile.html.twig' %}
         </div>
     </nav>
 </div>

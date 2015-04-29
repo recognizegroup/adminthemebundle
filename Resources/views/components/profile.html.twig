@@ -1,0 +1,27 @@
+{% trans_default_domain 'RecognizeAdminThemeBundle' %}
+
+{% if profile_image is not defined %}
+    {% set profile_image = asset('bundles/recognizeadmintheme/images/default-profile-image.png') %}
+{% endif %}
+{% if username is not defined %}
+    {% set username = "Account" %}
+{% endif %}
+
+<div class="profile">
+    <img src="{{ profile_image }}" class="avatar" />
+    <p class="username">{{ username }}</p>
+
+    <ul class="options" role="menu">
+        <li class="divider"></li>
+        {% if accepted_languages is defined %}
+        <li class="no-hover-style"><p class="language-title">{{ 'select.languages'|trans }}</p></li>
+        <li class="no-hover-style">{% include 'RecognizeAdminThemeBundle::components/languagepicker.html.twig'
+            with {'accepted_languages': accepted_languages, 'current': app.request.locale } %}
+        </li>
+        <li class="divider"></li>
+        {% endif %}
+        <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'profile.settings'|trans }}<i class="fa fa-gears"></i></a></li>
+        <li><a href="{{ path('fos_user_security_logout') }}">{{ 'profile.logout'|trans }}<i class="fa fa-power-off"></i></a></li>
+    </ul>
+</div>
+

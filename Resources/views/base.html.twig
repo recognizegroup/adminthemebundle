@@ -2,7 +2,7 @@
 <html lang="{{ app.request.locale }}" class="no-js">
 <head>
     <meta charset="utf-8" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}Company backend{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block favicons %}
@@ -10,6 +10,8 @@
     {% endblock %}
 
     <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/font-awesome.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/flags.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('bundles/recognizeadmintheme/vendor/css/animate.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('bundles/recognizeadmintheme/css/theme.css') }}" rel="stylesheet" media="screen">
     {% block style %}{% endblock %}
