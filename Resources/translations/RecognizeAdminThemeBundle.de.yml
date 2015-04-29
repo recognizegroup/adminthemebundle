@@ -1,0 +1,5 @@
+select:
+    languages: Sprache wählen
+profile:
+    settings: Einstellungen
+    logout: Ausloggen
