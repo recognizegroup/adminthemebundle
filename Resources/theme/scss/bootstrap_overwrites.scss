@@ -3,3 +3,9 @@
   margin-bottom: 0px;
   border: none;
 }
+
+.form-control:focus {
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow:none !important;
+}

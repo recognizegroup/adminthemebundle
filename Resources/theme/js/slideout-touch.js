@@ -1,6 +1,6 @@
 /**
  * Makes the menu slide out on touch
- */
+ *
 $(document).ready(function(){
     var is_sliding = false;
     var sliding_lastoffset = 0;
@@ -79,4 +79,4 @@ $(document).ready(function(){
 
         is_sliding = false;
     });
-});
+});*/

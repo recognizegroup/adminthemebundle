@@ -4,16 +4,26 @@ $topbar-height: 50px;
   width: 100%;
   top: 0px;
   position: fixed;
+  z-index: 10000;
 
   nav {
     padding-right: 20px;
-    background-color: $dark-bg-color;
+    background-color: $topbar-bg-color;
   }
 
   .brand-area {
     color: $brand-text-color;
     font-family: $brand-font-family;
     float: left;
+
+    img {
+      margin: 5px 0;
+      height: 40px;
+    }
+  }
+
+  &.animation-topbar-up {
+    position: absolute;
   }
 }
 
@@ -27,7 +37,7 @@ $topbar-height: 50px;
     opacity: 0.5;
 
     &:active {
-      background-color: $dark-bg-color;
+      background-color: $topbar-bg-color;
     }
 
     &.selected {

@@ -1,4 +1,12 @@
 $transition-duration: 0.35s;
+$animation-duration: 0.7s;
+
+@mixin ease-all {
+  -webkit-transition: all $transition-duration ease;
+  -moz-transition: all $transition-duration ease;
+  -o-transition: all $transition-duration ease;
+  transition: all $transition-duration ease;
+}
 
 @mixin menu-toggle-animation {
   -webkit-transition: left $transition-duration;
@@ -12,4 +20,77 @@ $transition-duration: 0.35s;
   -moz-transition: width $transition-duration, height $transition-duration;
   -o-transition: width $transition-duration, height $transition-duration;
   transition: width $transition-duration, height $transition-duration;
+}
+
+@-webkit-keyframes error-shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-3px, 0, 0);
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(3px, 0, 0);
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+@keyframes error-shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-3px, 0, 0);
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(3px, 0, 0);
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+@mixin form-animation {
+  -webkit-animation-duration: $animation-duration;
+  animation-duration: $animation-duration;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@mixin shiver-animation {
+  @include form-animation;
+
+  -webkit-animation-name: error-shake;
+  animation-name: error-shake;
+}
+
+@mixin text-left-upsidedown-animation {
+  @include ease-all;
+
+  -ms-transform: rotate(-180deg) !important; /* IE 9 */
+  -webkit-transform: rotate(-180deg) !important; /* Chrome, Safari, Opera */
+  transform: rotate(-180deg) !important;
+}
+
+@mixin text-right-upsidedown-animation {
+  @include ease-all;
+
+  -ms-transform: rotate(180deg) !important; /* IE 9 */
+  -webkit-transform: rotate(180deg) !important; /* Chrome, Safari, Opera */
+  transform: rotate(180deg) !important;
+}
+
+
+@mixin text-reverse-animation {
+  @include ease-all;
+
+  -ms-transform: rotate(0deg) !important; /* IE 9 */
+  -webkit-transform: rotate(0deg) !important; /* Chrome, Safari, Opera */
+  transform: rotate(0deg) !important;
 }

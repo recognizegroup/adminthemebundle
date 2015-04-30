@@ -1,15 +1,94 @@
+@mixin scroll-without-scrollbar {
+  overflow-y:scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0 !important
+  }
+}
+
+$menu-text-size: 14px;
+
 .mainmenu {
+  @include menu-toggle-animation;
+  @include scroll-without-scrollbar;
+
   background: $menu-bg-color;
   float: left;
   width: 250px;
   left: -250px;
   position: fixed;
   height: 100%;
-  overflow-y:scroll;
-  @include menu-toggle-animation;
+  overflow-x: hidden;
+  z-index: 1000;
 
   &.open {
     left: 0px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    background: $menu-bg-color;
+
+    ul {
+      padding-left: 15px;
+    }
+
+    li {
+      display: block;
+      color: $menu-text-color;
+      font-size: $menu-text-size;
+      background: $menu-bg-color;
+      border-left: 1px solid $menu-divider-color;
+      border-bottom: 1px solid $menu-divider-color;
+
+      i {
+        position: absolute;
+        right: 10px;
+        font-size: 25px;
+        @include text-reverse-animation;
+
+        &.fa-caret-up {
+          &.collapsed {
+            @include text-left-upsidedown-animation;
+          }
+        }
+
+        &.fa-caret-down {
+          &.collapsed {
+            @include text-right-upsidedown-animation;
+          }
+        }
+
+        li {
+          border: none;
+        }
+
+      }
+
+      span {
+        padding: 10px 15px;
+        display: block;
+        border-left: 1px solid $menu-divider-color;
+        border-bottom: 1px solid $menu-divider-color;
+
+        &:hover {
+          cursor: pointer;
+          background: $menu-highlight-color;
+        }
+      }
+
+      a {
+        color: $menu-text-color;
+        font-size: $menu-text-size;
+        width: 100%;
+        display: block;
+        text-decoration: none;
+      }
+
+      &.current {
+      }
+    }
   }
 }
 

@@ -1,13 +1,9 @@
 @import 'utils';
 @import 'brand.scss';
-@import 'colors.scss';
+@import 'quali.colors.scss';
 @import 'fonts.scss';
 @import 'animations.scss';
 @import 'components.scss';
-
-.content-area .content {
-  padding: 10px 0px;
-}
 
 @import 'bootstrap_overwrites.scss';
 @import 'mobile.scss';

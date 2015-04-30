@@ -7,7 +7,14 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('sass', function() {
-    return gulp.src('Resources/theme/scss/base.standard.scss')
+    gulp.src('Resources/theme/scss/base.standard.scss')
+        .pipe(sass())
+        .pipe(concat('theme.css'))
+        .pipe(gulp.dest('Resources/public/css'));
+});
+
+gulp.task('qualitheme', function() {
+    gulp.src('Resources/theme/scss/base.quali.scss')
         .pipe(sass())
         .pipe(concat('theme.css'))
         .pipe(gulp.dest('Resources/public/css'));

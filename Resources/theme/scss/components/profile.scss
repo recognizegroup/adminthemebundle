@@ -81,7 +81,7 @@ $profile-scrollbar-padding: 10px;
 
   .options {
     width: $profile-big-size;
-    background: $profile-bg-color;
+    background: $profile-options-bg-color;
     padding: 0;
     margin: 0;
     padding-bottom: $profile-padding;
@@ -89,6 +89,10 @@ $profile-scrollbar-padding: 10px;
 
     li {
       list-style: none;
+
+      p {
+        color: $profile-options-text-color;
+      }
 
       a {
         display: block;
@@ -98,7 +102,7 @@ $profile-scrollbar-padding: 10px;
         text-decoration: none;
 
         &:active {
-          background-color: $dark-bg-selected-color;
+          background-color: $profile-options-selected-color;
         }
       }
 
@@ -110,18 +114,18 @@ $profile-scrollbar-padding: 10px;
       }
 
       &.no-hover-style:hover {
-        background: $dark-bg-color;
+        background: $profile-options-bg-color;
       }
 
       &:hover{
-        background: $dark-bg-hover-color;
+        background: $profile-options-hover-color;
       }
 
       &.divider {
         padding: 0;
         height: 1px;
         overflow: hidden;
-        background-color: $dark-bg-highlight-color;
+        background-color: $profile-options-divider-color;
       }
     }
 

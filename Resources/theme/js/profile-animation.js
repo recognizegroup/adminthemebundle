@@ -7,6 +7,7 @@ $(document).ready(function(){
         profile_element.toggleClass('big').addClass('disable-scroll');
     };
 
+    // Open the big profile picture on mobile
     var mobile_screen_width = 768;
     if( window.innerWidth <= mobile_screen_width ){
         profile_element.addClass('big');
@@ -14,7 +15,7 @@ $(document).ready(function(){
 
 
     $(window).on('scroll', function( event ){
-        if( $(window).scrollTop() > 50 ){
+        if( $(window).scrollTop() > 10 ){
             if( profile_element.hasClass('disable-scroll') == false ){
                 profile_element.removeClass('big').addClass('disable-scroll');
             }

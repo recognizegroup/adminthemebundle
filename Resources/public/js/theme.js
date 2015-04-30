@@ -9,6 +9,53 @@ $(document).ready(function(){
     });
 });
 /**
+ * Flips the caret on the right side of the menu by adding an extra style
+ */
+$(document).ready(function() {
+
+    $("li[data-toggle=collapse]").on('click', function (event) {
+
+        // Add the collapsed class to the caret
+        $(this).children('span').children('i.fa').toggleClass('collapsed');
+
+        // Fire the bootstrap collapse manually
+        var collapse_target = $(this).attr('data-target');
+        $(this).children(collapse_target).collapse('toggle');
+
+        console.log( event );
+
+        // Make sure the parent elements don't receive the click
+        event.stopPropagation();
+    });
+
+});
+/**
+ * Makes the topbar slide up when the user scrolls down, and makes the topbar slide back down if the user scrolls up
+ */
+$(document).ready(function(){
+    // Only move the topbar out of the way on a mobile screen
+    var mobile_screen_width = 768;
+    if( window.innerWidth <= mobile_screen_width ){
+        var topbar = $('.topbar');
+
+        var latestscrollpos = window.scrollY;
+        $(window).on('scroll', function( event ){
+            var currentscrollpos = window.scrollY;
+
+            // Make sure the topbar doesn't disappear if the menu is open
+            if( $('.content-area .mainmenu').hasClass('open') == false ){
+                if( latestscrollpos < currentscrollpos ){
+                    topbar.addClass('animation-topbar-up');
+                } else {
+                    topbar.removeClass('animation-topbar-up');
+                }
+            }
+
+            latestscrollpos = currentscrollpos;
+        });
+    }
+});
+/**
  * Makes the profile smaller or bigger depending on the scroll position
  */
 $(document).ready(function(){
@@ -17,6 +64,7 @@ $(document).ready(function(){
         profile_element.toggleClass('big').addClass('disable-scroll');
     };
 
+    // Open the big profile picture on mobile
     var mobile_screen_width = 768;
     if( window.innerWidth <= mobile_screen_width ){
         profile_element.addClass('big');
@@ -24,7 +72,7 @@ $(document).ready(function(){
 
 
     $(window).on('scroll', function( event ){
-        if( $(window).scrollTop() > 50 ){
+        if( $(window).scrollTop() > 10 ){
             if( profile_element.hasClass('disable-scroll') == false ){
                 profile_element.removeClass('big').addClass('disable-scroll');
             }
@@ -35,7 +83,7 @@ $(document).ready(function(){
 });
 /**
  * Makes the menu slide out on touch
- */
+ *
 $(document).ready(function(){
     var is_sliding = false;
     var sliding_lastoffset = 0;
@@ -114,4 +162,4 @@ $(document).ready(function(){
 
         is_sliding = false;
     });
-});
+});*/

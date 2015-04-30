@@ -1,0 +1,7 @@
+.error {
+  .form-control {
+    @include shiver-animation;
+
+    border-color: #FF0000;
+  }
+}

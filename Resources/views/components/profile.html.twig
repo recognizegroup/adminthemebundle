@@ -8,11 +8,12 @@
 {% endif %}
 
 <div class="profile">
-    <img src="{{ profile_image }}" class="avatar" />
-    <p class="username">{{ username }}</p>
+    <div class="clearfix">
+        <img src="{{ profile_image }}" class="avatar" />
+        <p class="username">{{ username }}</p>
+    </div>
 
     <ul class="options" role="menu">
-        <li class="divider"></li>
         {% if accepted_languages is defined %}
         <li class="no-hover-style"><p class="language-title">{{ 'select.languages'|trans }}</p></li>
         <li class="no-hover-style">{% include 'RecognizeAdminThemeBundle::components/languagepicker.html.twig'

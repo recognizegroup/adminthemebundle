@@ -9,3 +9,21 @@
     text-align: center;
   }
 }
+
+.hidden-xxs {
+  display: none;
+}
+
+.visible-xxs {
+  display: block;
+}
+
+@media (min-width: 500px) {
+  .hidden-xxs {
+    display: block;
+  }
+
+  .visible-xxs {
+    display: none;
+  }
+}
