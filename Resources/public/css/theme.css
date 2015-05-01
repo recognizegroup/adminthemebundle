@@ -246,14 +246,36 @@
   .content-area .content.open {
     left: 250px; }
 
-.error .form-control {
+.has-error .form-control {
   -webkit-animation-duration: 0.7s;
   animation-duration: 0.7s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-name: error-shake;
   animation-name: error-shake;
-  border-color: #FF0000; }
+  border-color: #FF0000 !important; }
+  .has-error .form-control:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(255, 0, 0, 0.4);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(255, 0, 0, 0.4); }
+
+.has-success .form-control {
+  border-color: #CCCCCC !important; }
+  .has-success .form-control:focus {
+    border-color: #46b8da !important;
+    -webkit-appearance: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(70, 184, 218, 0.4);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(70, 184, 218, 0.4); }
+
+.form-control:focus {
+  border: 1px #46b8da solid;
+  -webkit-appearance: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(70, 184, 218, 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(70, 184, 218, 0.4); }
+  .form-control:focusinput[type="submit"] .form-control:focusinput[type="button"] {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
 
 .content-area .content {
   padding: 10px 0px; }
@@ -262,11 +284,6 @@
   border-radius: 0px;
   margin-bottom: 0px;
   border: none; }
-
-.form-control:focus {
-  outline: 0px !important;
-  -webkit-appearance: none;
-  box-shadow: none !important; }
 
 html.js .hamburger-icon {
   display: inline-block;
