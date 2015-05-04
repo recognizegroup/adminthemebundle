@@ -1,4 +1,5 @@
-$dark-bg-color: #222222;
+$dark-bg-color: #262626;
+$darkest-bg-color: #101010;
 $dark-bg-hover-color: #333333;
 $dark-bg-highlight-color: #444444;
 $dark-bg-selected-color: #666;
@@ -10,8 +11,10 @@ $hamburger-icon-line-color: $light-color;
 
 // Menu colours
 $menu-bg-color: $dark-bg-color;
+$menu-dark-bg-color: $darkest-bg-color;
+$menu-shadow-color: #000000;
 $menu-selected-color: $dark-bg-selected-color;
-$menu-highlight-color: $dark-bg-highlight-color;
+$menu-highlight-color: $brand-color-faded;
 $menu-text-color: $light-color;
 $menu-divider-color: $dark-bg-selected-color;
 
@@ -20,7 +23,7 @@ $profile-text-color: $light-color;
 $profile-bg-color: $dark-bg-color;
 $profile-options-bg-color: $dark-bg-color;
 $profile-options-divider-color: $dark-bg-highlight-color;
-$profile-options-hover-color: $dark-bg-highlight-color;
-$profile-options-selected-color: $dark-bg-selected-color;
+$profile-options-hover-color: $brand-color;
+$profile-options-selected-color: $brand-color;
 $profile-options-text-color: $profile-text-color;
 $profile-options-icon-color: $profile-options-text-color;

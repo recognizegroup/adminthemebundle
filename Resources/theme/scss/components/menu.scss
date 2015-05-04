@@ -6,6 +6,12 @@
   }
 }
 
+@mixin menu-inset-shadow {
+  -moz-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+  -webkit-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+  box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+}
+
 $menu-text-size: 14px;
 
 @media (min-width: 768px){
@@ -59,22 +65,39 @@ $menu-text-size: 14px;
     left: 0px;
   }
 
+  .current {
+    background-color: $brand-color;
+  }
+
   ul {
     list-style: none;
     padding: 0;
     background: $menu-bg-color;
-
-    ul {
-      padding-left: 15px;
-    }
 
     li {
       display: block;
       color: $menu-text-color;
       font-size: $menu-text-size;
       background: $menu-bg-color;
-      border-left: 1px solid $menu-divider-color;
-      border-bottom: 1px solid $menu-divider-color;
+
+      ul {
+        border-bottom: $menu-divider-color 1px solid;
+        li {
+          background: $menu-dark-bg-color;
+
+          &.first {
+            @include menu-inset-shadow;
+
+            span:hover {
+              @include menu-inset-shadow;
+            }
+          }
+
+          span {
+            border-bottom: 1px solid $menu-bg-color;
+          }
+        }
+      }
 
       i {
         position: absolute;
@@ -103,7 +126,6 @@ $menu-text-size: 14px;
       span {
         padding: 10px 15px;
         display: block;
-        border-left: 1px solid $menu-divider-color;
         border-bottom: 1px solid $menu-divider-color;
 
         &:hover {
@@ -122,25 +144,6 @@ $menu-text-size: 14px;
 
       &.current {
       }
-    }
-  }
-}
-
-@media (max-width: 768px ){
-  .content-area {
-
-    .content {
-      left: 0px;
-      @include  menu-toggle-animation;
-
-      &.open {
-        left: 250px;
-      }
-    }
-
-    .mainmenu {
-      top: 0px;
-      margin-top: 50px;
     }
   }
 }

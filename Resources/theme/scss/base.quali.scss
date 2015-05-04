@@ -1,6 +1,9 @@
 @import 'utils';
-@import 'brand.scss';
-@import 'quali.colors.scss';
+@import 'quali.brand.scss';
+@import 'colors.scss';
+
+$topbar-bg-color: $brand-color;
+
 @import 'fonts.scss';
 @import 'animations.scss';
 @import 'components.scss';

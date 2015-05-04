@@ -18,12 +18,35 @@
   display: block;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 500px ) {
   .hidden-xxs {
     display: block;
   }
 
   .visible-xxs {
     display: none;
+  }
+}
+
+
+@media (max-width: 768px ){
+  .content-area {
+    .content {
+      left: 0px;
+      @include  menu-toggle-animation;
+
+      &.open {
+        left: 250px;
+      }
+    }
+
+    .mainmenu {
+      top: 0px;
+      margin-top: 50px;
+    }
+  }
+
+  .topbar .brand-area {
+    padding-left: 0px;
   }
 }

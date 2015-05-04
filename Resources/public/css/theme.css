@@ -38,11 +38,12 @@
   z-index: 10000; }
   .topbar nav {
     padding-right: 20px;
-    background-color: #222222; }
+    background-color: #262626; }
   .topbar .brand-area {
     color: #FFFFFF;
     font-family: Verdana;
-    float: left; }
+    float: left;
+    padding-left: 10px; }
     .topbar .brand-area img {
       margin: 5px 0;
       height: 40px; }
@@ -58,7 +59,7 @@
     width: 32px;
     opacity: 0.5; }
     .topbar .profile .languages a:active {
-      background-color: #222222; }
+      background-color: #262626; }
     .topbar .profile .languages a.selected {
       opacity: 1; }
     .topbar .profile .languages a:hover {
@@ -99,7 +100,7 @@
   .profile.big {
     top: 0px;
     width: 120px;
-    background: #222222; }
+    background: #262626; }
     .profile.big .avatar {
       float: right;
       display: block;
@@ -123,7 +124,7 @@
     cursor: pointer; }
   .profile .options {
     width: 120px;
-    background: #222222;
+    background: #262626;
     padding: 0;
     margin: 0;
     padding-bottom: 10px;
@@ -139,14 +140,14 @@
         color: #FFFFFF;
         text-decoration: none; }
         .profile .options li a:active {
-          background-color: #666; }
+          background-color: #444444; }
       .profile .options li i {
         color: #FFFFFF;
         position: relative;
         top: 3px;
         float: right; }
       .profile .options li.no-hover-style:hover {
-        background: #222222; }
+        background: #262626; }
       .profile .options li:hover {
         background: #444444; }
       .profile .options li.divider {
@@ -185,7 +186,7 @@
   transition: left 0.35s;
   overflow-y: scroll;
   -ms-overflow-style: none;
-  background: #222222;
+  background: #262626;
   width: 250px;
   left: -250px;
   position: fixed;
@@ -196,19 +197,31 @@
     width: 0 !important; }
   .mainmenu.open {
     left: 0px; }
+  .mainmenu .current {
+    background-color: #444444; }
   .mainmenu ul {
     list-style: none;
     padding: 0;
-    background: #222222; }
-    .mainmenu ul ul {
-      padding-left: 15px; }
+    background: #262626; }
     .mainmenu ul li {
       display: block;
       color: #FFFFFF;
       font-size: 14px;
-      background: #222222;
-      border-left: 1px solid #666;
-      border-bottom: 1px solid #666; }
+      background: #262626; }
+      .mainmenu ul li ul {
+        border-bottom: #666 1px solid; }
+        .mainmenu ul li ul li {
+          background: #101010; }
+          .mainmenu ul li ul li.first {
+            -moz-box-shadow: 0px 3px 3px 0px #000000 inset;
+            -webkit-box-shadow: 0px 3px 3px 0px #000000 inset;
+            box-shadow: 0px 3px 3px 0px #000000 inset; }
+            .mainmenu ul li ul li.first span:hover {
+              -moz-box-shadow: 0px 3px 3px 0px #000000 inset;
+              -webkit-box-shadow: 0px 3px 3px 0px #000000 inset;
+              box-shadow: 0px 3px 3px 0px #000000 inset; }
+          .mainmenu ul li ul li span {
+            border-bottom: 1px solid #262626; }
       .mainmenu ul li i {
         position: absolute;
         right: 10px;
@@ -247,30 +260,16 @@
       .mainmenu ul li span {
         padding: 10px 15px;
         display: block;
-        border-left: 1px solid #666;
         border-bottom: 1px solid #666; }
         .mainmenu ul li span:hover {
           cursor: pointer;
-          background: #444444; }
+          background: rgba(68, 68, 68, 0.3); }
       .mainmenu ul li a {
         color: #FFFFFF;
         font-size: 14px;
         width: 100%;
         display: block;
         text-decoration: none; }
-
-@media (max-width: 768px) {
-  .content-area .content {
-    left: 0px;
-    -webkit-transition: left 0.35s;
-    -moz-transition: left 0.35s;
-    -o-transition: left 0.35s;
-    transition: left 0.35s; }
-    .content-area .content.open {
-      left: 250px; }
-  .content-area .mainmenu {
-    top: 0px;
-    margin-top: 50px; } }
 
 .control-label {
   padding-top: 10px; }
@@ -376,3 +375,18 @@ html.js .hamburger-icon {
     display: block; }
   .visible-xxs {
     display: none; } }
+
+@media (max-width: 768px) {
+  .content-area .content {
+    left: 0px;
+    -webkit-transition: left 0.35s;
+    -moz-transition: left 0.35s;
+    -o-transition: left 0.35s;
+    transition: left 0.35s; }
+    .content-area .content.open {
+      left: 250px; }
+  .content-area .mainmenu {
+    top: 0px;
+    margin-top: 50px; }
+  .topbar .brand-area {
+    padding-left: 0px; } }
