@@ -31,32 +31,6 @@ $(document).ready(function() {
 
 });
 /**
- * Makes the topbar slide up when the user scrolls down, and makes the topbar slide back down if the user scrolls up
- */
-$(document).ready(function(){
-    // Only move the topbar out of the way on a mobile screen
-    var mobile_screen_width = 768;
-    if( window.innerWidth <= mobile_screen_width ){
-        var topbar = $('.topbar');
-
-        var latestscrollpos = window.scrollY;
-        $(window).on('scroll', function( event ){
-            var currentscrollpos = window.scrollY;
-
-            // Make sure the topbar doesn't disappear if the menu is open
-            if( $('.content-area .mainmenu').hasClass('open') == false ){
-                if( latestscrollpos < currentscrollpos ){
-                    topbar.addClass('animation-topbar-up');
-                } else {
-                    topbar.removeClass('animation-topbar-up');
-                }
-            }
-
-            latestscrollpos = currentscrollpos;
-        });
-    }
-});
-/**
  * Makes the profile smaller or bigger depending on the scroll position
  */
 $(document).ready(function(){
@@ -84,26 +58,23 @@ $(document).ready(function(){
 });
 /**
  * Makes the menu slide out on touch
- *
+ */
 $(document).ready(function(){
     var is_sliding = false;
     var sliding_lastoffset = 0;
     var menu = {
         lowerbounds: -250,
         higherbounds: 0,
-        element: $('.content-area .mainmenu')
-    };
-
-    var content = {
-        lowerbounds: 0,
-        higherbounds: 250,
-        element: $('.content-area .content')
+        element: $('.content-area .leftmenu')
     };
 
     var left = -250;
     var hamburgericon = $('a.hamburger-icon');
 
-    $('.content-area').on('touchmove', function( event ){
+    var title = $('.content');
+    $('.content-area').on('scroll', function( event ){
+        title.html("<p>left " + event.offsetX + "</p>" );
+
         if( is_sliding ){
             menu.element.addClass('noselect');
             content.element.addClass('noselect');
@@ -118,31 +89,19 @@ $(document).ready(function(){
                 menu.element.css('left', offset + 'px' );
             };
 
-            var content_sliding = function( offset ){
-                if( offset < content.lowerbounds ){
-                    offset = content.lowerbounds;
-                } else if( offset > content.higherbounds ) {
-                    offset = content.higherbounds;
-                }
-
-                content.element.css('left', offset + 'px' );
-            };
-
             if( sliding_lastoffset !== false ){
-                var positionchange = ( event.offsetX - sliding_lastoffset ) / 2 * 4;
+                var positionchange = ( event.offsetX - sliding_lastoffset );
                 left = positionchange;
                 menu_sliding( positionchange );
-                content_sliding( positionchange + 250 );
             }
 
         }
     }).on('touchstart', function( event ){
 
         // Only slide open if the mouse is close to the left edge of the screen
-        if( event.offsetX < 250 ){
-            is_sliding = true;
-            sliding_lastoffset = event.offsetX;
-        }
+        is_sliding = true;
+        sliding_lastoffset = event.originalEvent.touches[0].pageX;
+
 
     }).on('touchend',function(){
 
@@ -151,16 +110,14 @@ $(document).ready(function(){
             left = menu.higherbounds;
             hamburgericon.removeClass('open');
             menu.element.removeClass('open').attr("style", "");
-            content.element.removeClass('open').attr("style", "");
 
         // Bounce into opened state
         } else {
             left = menu.higherbounds;
             hamburgericon.addClass('open');
             menu.element.addClass('open').attr("style", "");
-            content.element.addClass('open').attr("style", "");
         }
 
         is_sliding = false;
     });
-});*/
+});
