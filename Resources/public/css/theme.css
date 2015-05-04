@@ -155,6 +155,29 @@
         overflow: hidden;
         background-color: #444444; }
 
+@media (min-width: 768px) {
+  .leftmenu {
+    float: left;
+    position: relative;
+    width: 250px;
+    height: 100%; }
+    .leftmenu .mainmenu {
+      width: 250px;
+      left: 0px;
+      position: fixed;
+      height: 100%; }
+  .content-area .content {
+    float: left;
+    padding: 0px 0px 10px 250px;
+    width: 100%; }
+  .content-area:after {
+    content: "";
+    clear: both;
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    height: 0; } }
+
 .mainmenu {
   -webkit-transition: left 0.35s;
   -moz-transition: left 0.35s;
@@ -163,7 +186,6 @@
   overflow-y: scroll;
   -ms-overflow-style: none;
   background: #222222;
-  float: left;
   width: 250px;
   left: -250px;
   position: fixed;
@@ -237,14 +259,21 @@
         display: block;
         text-decoration: none; }
 
-.content-area .content {
-  left: 0px;
-  -webkit-transition: left 0.35s;
-  -moz-transition: left 0.35s;
-  -o-transition: left 0.35s;
-  transition: left 0.35s; }
-  .content-area .content.open {
-    left: 250px; }
+@media (max-width: 768px) {
+  .content-area .content {
+    left: 0px;
+    -webkit-transition: left 0.35s;
+    -moz-transition: left 0.35s;
+    -o-transition: left 0.35s;
+    transition: left 0.35s; }
+    .content-area .content.open {
+      left: 250px; }
+  .content-area .mainmenu {
+    top: 0px;
+    margin-top: 50px; } }
+
+.control-label {
+  padding-top: 10px; }
 
 .has-error .form-control {
   -webkit-animation-duration: 0.7s;
@@ -276,9 +305,6 @@
     -webkit-appearance: none;
     -webkit-box-shadow: none;
     box-shadow: none; }
-
-.content-area .content {
-  padding: 10px 0px; }
 
 .navbar {
   border-radius: 0px;
@@ -316,7 +342,8 @@ html.js .hamburger-icon {
       position: absolute;
       left: 0;
       content: '';
-      transform-origin: 2.5px center; }
+      transform-origin: 2.5px center;
+      -ms-transform-origin: 2.5px center; }
     html.js .hamburger-icon .lines:before {
       top: 8.85px; }
     html.js .hamburger-icon .lines:after {
@@ -325,9 +352,11 @@ html.js .hamburger-icon {
     top: 0;
     width: 19.44444px; }
   html.js .hamburger-icon.open .lines:before {
-    transform: rotate3d(0, 0, 1, 40deg); }
+    transform: rotate3d(0, 0, 1, 40deg);
+    -ms-transform: rotate3d(0, 0, 1, 40deg); }
   html.js .hamburger-icon.open .lines:after {
-    transform: rotate3d(0, 0, 1, -40deg); }
+    transform: rotate3d(0, 0, 1, -40deg);
+    -ms-transform: rotate3d(0, 0, 1, -40deg); }
 
 .xs-text-left {
   text-align: left; }

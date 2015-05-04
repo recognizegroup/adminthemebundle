@@ -43,6 +43,7 @@ html.js {
         left:0;
         content: '';
         transform-origin: $hamburger-size/14 center;
+        -ms-transform-origin: $hamburger-size/14 center;
       }
       &:before { top: $hamburger-size/4 + 0.1; }
       &:after { top: -$hamburger-size/4; }
@@ -57,8 +58,14 @@ html.js {
           width: $hamburger-size/1.8;
         }
 
-        &:before { transform: rotate3d(0,0,1,40deg); }
-        &:after { transform: rotate3d(0,0,1,-40deg); }
+        &:before {
+          transform: rotate3d(0,0,1,40deg);
+          -ms-transform: rotate3d(0,0,1,40deg);
+        }
+        &:after {
+          transform: rotate3d(0,0,1,-40deg);
+          -ms-transform: rotate3d(0,0,1,-40deg);
+        }
       }
     }
   }

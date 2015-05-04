@@ -22,10 +22,11 @@ $(document).ready(function() {
         var collapse_target = $(this).attr('data-target');
         $(this).children(collapse_target).collapse('toggle');
 
-        console.log( event );
-
         // Make sure the parent elements don't receive the click
         event.stopPropagation();
+
+        // But if the span contains a link, do send it onward
+        $(this).children('span').children('a').click();
     });
 
 });

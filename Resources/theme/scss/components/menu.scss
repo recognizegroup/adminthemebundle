@@ -8,12 +8,46 @@
 
 $menu-text-size: 14px;
 
+@media (min-width: 768px){
+  .leftmenu {
+    float: left;
+    position: relative;
+    width: 250px;
+    height:100%;
+
+
+    .mainmenu {
+      width: 250px;
+      left: 0px;
+      position: fixed;
+      height: 100%;
+    }
+  }
+
+  .content-area {
+    .content {
+      float: left;
+      padding: 0px 0px 10px 250px;
+      width: 100%;
+    }
+  }
+
+  .content-area:after {
+    content: "";
+    clear:both;
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    height: 0;
+
+  }
+}
+
 .mainmenu {
   @include menu-toggle-animation;
   @include scroll-without-scrollbar;
 
   background: $menu-bg-color;
-  float: left;
   width: 250px;
   left: -250px;
   position: fixed;
@@ -92,14 +126,21 @@ $menu-text-size: 14px;
   }
 }
 
-.content-area {
+@media (max-width: 768px ){
+  .content-area {
 
-  .content {
-    left: 0px;
-    @include  menu-toggle-animation;
+    .content {
+      left: 0px;
+      @include  menu-toggle-animation;
 
-    &.open {
-      left: 250px;
+      &.open {
+        left: 250px;
+      }
+    }
+
+    .mainmenu {
+      top: 0px;
+      margin-top: 50px;
     }
   }
 }

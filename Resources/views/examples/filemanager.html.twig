@@ -1,0 +1,57 @@
+{% extends 'RecognizeAdminThemeBundle::index.html.twig' %}
+{% block scripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/jstree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FilemanagerEventHandler.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FileTree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FilemanagerApi.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FileTreeView.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/filemanager.jquery.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/recognizefilemanager/themes/bootstrap/style.css') }}" />
+
+{% endblock %}
+{% block content %}
+<div class="filetree">
+    <h2>Filemanager</h2>
+
+    <div class="titlebar"><div class="row"></div></div>
+    <div class="row">
+        <div class="directories col-sm-3 hidden-xs"></div>
+        <div class="mainview col-sm-9 col-xs-12"></div>
+    </div>
+
+    <script type="text/javascript">
+        $('.filetree').filemanager({ debug: true,
+            api: { url: window.location.origin + "/admin/fileapi", startingDirectory: "" },
+            elements: { title: '.titlebar .row' },
+            filerowFormat: function( file ){
+
+                // Set the icon as a file or a directory
+                var icon = "<i class=\"fa fa-file-o pull-left\"></i>";
+                if( file.type == "dir" ){
+                    icon = "<i class=\"fa fa-folder-open pull-left\"></i>";;
+                }
+                return "<div class=\"row\"><div class=\"col-sm-3 col-xs-6\">" + icon + file.name + "</div><div class=\"col-xs-3\">" + file.size  + "</div></div>"
+            },
+
+            titledirectoryFormat: function( current_directory ){
+                var up_icon = "<i class=\"fa fa-flip-horizontal fa-level-up pull-left\"></i>";
+                var folder_icon = "<i class=\"fa fa-folder-open pull-left\"></i>";
+                var icon = "";
+                if( current_directory !== "" ){
+                    icon = up_icon + folder_icon;
+                }
+
+                current_directory = "/" + current_directory;
+                return "<div class=\"col-sm-6 col-xs-12 btn btn-primary\">" + icon + "<span class=\"pull-left\">" + current_directory + "</span></div>";
+            },
+
+            searchelementFormat: function( element ){
+                element.addClass('form-control');
+                return $("<div class=\"search-col col-sm-3 col-xs-12\"></div>").append( element );
+            }
+        });
+    </script>
+</div>
+{% endblock %}
