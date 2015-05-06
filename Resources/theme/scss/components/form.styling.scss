@@ -1,3 +1,103 @@
 .control-label {
   padding-top: 10px;
 }
+
+.form-control {
+  border: 2px solid #CCCCCC;
+
+  &:hover {
+    background: #F5F5F5;
+  }
+
+  &::selection {
+    color: #FFFFFF;
+    background: $brand-color;
+  }
+}
+
+.btn {
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  padding-top: 2px;
+  border-bottom: 4px solid #CCCCCC;
+  background: #EEEEEE;
+
+  &:active {
+    padding-top: 4px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid #CCCCCC;
+  }
+
+  &:hover {
+    padding-top: 4px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 3px solid #CCCCCC;
+  }
+
+  &:focus {
+    border-color: #CCCCCC;
+    color: $focus-text-color;
+    background: $focus-color !important;
+    @include disable-bootstrap-glow;
+  }
+}
+
+.select2-container--default {
+  &.select2-container {
+    height: 34px;
+    .select2-selection--single {
+      height: 34px;
+    }
+
+    .select2-selection--single .select2-selection__arrow {
+      top: 4px;
+    }
+  }
+
+  .select2-selection {
+    border: 2px solid #CCCCCC;
+  }
+
+  .select2-selection.select2-selection--single {
+    border: 2px solid #CCCCCC;
+  }
+
+  .select2-search--dropdown .select2-search__field {
+    border: 2px solid #CCCCCC !important;
+    border-radius: 4px;
+    padding-left: 7px;
+
+    &:focus {
+      outline: none;
+      border-color: $focus-color !important;
+      @include bootstrap-glow( $focus-color );
+    }
+  }
+
+  .select2-dropdown {
+    border: 2px solid #CCCCCC;
+  }
+
+  .select2-results__options {
+    .select2-results__option {
+      padding: 6px 12px;
+      background-color: $select2-bg-color;
+      color: $select2-text-color;
+    }
+
+    .select2-results__option[aria-selected=true] {
+      background-color: $select2-selected-bg-color;
+      color: $select2-selected-text-color;
+    }
+
+    .select2-results__option--highlighted[aria-selected] {
+      background-color: $select2-hover-bg-color;
+      color: $select2-hover-text-color;
+    }
+  }
+}

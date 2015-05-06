@@ -27,3 +27,20 @@ $profile-options-hover-color: $brand-color;
 $profile-options-selected-color: $brand-color;
 $profile-options-text-color: $profile-text-color;
 $profile-options-icon-color: $profile-options-text-color;
+
+// Form styling
+$error-color: #FF0000;
+$error-text-color: $light-color;
+$success-color: #00FF00;
+$success-text-color: $light-color;
+$focus-color: $brand-color-2;
+$focus-text-color: $brand-text-color;
+$input-border-color: #CCCCCC;
+
+// Select2 styling
+$select2-text-color: #000000;
+$select2-hover-text-color: #000000;
+$select2-selected-text-color: #000000;
+$select2-bg-color: #FFFFFF;
+$select2-selected-bg-color: #DDDDDD;
+$select2-hover-bg-color: $brand-color;

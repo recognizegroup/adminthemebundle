@@ -1,20 +1,3 @@
-$error-color: #FF0000;
-$success-color: #00FF00;
-$focus-color: #46b8da;
-$input-border-color: #CCCCCC;
-
-@mixin disable-glow {
-  -webkit-appearance:none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-@mixin bootstrap-glow( $color ){
-  -webkit-appearance:none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($color, 0.4);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($color, 0.4);
-}
-
 .has-error {
   .form-control {
     @include shiver-animation;
@@ -39,11 +22,11 @@ $input-border-color: #CCCCCC;
 }
 
 .form-control:focus {
-  border: 1px $focus-color solid;
+  border: 2px $focus-color solid;
   @include bootstrap-glow( $focus-color );
 
   &input[type="submit"]
   &input[type="button"] {
-    @include disable-glow;
+    @include disable-bootstrap-glow;
   }
 }

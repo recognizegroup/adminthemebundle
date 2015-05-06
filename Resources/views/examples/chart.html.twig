@@ -1,0 +1,18 @@
+{% extends 'RecognizeAdminThemeBundle::index.html.twig' %}
+{% block scripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('bundles/recognizechart/d3.v3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizechart/c3.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bundles/recognizechart/c3.min.css') }}"/>
+
+
+{% endblock %}
+{% block mainmenu %}{% include('RecognizeAdminThemeBundle::examples/components/menu-chart.html.twig') %}{% endblock %}
+{% block content %}
+    <div style="padding: 10px">
+        <h2>Chart</h2>
+
+        {{ c3_chart("examplechart", chart_config ) }}
+    </div>
+{% endblock %}

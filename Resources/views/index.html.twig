@@ -1,4 +1,13 @@
 {% extends 'RecognizeAdminThemeBundle::base.html.twig' %}
+{% block scripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/recognizeselectbox/select2/select2.full.min.js') }}"></script>
+{% endblock %}
+{% block styles %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/recognizeselectbox/select2/select2.css') }}"/>
+{% endblock %}
+
 {% block body %}
 {% block topbar %}{% include('RecognizeAdminThemeBundle::components/topbar.html.twig') %}{% endblock %}
 <div class="content-area">

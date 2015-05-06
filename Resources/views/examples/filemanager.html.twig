@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/recognizefilemanager/themes/bootstrap/style.css') }}" />
 
 {% endblock %}
+{% block mainmenu %}{% include('RecognizeAdminThemeBundle::examples/components/menu-filemanager.html.twig') %}{% endblock %}
 {% block content %}
 <div class="filetree">
     <h2>Filemanager</h2>
