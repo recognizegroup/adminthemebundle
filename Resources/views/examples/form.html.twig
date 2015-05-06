@@ -37,24 +37,10 @@
         <input class="animated form-control" type="password" value="Edelachtbare" />
     </div>
 
-    <div>
-        <label class="control-label">{{ 'Choice'|trans }}:</label>
-        <select id="select2bund" class="form-control">
-        {% set choices = [{label: "bla", value: 0}, {label:"test", value: 1}] %}
-        {% for choice in choices %}
-            <option value=\"{{ choice.value }}\" selected="selected">{{ choice.label|trans }}</option>
-        {% endfor %}
-        </select>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                if( typeof recognize_selectbox === "undefined" ){
-                    var recognize_selectbox = {};
-                }
+    {{ form_start( form ) }}
+    {{ form_widget( form ) }}
+    {{ form_end( form ) }}
 
-                recognize_selectbox = $("#select2bund").select2({});
-            });
-        </script>
-    </div>
 </div>
 
 <div class="col-md-6 col-xs-12" style="padding-top: 10px;">

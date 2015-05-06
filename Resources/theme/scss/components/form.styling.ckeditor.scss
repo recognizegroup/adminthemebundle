@@ -1,0 +1,60 @@
+.cke, .cke_bottom, .cke_top {
+  background: $cke-bg-color !important;
+}
+
+.cke_toolbox {
+  .cke_toolgroup {
+    padding: 0px;
+    background: none;
+    border-top: 0px;
+
+    a.cke_button {
+      position: relative;
+      top: 0px;
+      background: #FFFFFF;
+      padding: 4px 8px;
+      border-bottom: 2px solid #CCC;
+
+      &:hover,
+      &.cke_button_on {
+        cursor: pointer;
+        top: 2px;
+        background: $cke-button-hover-bg-color;
+        color: $cke-button-hover-text-color;
+        border-bottom: 2px solid $cke-bg-color;
+      }
+
+      &.cke_button_on:hover {
+        background: rgba($cke-button-hover-bg-color, 0.6);
+        color: $cke-button-hover-text-color;
+      }
+
+      &.cke_button_disabled {
+        top: 2px;
+        background: $cke-button-bg-color;
+        border-bottom: 2px $cke-button-bg-color;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .cke_button_label:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.cke_inner {
+  .cke_contents {
+    border: 2px solid $cke-border-color;
+  }
+}
+
+.cke_focus {
+  .cke_contents {
+    border: 2px solid $cke-focus-color;
+    @include bootstrap-glow( $cke-focus-color );
+  }
+}

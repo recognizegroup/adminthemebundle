@@ -43,4 +43,14 @@ $select2-hover-text-color: #000000;
 $select2-selected-text-color: #000000;
 $select2-bg-color: #FFFFFF;
 $select2-selected-bg-color: #DDDDDD;
-$select2-hover-bg-color: $brand-color;
+$select2-hover-bg-color: $focus-color;
+$select2-border-color: $input-border-color;
+
+// CKEditor styling
+$cke-bg-color: #EEE;
+$cke-button-hover-text-color: #FFFFFF;
+$cke-button-hover-bg-color: $brand-color;
+$cke-button-text-color: #000000;
+$cke-button-bg-color: #FFFFFF;
+$cke-focus-color: $focus-color;
+$cke-border-color: $input-border-color;
