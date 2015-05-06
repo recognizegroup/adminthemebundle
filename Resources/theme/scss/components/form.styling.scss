@@ -28,6 +28,14 @@
   border-bottom: 4px solid $input-border-color;
   background: #EEEEEE;
 
+  &.btn-primary {
+    background: $brand-color;
+
+    &:hover {
+      background: rgba( $brand-color, 0.6 );
+    }
+  }
+
   &:active {
     padding-top: 4px;
     border-top: 0px;

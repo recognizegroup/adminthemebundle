@@ -11,16 +11,19 @@ $(document).ready(function(){
     var mobile_screen_width = 768;
     if( window.innerWidth <= mobile_screen_width ){
         profile_element.addClass('big');
-    }
 
-
-    $(window).on('scroll', function( event ){
-        if( $(window).scrollTop() > 10 ){
-            if( profile_element.hasClass('disable-scroll') == false ){
-                profile_element.removeClass('big').addClass('disable-scroll');
+        $(window).on('scroll', function( event ){
+            if( $(window).scrollTop() > 10 ){
+                if( profile_element.hasClass('disable-scroll') == false ){
+                    profile_element.removeClass('big').addClass('disable-scroll');
+                }
             }
-        }
-    });
+        });
+
+        $(window).on('resize', function( event ){
+            profile_element.removeClass('big').addClass('disable-scroll');
+        });
+    }
 
     profile_element.on('click', toggleBigAvatar);
 });

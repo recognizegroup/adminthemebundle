@@ -57,4 +57,10 @@
     border: 2px solid $cke-focus-color;
     @include bootstrap-glow( $cke-focus-color );
   }
+
+  &.cke_textarea_inline {
+    border: 2px solid $cke-focus-color;
+    border-radius: 4px;
+    @include bootstrap-glow( $cke-focus-color );
+  }
 }

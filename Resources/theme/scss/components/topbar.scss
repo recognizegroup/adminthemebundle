@@ -5,6 +5,7 @@ $topbar-height: 50px;
   top: 0px;
   position: fixed;
   z-index: 10000;
+  @include top-toggle-animation;
 
   nav {
     padding-right: 20px;

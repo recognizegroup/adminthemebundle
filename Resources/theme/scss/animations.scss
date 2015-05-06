@@ -8,6 +8,14 @@ $animation-duration: 0.7s;
   transition: all $transition-duration ease;
 }
 
+@mixin top-toggle-animation {
+  -webkit-transition: top $transition-duration;
+  -moz-transition: top $transition-duration;
+  -o-transition: top $transition-duration;
+  transition: top $transition-duration;
+}
+
+
 @mixin menu-toggle-animation {
   -webkit-transition: left $transition-duration;
   -moz-transition: left $transition-duration;
