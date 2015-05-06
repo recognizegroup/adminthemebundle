@@ -11,22 +11,24 @@
 
 .has-success {
   .form-control {
-    border-color: $input-border-color !important;
+    border-color: $input-border-color;
 
     &:focus {
-      border-color: $focus-color !important;
+      border-color: $focus-color;
       @include bootstrap-glow( $focus-color );
     }
-
   }
 }
 
 .form-control:focus {
   border: 2px $focus-color solid;
   @include bootstrap-glow( $focus-color );
+}
 
-  &input[type="submit"]
-  &input[type="button"] {
+input[type=submit].btn,
+input[type=button].btn,
+a.btn {
+  &:focus {
     @include disable-bootstrap-glow;
   }
 }

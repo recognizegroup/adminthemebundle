@@ -17,7 +17,7 @@ $(document).ready(function() {
             } else {
                 $('.topbar').css('top', '0px');
             }
-            
+
             if( currentwidth == window.innerWidth ){
                 startheight = $(window).height();
             }

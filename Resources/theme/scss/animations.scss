@@ -1,3 +1,4 @@
+$rapid-transition-duration: 0.15s;
 $transition-duration: 0.35s;
 $animation-duration: 0.7s;
 
@@ -15,6 +16,12 @@ $animation-duration: 0.7s;
   transition: top $transition-duration;
 }
 
+@mixin button_press_animation {
+  -webkit-transition: margin-top $rapid-transition-duration ease-out, border-bottom $rapid-transition-duration ease-out;
+  -moz-transition: margin-top $rapid-transition-duration ease-out, border-bottom $rapid-transition-duration ease-out;
+  -o-transition: margin-top $rapid-transition-duration ease-out, border-bottom $rapid-transition-duration ease-out;
+  transition: margin-top $rapid-transition-duration ease-out, border-bottom $rapid-transition-duration ease-out;
+}
 
 @mixin menu-toggle-animation {
   -webkit-transition: left $transition-duration;

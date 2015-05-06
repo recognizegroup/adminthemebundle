@@ -3,20 +3,21 @@
  */
 $(document).ready(function() {
 
-    $("span[data-toggle=collapse]").on('click', function (event) {
+    var menulinks = $(".mainmenu span a");
+
+    menulinks.on('click', function (event) {
 
         // Add the collapsed class to the caret
         $(this).children('i.fa').toggleClass('collapsed');
+        $(this).children('a').children('i.fa').toggleClass('collapsed');
 
-        // Fire the bootstrap collapse manually
-        var collapse_target = $(this).attr('data-target');
-        $(this).parent('li').children(collapse_target).collapse('toggle');
-
-        // Make sure the parent elements don't receive the click
-        event.stopPropagation();
-
-        // But if the span contains a link, do send it onward
-        $(this).children('a').click();
     });
 
+    menulinks.on('focus', function (event) {
+        $(this).parent('span').addClass("focussed");
+    });
+
+    menulinks.on('blur', function (event) {
+        $(this).parent('span').removeClass("focussed");
+    });
 });

@@ -13,7 +13,7 @@ $hamburger-icon-line-color: $light-color;
 $menu-bg-color: $dark-bg-color;
 $menu-dark-bg-color: $darkest-bg-color;
 $menu-shadow-color: #000000;
-$menu-selected-color: $dark-bg-selected-color;
+$menu-selected-color: $brand-color;
 $menu-highlight-color: $brand-color-faded;
 $menu-text-color: $light-color;
 $menu-divider-color: $dark-bg-selected-color;
@@ -36,6 +36,23 @@ $success-text-color: $light-color;
 $focus-color: $brand-color-2;
 $focus-text-color: $brand-text-color;
 $input-border-color: #CCCCCC;
+
+// Button styling
+$button-primary-bg-color: $light-color;
+$button-primary-border-color: $brand-color;
+$button-primary-text-color: #000000;
+$button-primary-hover-bg-color: mix( $brand-color, #FFF, 80% );
+$button-primary-hover-border-color: $button-primary-border-color;
+$button-primary-hover-text-color: $light-color;
+$button-primary-active-bg-color: mix( $brand-color, #000, 90%);
+$button-primary-active-border-color: $button-primary-border-color;
+$button-primary-active-text-color: $light-color;
+$button-bg-color: #EEEEEE;
+$button-text-color: $light-color;
+$button-hover-bg-color: rgba( $brand-color, 0.6 );
+$button-hover-text-color: $light-color;
+$button-active-bg-color: rgba( #000000, 0.6 );
+$button-active-text-color: $light-color;
 
 // Select2 styling
 $select2-text-color: #000000;

@@ -20,43 +20,57 @@
   }
 }
 
-.btn {
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  padding-top: 2px;
-  border-bottom: 4px solid $input-border-color;
-  background: #EEEEEE;
+@mixin feedback_button( $color, $border-height ){
+  margin-top: 0px;
+  border-top: 1px solid $color;
+  border-left: 1px solid $color;
+  border-right: 1px solid $color;
+  border-bottom: $border-height solid $color;
 
-  &.btn-primary {
-    background: $brand-color;
-
-    &:hover {
-      background: rgba( $brand-color, 0.6 );
-    }
-  }
-
-  &:active {
-    padding-top: 4px;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 1px solid $input-border-color;
+  &:active,
+  &.active {
+    margin-top: $border-height !important;
+    border-top: 1px solid $color;
+    border-left: 1px solid $color;
+    border-right: 1px solid $color;
+    border-bottom: 1px solid $color !important;
   }
 
   &:hover {
-    padding-top: 4px;
-    border-top: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 3px solid $input-border-color;
+    margin-top: -1px;
+    border-top: 1px solid $color;
+    border-left: 1px solid $color;
+    border-right: 1px solid $color;
+    border-bottom: ($border-height + 1) solid $color;
+  }
+}
+
+.btn {
+  @include feedback_button( #CCC, 4px);
+  background: $button-bg-color;
+
+  &.animated {
+    @include button_press_animation;
   }
 
-  &:focus {
-    border-color: #CCCCCC;
-    color: $focus-text-color;
-    background: $focus-color !important;
-    @include disable-bootstrap-glow;
+  &.btn-primary {
+    border-color: $button-primary-border-color;
+    background: $button-primary-bg-color;
+    color: $button-primary-text-color;
+
+    &:hover,
+    &:focus {
+      border-color: $button-primary-hover-border-color;
+      background: $button-primary-hover-bg-color;
+      color: $button-primary-hover-text-color;
+    }
+
+    &:active,
+    &.active {
+      border-color: $button-primary-active-border-color;
+      background: $button-primary-active-bg-color;
+      color: $button-primary-active-text-color;
+    }
   }
 }
 
