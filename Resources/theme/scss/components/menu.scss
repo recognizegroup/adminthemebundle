@@ -65,10 +65,6 @@ $menu-text-size: 14px;
     left: 0px;
   }
 
-  .current {
-    background-color: $menu-selected-color;
-  }
-
   ul {
     list-style: none;
     padding: 0;
@@ -146,6 +142,19 @@ $menu-text-size: 14px;
           outline: 0px;
           border: 0px;
         }
+      }
+    }
+
+    .current span{
+      background-color: $menu-selected-color;
+
+      &:hover {
+        background-color: $menu-selected-color;
+      }
+
+      &.focussed {
+        cursor: pointer;
+        background: $menu-highlight-color;
       }
     }
   }

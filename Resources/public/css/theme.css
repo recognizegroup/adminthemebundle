@@ -201,8 +201,6 @@
     width: 0 !important; }
   .mainmenu.open {
     left: 0px; }
-  .mainmenu .current {
-    background-color: #E74C3C; }
   .mainmenu ul {
     list-style: none;
     padding: 0;
@@ -277,6 +275,13 @@
         .mainmenu ul li a:focus {
           outline: 0px;
           border: 0px; }
+    .mainmenu ul .current span {
+      background-color: #E74C3C; }
+      .mainmenu ul .current span:hover {
+        background-color: #E74C3C; }
+      .mainmenu ul .current span.focussed {
+        cursor: pointer;
+        background: rgba(231, 76, 60, 0.3); }
 
 *:focus {
   outline: none; }
@@ -340,6 +345,8 @@
 .select2-container--default .select2-selection.select2-selection--single {
   border: 2px solid #CCCCCC;
   padding-left: 5px; }
+.select2-container--default.select2-container--focus .select2-selection.select2-selection--single {
+  border: 2px solid #46b8da; }
 .select2-container--default .select2-search--dropdown .select2-search__field {
   border: 2px solid #CCCCCC !important;
   border-radius: 4px;
