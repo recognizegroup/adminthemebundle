@@ -13,21 +13,27 @@ $(document).ready(function(){
  */
 $(document).ready(function() {
 
-    var menulinks = $(".mainmenu span a");
+    var menulinks = $(".mainmenu span:has(a)");
 
     menulinks.on('click', function (event) {
 
         // Add the collapsed class to the caret
-        $(this).children('i.fa').toggleClass('collapsed');
-        $(this).children('a').children('i.fa').toggleClass('collapsed');
+        if( event.target.tagName.toLowerCase() === 'span') {
+            $( event.target ).children('a').trigger('click');
+        } else {
+            $( event.target ).children('i.fa').toggleClass('collapsed');
+        }
 
     });
 
-    menulinks.on('focus', function (event) {
+
+    var focuslinks = $(".mainmenu span a");
+
+    focuslinks.on('focus', function (event) {
         $(this).parent('span').addClass("focussed");
     });
 
-    menulinks.on('blur', function (event) {
+    focuslinks.on('blur', function (event) {
         $(this).parent('span').removeClass("focussed");
     });
 });
