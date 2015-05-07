@@ -143,6 +143,9 @@ $profile-scrollbar-padding: 10px;
   .profile {
     .tabfocus:focus {
       outline: 2px auto $profile-options-hover-color;
+      &:hover {
+        outline: 0px auto #000000;
+      }
     }
   }
 }

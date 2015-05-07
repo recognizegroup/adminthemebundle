@@ -29,6 +29,7 @@ input[type=submit].btn,
 input[type=button].btn,
 a.btn {
   &:focus {
-    @include disable-bootstrap-glow;
+    outline: none;
+    border-color: $focus-color;
   }
 }

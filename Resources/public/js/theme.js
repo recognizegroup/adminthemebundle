@@ -116,36 +116,26 @@ $(document).ready(function() {
     });
 
     var buttonelements = $(".btn");
-    $('body').keyup(function(event){
+    buttonelements.keydown(function (event) {
 
-        // TAB
-        if( event.keyCode == 9 ){
+        // ENTER
+        if (event.keyCode == 13) {
 
-            // Reindex all the buttonelements
-            buttonelements.unbind("keydown").unbind("keyup");
-            buttonelements = $(".btn");
-
-            buttonelements.keydown(function (event) {
-
-                // ENTER
-                if (event.keyCode == 13) {
-
-                    // Prevent the action from being triggered immediately
-                    event.preventDefault();
-                    $( event.currentTarget ).addClass('active');
-                }
-            });
-
-            buttonelements.keyup(function (event) {
-
-                // ENTER
-                if (event.keyCode == 13) {
-                    $( event.currentTarget ).removeClass('active');
-
-                    // Trigger the prevented default of the element
-                    $( event.currentTarget).trigger('click');
-                }
-            });
+            // Prevent the action from being triggered immediately
+            event.preventDefault();
+            $( event.currentTarget ).addClass('active');
         }
     });
+
+    buttonelements.keyup(function (event) {
+
+        // ENTER
+        if (event.keyCode == 13) {
+            $( event.currentTarget ).removeClass('active');
+
+            // Trigger the prevented default of the element
+            $( event.currentTarget).trigger('click');
+        }
+    });
+
 });

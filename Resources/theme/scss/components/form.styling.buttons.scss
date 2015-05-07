@@ -1,0 +1,62 @@
+@mixin feedback_button( $border-height ){
+  margin-top: 0px;
+  border-width: 1px !important;
+  border-bottom-width: $border-height !important;
+
+  &:focus {
+    border-bottom-width: $border-height !important;
+  }
+
+  &:active,
+  &.active {
+    margin-top: $border-height !important;
+    border-bottom-width: 1px !important;
+  }
+
+  &:hover {
+    margin-top: -1px;
+    border-bottom-width: ($border-height + 1);
+  }
+}
+
+.btn {
+  @include feedback_button( 4px );
+  border-color: $button-border-color;
+  background: $button-bg-color;
+  color: $button-text-color;
+
+  &:focus {
+    outline: none;
+    border-color: $button-focus-color;
+
+    &.active,
+    &:active {
+      background-color: $button-focus-pressed-bg-color;
+      color: $button-focus-pressed-text-color;
+    }
+  }
+
+  &.animated {
+    @include button_press_animation;
+  }
+
+  &.btn-primary {
+    border-color: $button-primary-border-color;
+    background: $button-primary-bg-color;
+    color: $button-primary-text-color;
+
+    &:hover,
+    &:focus {
+      border-color: $button-primary-hover-border-color;
+      background: $button-primary-hover-bg-color;
+      color: $button-primary-hover-text-color;
+    }
+
+    &:active,
+    &.active {
+      border-color: $button-primary-active-border-color;
+      background: $button-primary-active-bg-color;
+      color: $button-primary-active-text-color;
+    }
+  }
+}

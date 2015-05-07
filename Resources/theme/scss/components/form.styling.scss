@@ -20,59 +20,6 @@
   }
 }
 
-@mixin feedback_button( $color, $border-height ){
-  margin-top: 0px;
-  border-top: 1px solid $color;
-  border-left: 1px solid $color;
-  border-right: 1px solid $color;
-  border-bottom: $border-height solid $color;
-
-  &:active,
-  &.active {
-    margin-top: $border-height !important;
-    border-top: 1px solid $color;
-    border-left: 1px solid $color;
-    border-right: 1px solid $color;
-    border-bottom: 1px solid $color !important;
-  }
-
-  &:hover {
-    margin-top: -1px;
-    border-top: 1px solid $color;
-    border-left: 1px solid $color;
-    border-right: 1px solid $color;
-    border-bottom: ($border-height + 1) solid $color;
-  }
-}
-
-.btn {
-  @include feedback_button( #CCC, 4px);
-  background: $button-bg-color;
-
-  &.animated {
-    @include button_press_animation;
-  }
-
-  &.btn-primary {
-    border-color: $button-primary-border-color;
-    background: $button-primary-bg-color;
-    color: $button-primary-text-color;
-
-    &:hover,
-    &:focus {
-      border-color: $button-primary-hover-border-color;
-      background: $button-primary-hover-bg-color;
-      color: $button-primary-hover-text-color;
-    }
-
-    &:active,
-    &.active {
-      border-color: $button-primary-active-border-color;
-      background: $button-primary-active-bg-color;
-      color: $button-primary-active-text-color;
-    }
-  }
-}
-
+@import 'form.styling.buttons';
 @import 'form.styling.select2';
 @import 'form.styling.ckeditor';
