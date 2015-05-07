@@ -13,7 +13,7 @@ $profile-scrollbar-padding: 10px;
   display: block !important;
 
   .tabfocus:focus {
-    outline: 2px auto $brand-color !important;
+    outline: 0px auto $profile-options-hover-color;
   }
 
   p {
@@ -136,6 +136,13 @@ $profile-scrollbar-padding: 10px;
         background-color: $profile-options-divider-color;
       }
     }
+  }
+}
 
+@media (min-width: 768px ){
+  .profile {
+    .tabfocus:focus {
+      outline: 2px auto $profile-options-hover-color;
+    }
   }
 }

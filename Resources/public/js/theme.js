@@ -105,6 +105,16 @@ $(document).ready(function(){
  */
 $(document).ready(function() {
 
+    // Trigger click events when the enter button is pressed on a tabfocus element
+    var tabenterable = $('a.tabfocus');
+    tabenterable.keyup(function( event ){
+
+        // ENTER
+        if (event.keyCode == 13) {
+            $( event.target).click();
+        }
+    });
+
     var buttonelements = $(".btn");
     $('body').keyup(function(event){
 

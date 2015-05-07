@@ -79,7 +79,7 @@
   position: absolute;
   display: block !important; }
   .profile .tabfocus:focus {
-    outline: 2px auto #E74C3C !important; }
+    outline: 0px auto #E74C3C; }
   .profile p {
     -webkit-transition: width 0.35s, height 0.35s;
     -moz-transition: width 0.35s, height 0.35s;
@@ -164,6 +164,10 @@
         height: 1px;
         overflow: hidden;
         background-color: #444444; }
+
+@media (min-width: 768px) {
+  .profile .tabfocus:focus {
+    outline: 2px auto #E74C3C; } }
 
 @media (min-width: 768px) {
   .leftmenu {
