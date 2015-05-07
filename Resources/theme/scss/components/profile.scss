@@ -10,6 +10,11 @@ $profile-scrollbar-padding: 10px;
   padding: $profile-padding 0 $profile-padding 0;
   right: $profile-scrollbar-padding;
   position: absolute;
+  display: block !important;
+
+  .tabfocus:focus {
+    outline: 2px auto $brand-color !important;
+  }
 
   p {
     @include size-transition;
@@ -17,7 +22,6 @@ $profile-scrollbar-padding: 10px;
     color: $profile-text-color;
     margin: ($profile-padding / 2) $profile-padding;
     overflow: hidden;
-
     display: none;
   }
 
@@ -101,8 +105,11 @@ $profile-scrollbar-padding: 10px;
         color: $profile-options-text-color;
         text-decoration: none;
 
+        &:focus,
         &:active {
           background-color: $profile-options-selected-color;
+          border: 0px solid #000000;
+          outline: 0px;
         }
       }
 
@@ -117,6 +124,7 @@ $profile-scrollbar-padding: 10px;
         background: $profile-options-bg-color;
       }
 
+      &:focus,
       &:hover{
         background: $profile-options-hover-color;
       }

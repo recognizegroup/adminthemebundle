@@ -66,7 +66,7 @@
       background-color: #262626; }
     .topbar .profile .languages a.selected {
       opacity: 1; }
-    .topbar .profile .languages a:hover {
+    .topbar .profile .languages a:focus, .topbar .profile .languages a:hover {
       opacity: 1; }
 
 .profile {
@@ -76,7 +76,10 @@
   transition: width 0.35s, height 0.35s;
   padding: 10px 0 10px 0;
   right: 10px;
-  position: absolute; }
+  position: absolute;
+  display: block !important; }
+  .profile .tabfocus:focus {
+    outline: 2px auto #E74C3C !important; }
   .profile p {
     -webkit-transition: width 0.35s, height 0.35s;
     -moz-transition: width 0.35s, height 0.35s;
@@ -143,8 +146,10 @@
         padding: 5px 10px;
         color: #FFFFFF;
         text-decoration: none; }
-        .profile .options li a:active {
-          background-color: #E74C3C; }
+        .profile .options li a:focus, .profile .options li a:active {
+          background-color: #E74C3C;
+          border: 0px solid #000000;
+          outline: 0px; }
       .profile .options li i {
         color: #FFFFFF;
         position: relative;
@@ -152,7 +157,7 @@
         float: right; }
       .profile .options li.no-hover-style:hover {
         background: #262626; }
-      .profile .options li:hover {
+      .profile .options li:focus, .profile .options li:hover {
         background: #E74C3C; }
       .profile .options li.divider {
         padding: 0;

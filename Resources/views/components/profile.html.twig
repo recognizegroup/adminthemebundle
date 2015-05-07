@@ -8,10 +8,12 @@
 {% endif %}
 
 <div class="profile">
-    <div class="clearfix">
-        <img src="{{ profile_image }}" class="avatar" />
-        <p class="username">{{ username }}</p>
-    </div>
+    <a class="tabfocus" href="#">
+        <div class="clearfix">
+            <img src="{{ profile_image }}" class="avatar" />
+            <p class="username">{{ username }}</p>
+        </div>
+    </a>
 
     <ul class="options" role="menu">
         {% if accepted_languages is defined %}
@@ -24,5 +26,5 @@
         <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'profile.settings'|trans }}<i class="fa fa-gears"></i></a></li>
         <li><a href="{{ path('fos_user_security_logout') }}">{{ 'profile.logout'|trans }}<i class="fa fa-power-off"></i></a></li>
     </ul>
-</div>
 
+</div>

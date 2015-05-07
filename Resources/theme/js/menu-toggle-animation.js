@@ -3,13 +3,15 @@
  */
 $(document).ready(function() {
 
-    var menulinks = $(".mainmenu span:has(a)");
+    var menulinks = $(".mainmenu li span:has(a)");
 
     menulinks.on('click', function (event) {
 
+        console.log( event.target );
+
         // Add the collapsed class to the caret
         if( event.target.tagName.toLowerCase() === 'span') {
-            $( event.target ).children('a').trigger('click');
+            $( event.target ).children('a')[0].click();
         } else {
             $( event.target ).children('i.fa').toggleClass('collapsed');
         }
