@@ -1,3 +1,10 @@
+.form-group {
+  .select2 {
+    display: block;
+    width: 100% !important;
+  }
+}
+
 .select2-container--default {
   &.select2-container {
     height: 34px;

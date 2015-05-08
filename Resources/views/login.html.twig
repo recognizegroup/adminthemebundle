@@ -1,0 +1,48 @@
+{% extends 'RecognizeAdminThemeBundle::base.html.twig' %}
+{% block title %}Log In{% endblock %}
+{% block body %}
+
+    <div class="vcenter_sm_parent">
+        <div class="row vcenter_sm">
+            <div class="col-xs-1 col-sm-4 col-md-5"></div>
+            <div class="col-xs-10 col-sm-4 col-md-2">
+                <div>
+                    <img class="center-block" src="{{ asset('bundles/recognizecms/img/logo@2x.png') }}"/>
+                </div>
+                <h1 class="text-center">Log in</h1>
+
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                    <div class="form-group">
+                        <label class="control-label" for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                        <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                        <input class="form-control" type="password" id="password" name="_password" required="required" />
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                    </div>
+
+
+                    <div class="form-group {% if error %}has-error{% endif %}">
+                        <input type="submit" class="form-control btn btn-default" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                    </div>
+
+                </form>
+
+                {% if error %}
+                    <div class="error-messages">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+            </div>
+            <div class="col-xs-1 col-sm-4 col-md-5""></div>
+        </div>
+    </div>
+{% endblock body %}
