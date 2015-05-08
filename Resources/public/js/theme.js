@@ -141,16 +141,14 @@ $(document).ready(function() {
 });
 /**
  * Make keyboard navigation possible on tables
- */
+ *
 $(document).ready(function() {
     var table = $('.table-keyboard-nav');
     var header = table.find("thead");
-    var body = table.find("tbody");
 
     var headerindex = 0;
-
-    var addKeyboardEvents = function( headerelement ){
-        headerelement.on("keyup", function( event ){
+    var addHorizontalEvents = function( headerelement ){
+        headerelement.on("keydown", function( event ){
 
             var headerelements = $( event.target ).children("tr").children("th");
 
@@ -184,12 +182,13 @@ $(document).ready(function() {
         });
     };
 
+
     header.on("focus", function( event ){
-        addKeyboardEvents( $( event.target) );
+        addHorizontalEvents( $( event.target) );
         $( event.target ).children("tr").children("th").eq(0).addClass("focussed");
     }).on("blur", function( event ){
 
-        $( event.target).off("keyup");
+        $( event.target).off("keydown");
         $( event.target ).children("tr").children("th").removeClass("focussed");
     });
-});
+});*/
