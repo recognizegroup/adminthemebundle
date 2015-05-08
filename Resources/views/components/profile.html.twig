@@ -7,13 +7,11 @@
     {% set username = "Account" %}
 {% endif %}
 
-<div class="profile">
-    <a class="tabfocus" aria-label="Toggle account options" tabindex="0">
-        <div class="clearfix">
-            <img src="{{ profile_image }}" class="avatar" />
-            <p class="username">{{ username }}</p>
-        </div>
-    </a>
+<div class="profile tabfocus" aria-label="Toggle account options" tabindex="0">
+    <div class="clearfix">
+        <img src="{{ profile_image }}" class="avatar" />
+        <p class="username">{{ username }}</p>
+    </div>
 
     <ul class="options" role="menu">
         {% if accepted_languages is defined %}

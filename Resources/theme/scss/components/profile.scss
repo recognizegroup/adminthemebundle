@@ -12,10 +12,6 @@ $profile-scrollbar-padding: 10px;
   position: absolute;
   display: block !important;
 
-  .tabfocus:focus {
-    outline: 0px auto $profile-options-hover-color;
-  }
-
   p {
     @include size-transition;
     @include profile-font;

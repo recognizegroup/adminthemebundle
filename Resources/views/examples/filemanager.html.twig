@@ -28,12 +28,12 @@
         </div>
         <div class="mainview col-sm-9 col-xs-12">
             <div class="table-responsive">
-                <table class="table table-striped table-hover table-bordered">
+                <table class="table table-striped table-hover table-bordered table-keyboard-nav">
                     <thead>
                         <tr>
-                            <th>{{ 'file.name'|trans }}</th>
-                            <th>{{ 'file.size'|trans }}</th>
-                            <th>{{ 'file.date_modified'|trans }}</th>
+                            <th class="sort-by-filename">{{ 'file.name'|trans }} <i class="fa fa-caret-up pull-right"></i></th>
+                            <th class="sort-by-filesize">{{ 'file.size'|trans }} <i class="fa fa-caret-up pull-right"></i></th>
+                            <th class="sort-by-date">{{ 'file.date_modified'|trans }} <i class="fa fa-caret-up pull-right"></i></th>
                         </tr>
                     </thead>
                     <tbody>
