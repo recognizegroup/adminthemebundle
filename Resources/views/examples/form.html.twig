@@ -1,49 +1,9 @@
 {% trans_default_domain 'examples' %}
 
 <div class="col-md-3 col-xs-12">
-    <div class="has-success">
-        <label class="control-label">{{ 'name'|trans }}: </label>
-        <input class="animated form-control" type="text" value="Kevin" />
-    </div>
-
-    <div class="has-success">
-        <label class="control-label">{{ 'phone'|trans }}: </label>
-        <input class="animated form-control" type="text" value="0545-008440" />
-        <div class="feedback-icon">
-
-        </div>
-    </div>
-
-    <div>
-        <label class="control-label">{{ 'salutation'|trans }}:</label>
-        <input class="animated form-control" type="text" value="Edelachtbare" />
-    </div>
-</div>
-
-<div class="col-md-3 col-xs-12">
-    <div class="has-error">
-        <label class="control-label">{{ 'lastname'|trans }}: </label>
-        <input class="animated form-control" type="text" value="te Raa" />
-    </div>
-
-    <div class="has-success">
-        <label class="control-label">{{ 'mobilephone'|trans }}: </label>
-        <input class="animated form-control required" type="text" value="06-09008440" />
-    </div>
-
-    <div>
-        <label class="control-label">{{ 'password'|trans }}:</label>
-        <input class="animated form-control" type="password" value="Edelachtbare" />
-    </div>
-
     {% form_theme form 'bootstrap_3_layout.html.twig' %}
     {{ form_start( form ) }}
     {{ form_widget( form ) }}
     {{ form_end( form ) }}
-
-</div>
-
-<div class="col-md-6 col-xs-12" style="padding-top: 10px;">
-    <input class="animated btn btn-default form-control" type="submit" value="{{ 'send'|trans }}" />
 </div>
 

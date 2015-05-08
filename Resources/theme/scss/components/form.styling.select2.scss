@@ -5,6 +5,17 @@
   }
 }
 
+.has-error {
+  .select2-selection {
+    @include shiver-animation;
+
+    border-color: $error_color !important;
+    &:focus {
+      @include bootstrap-glow( $error-color );
+    }
+  }
+}
+
 .select2-container--default {
   &.select2-container {
     height: 34px;

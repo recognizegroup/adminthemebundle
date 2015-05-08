@@ -3,8 +3,10 @@
   outline: none;
 }
 
-.control-label {
-  padding-top: 10px;
+.form-group {
+  .btn {
+    width: 100%;
+  }
 }
 
 .form-control {

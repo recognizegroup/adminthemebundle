@@ -15,6 +15,11 @@
     display: table-cell;
     vertical-align: middle; } }
 
+@media (max-width: 768px) {
+  .vcenter_sm_parent {
+    padding-top: 10px;
+    padding-bottom: 10px; } }
+
 @-webkit-keyframes error-shake {
   0%, 100% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -305,8 +310,8 @@
 *:focus {
   outline: none; }
 
-.control-label {
-  padding-top: 10px; }
+.form-group .btn {
+  width: 100%; }
 
 .form-control {
   border: 2px solid #CCCCCC; }
@@ -358,6 +363,19 @@
 .form-group .select2 {
   display: block;
   width: 100% !important; }
+
+.has-error .select2-selection {
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: error-shake;
+  animation-name: error-shake;
+  border-color: #FF0000 !important; }
+  .has-error .select2-selection:focus {
+    -webkit-appearance: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(255, 0, 0, 0.4);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px rgba(255, 0, 0, 0.4); }
 
 .select2-container--default.select2-container {
   height: 34px; }
