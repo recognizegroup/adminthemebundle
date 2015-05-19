@@ -10,11 +10,11 @@
   &:active,
   &.active {
     margin-top: $border-height !important;
-    border-bottom-width: 1px !important;
+    border-bottom-width: 0px !important;
   }
 
   &:hover {
-    margin-top: -1px;
+    margin-top: 0px;
     border-bottom-width: ($border-height + 1);
   }
 }

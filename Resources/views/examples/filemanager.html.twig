@@ -4,29 +4,126 @@
     {{ parent() }}
 
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/jstree.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/jquery.contextmenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/SimpleAjaxUploader.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FilemanagerEventHandler.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FileTree.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FilemanagerApi.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/FileTreeView.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/recognizefilemanager/js/filemanager.jquery.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/recognizefilemanager/themes/bootstrap/style.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/recognizefilemanager/styles/jquery.contextmenu.css') }}" />
 
 {% endblock %}
 {% block mainmenu %}{% include('RecognizeAdminThemeBundle::examples/components/menu-filemanager.html.twig') %}{% endblock %}
 {% block content %}
 <div class="filetree">
     <h2>Filemanager</h2>
+    <div class="row" style="display: block;">
+        <div class="options-area">
+            <div class="options col-xs-12" style="margin-bottom: 10px;">
+                <span class="pull-left">
+                    <a href="#" class="btn upload-button" title="{{ 'upload'|trans }}">
+                        <i class="fa fa-upload fa-lg"></i>
+                        <span>{{ 'upload'|trans }}</span>
+                    </a>
 
-    <div class="titlebar">
+                    <a href="#" class="btn">
+                        <i class="fa fa-folder fa-lg"></i>
+                        <span class="hidden-xs">{{ 'create_directory'|trans }}</span>
+                    </a>
+                </span>
+
+                <span class="pull-right">
+                    <span class="btn-group">
+                        <a href="#" class="btn btn-default active">
+                            <i class="fa fa-list fa-lg"></i>
+                            <span class="hidden-xs">{{ 'list_view'|trans }}</span>
+                        </a>
+
+                        <a href="#" class="btn">
+                            <i class="fa fa-th fa-lg"></i>
+                            <span class="hidden-xs">{{ 'grid_view'|trans }}</span>
+                        </a>
+                    </span>
+                </span>
+            </div>
+
+            <div class="upload-area col-xs-12" style="display: none;">
+                <a href="#" class="upload-cancel-button btn btn-danger col-sm-1 col-xs-3 no-r-c-right" style="padding-left: 0px; padding-right: 0px;">
+                    <i class="fa fa-lg fa-times" style="display:inline-block;"></i>
+                    <span class="hidden-xxs-inline">{{ 'cancel_upload'|trans }}</span>
+                </a>
+                <span class="col-sm-11 col-xs-9" style="padding-left: 0px; padding-right: 0px;">
+                    <div id="progressOuter" class="progress progress-striped active no-r-c-left" style="display:block; height: 37px; margin-bottom: 10px;">
+                        <div id="progressBar" class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 30%"></div>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <div class="col-xs-12 navigation-area" style="margin-bottom: 10px;">
+
+            <a href="#" class="btn btn-primary directory-up col-sm-9 col-xs-9 no-r-c-right">
+                <span class="pull-left">
+                    <i class="fa fa-lg fa-flip-horizontal fa-level-up"></i>
+                    <i class="fa fa-lg fa-folder-open"></i>
+                    /test/layout/blyad
+                </span>
+            </a>
+            <span class="search-input col-sm-3 col-xs-9" style="padding-left: 0px; padding-right: 0px;">
+                <input class="form-control no-r-c-right-xs" style="height: 37px; padding-bottom: 5px;" type="search" name="searchvalue" placeholder="{{ 'search'|trans }}" />
+            </span>
+            <a href="#" class="btn btn-default search-button visible-xs col-xs-3 no-r-c-left-xs">
+                <i class="fa fa-search fa-lg"></i>
+                <span class="hidden-xxs-inline">{{ 'search'|trans }}</span>
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var directory_up = $(".filetree .directory-up");
+            var search_container = $(".filetree .search-input");
+            var search_input = $(".filetree .search-input input");
+
+            if( $(window).width() <= 768 ){
+                search_container.hide();
+            }
+
+
+            var toggleUpload = function(){
+                $(".filetree .options").toggle();
+                $(".filetree .upload-area").toggle();
+            };
+
+            $(".filetree .upload-cancel-button").on("click", toggleUpload);
+            $(".filetree .upload-button").on("click", toggleUpload);
+
+            $(".filetree .search-button").on("click", function(){
+
+                if( directory_up.is(':visible') ){
+                    directory_up.hide();
+                    search_container.show();
+                    search_input.focus();
+                } else {
+                    directory_up.show();
+                    search_container.hide();
+                }
+            });
+        });
+    </script>
+
+    <div class="titlebar" style="display: none;">
         <div class="row">
             <!-- Titlebar goes here -->
         </div>
     </div>
-    <div class="row">
+    <div class="row overlayreference">
         <div class="directories col-sm-3 hidden-xs">
             <!-- Directories go here -->
         </div>
-        <div class="mainview col-sm-9 col-xs-12">
+        <div id="filemanager_view" class="mainview col-sm-9 col-xs-12">
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered table-keyboard-nav">
                     <thead>
@@ -41,6 +138,9 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="overlay" style="background: rgba(0,0,0, 0.1); z-index: 100; display: table;">
+            <i class="fa fa-pulse fa-spinner" style="display: table-cell; vertical-align: middle; font-size: 45px; color: black; text-align: center; width: 100%;"></i>
         </div>
     </div>
 
@@ -76,9 +176,24 @@
                 return "<tr tabindex=\"0\" class=\"noselect\"><td class=\"col-sm-3 col-xs-6\">" + icon + file.name + "</td><td class=\"col-xs-1\">" + file.size  + "</td><td class=\"col-xs-1\">" + file.date_modified  + "</td></tr>";
             },
 
+            renamerowFormat: function( file ){
+
+                // Set the icon as a file or a directory
+                var icon = "<i class=\"fa fa-file-o pull-left\"></i>";
+                if( file.type == "dir" ){
+                    icon = "<i class=\"fa fa-folder-open pull-left\"></i>";;
+                }
+
+                var name = $( file.name );
+                name.addClass('form-control');
+                var content = $('<div></div>');
+                content.append( name );
+                return "<tr tabindex=\"0\" class=\"noselect\"><td class=\"col-sm-3 col-xs-6\">" + icon + content.get(0).innerHTML + "</td><td class=\"col-xs-1\">" + file.size  + "</td><td class=\"col-xs-1\">" + file.date_modified  + "</td></tr>";
+            },
+
             createdirectoryFormat: function(){
                 var icon = '<i class="fa fa-plus-circle fa-lg">';
-                return "<a href=\"#\" class=\"btn\">" + icon + " {{ 'create_directory'|trans }}</a>";
+                return "<a href=\"#\" class=\"btn\" style=\"float:left;\">" + icon + "<span> {{ 'create_directory'|trans }}</span></a>";
             },
 
             filePreviewFormat: function( file ){
@@ -90,6 +205,10 @@
                 }
 
                 return "<div class=\"col-sm-2\">" + icon + file.name + "</div>";
+            },
+
+            uploadFormat: function( action, buttonid ){
+                return "<div class=\"col-sm-2\"><a href=\"#\" class=\"btn\" id=\"" + buttonid + "\">Upload</a></div>";
             }
         });
 

@@ -10,8 +10,13 @@
   }
 }
 
+.hidden-xxs-inline,
 .hidden-xxs {
   display: none;
+}
+
+.visible-xxs-inline {
+  display: inline-block;
 }
 
 .visible-xxs {
@@ -23,6 +28,11 @@
     display: block;
   }
 
+  .hidden-xxs-inline {
+    display: inline-block;
+  }
+
+  .visible-xxs-inline,
   .visible-xxs {
     display: none;
   }

@@ -20,6 +20,30 @@
     padding-top: 10px;
     padding-bottom: 10px; } }
 
+.no-r-c-right {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important; }
+
+.no-r-c-left {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important; }
+
+@media (min-width: 769px) {
+  .no-r-c-left-xs {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important; }
+  .no-r-c-right-xs {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important; } }
+
+@media (max-width: 768px) {
+  .no-r-c-right-xs {
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important; }
+  .no-r-c-left-xs {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important; } }
+
 @-webkit-keyframes error-shake {
   0%, 100% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -332,9 +356,9 @@
     border-bottom-width: 4px !important; }
   .btn:active, .btn.active {
     margin-top: 4px !important;
-    border-bottom-width: 1px !important; }
+    border-bottom-width: 0px !important; }
   .btn:hover {
-    margin-top: -1px;
+    margin-top: 0px;
     border-bottom-width: 5px; }
   .btn:focus {
     outline: none;
@@ -549,8 +573,11 @@ html.js .hamburger-icon {
   .xs-text-left {
     text-align: center; } }
 
-.hidden-xxs {
+.hidden-xxs-inline, .hidden-xxs {
   display: none; }
+
+.visible-xxs-inline {
+  display: inline-block; }
 
 .visible-xxs {
   display: block; }
@@ -558,7 +585,9 @@ html.js .hamburger-icon {
 @media (min-width: 500px) {
   .hidden-xxs {
     display: block; }
-  .visible-xxs {
+  .hidden-xxs-inline {
+    display: inline-block; }
+  .visible-xxs-inline, .visible-xxs {
     display: none; } }
 
 @media (max-width: 768px) {
