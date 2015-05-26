@@ -366,6 +366,10 @@
     .btn:focus.active, .btn:focus:active {
       background-color: #3893ae;
       color: #FFFFFF; }
+  .btn.active, .btn:active {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; }
   .btn.animated {
     -webkit-transition: margin-top 0.15s ease-out, border-bottom 0.15s ease-out;
     -moz-transition: margin-top 0.15s ease-out, border-bottom 0.15s ease-out;

@@ -36,6 +36,13 @@
     }
   }
 
+  &.active,
+  &:active {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
   &.animated {
     @include button_press_animation;
   }

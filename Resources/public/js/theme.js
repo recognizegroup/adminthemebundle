@@ -69,7 +69,6 @@ $(document).ready(function() {
             currentwidth = window.innerWidth;
         });
     }
-
 });
 /**
  * Makes the profile smaller or bigger depending on the scroll position
