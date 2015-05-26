@@ -1,0 +1,23 @@
+{% use "bootstrap_3_layout.html.twig" %}
+
+{% block checkbox_radio_label %}
+    {# Do no display the label if widget is not defined in order to prevent double label rendering #}
+    {% if widget is defined %}
+        {% set default_label_attr = {'for': id} %}
+
+        {% if required %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if parent_label_class is defined %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+        {% endif %}
+        {% if label is not sameas(false) and label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        {% set label_attr = default_label_attr|merge( label_attr ) %}
+        {{ widget|raw }}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {{ label is not sameas(false) ? label|trans({}, translation_domain) }}
+        </label>
+    {% endif %}
+{% endblock checkbox_radio_label %}

@@ -7,6 +7,11 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('sass', function() {
+    gulp.src('Resources/theme/scss/vendor/bootstrap.scss')
+        .pipe(sass())
+        .pipe(concat('bootstrap.css'))
+        .pipe(gulp.dest('Resources/public/vendor/css'));
+
     gulp.src('Resources/theme/scss/base.standard.scss')
         .pipe(sass())
         .pipe(concat('theme.css'))
@@ -14,6 +19,11 @@ gulp.task('sass', function() {
 });
 
 gulp.task('qualitheme', function() {
+    gulp.src('Resources/theme/scss/vendor/bootstrap.scss')
+        .pipe(sass())
+        .pipe(concat('bootstrap.css'))
+        .pipe(gulp.dest('Resources/public/vendor/css'));
+
     gulp.src('Resources/theme/scss/base.quali.scss')
         .pipe(sass())
         .pipe(concat('theme.css'))
