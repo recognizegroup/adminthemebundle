@@ -19,6 +19,28 @@
   }
 }
 
+@mixin feedback_button_color( $class, $bordercolor, $textcolor, $textcolor-hover ){
+  &#{$class} {
+    border-color: $bordercolor;
+    background: $button-light-bg-color;
+    color: $textcolor;
+
+    &:hover,
+    &:focus {
+      border-color: $bordercolor;
+      background: mix( $bordercolor, #FFF, 80% );
+      color: $textcolor-hover;
+    }
+
+    &:active,
+    &.active {
+      border-color: $bordercolor;
+      background: mix( $bordercolor, #000, 90%);
+      color: $textcolor-hover;
+    }
+  }
+}
+
 .btn {
   @include feedback_button( 4px );
   border-color: $button-border-color;
@@ -47,23 +69,10 @@
     @include button_press_animation;
   }
 
-  &.btn-primary {
-    border-color: $button-primary-border-color;
-    background: $button-primary-bg-color;
-    color: $button-primary-text-color;
+  @include feedback_button_color(".btn-primary", $brand-color, $button-text-color, $button-text-color);
+  @include feedback_button_color(".btn-warning", $brand-warning, $button-text-color, $button-text-color);
+  @include feedback_button_color(".btn-danger", $brand-danger, $button-text-color, $button-light-text-color);
+  @include feedback_button_color(".btn-info", $brand-info, $button-text-color, $button-text-color);
+  @include feedback_button_color(".btn-success", $brand-success, $button-text-color, $button-light-text-color);
 
-    &:hover,
-    &:focus {
-      border-color: $button-primary-hover-border-color;
-      background: $button-primary-hover-bg-color;
-      color: $button-primary-hover-text-color;
-    }
-
-    &:active,
-    &.active {
-      border-color: $button-primary-active-border-color;
-      background: $button-primary-active-bg-color;
-      color: $button-primary-active-text-color;
-    }
-  }
 }

@@ -40,6 +40,8 @@ $input-border-color: #CCCCCC;
 // Button styling
 $button-bg-color: #EEEEEE;
 $button-text-color: #000;
+$button-light-bg-color: $light-color;
+$button-light-text-color: $light-color;
 $button-border-color: #CCC;
 $button-focus-color: $focus-color;
 $button-focus-pressed-bg-color: mix( $button-focus-color, #000000, 80% );
@@ -48,17 +50,6 @@ $button-active-bg-color: rgba( #000000, 0.6 );
 $button-hover-bg-color: rgba( $brand-color, 0.6 );
 $button-hover-text-color: $light-color;
 $button-active-text-color: $light-color;
-
-//
-$button-primary-bg-color: $light-color;
-$button-primary-border-color: $brand-color;
-$button-primary-text-color: #000000;
-$button-primary-hover-bg-color: mix( $brand-color, #FFF, 80% );
-$button-primary-hover-border-color: $button-primary-border-color;
-$button-primary-hover-text-color: $light-color;
-$button-primary-active-bg-color: mix( $brand-color, #000, 90%);
-$button-primary-active-border-color: $button-primary-border-color;
-$button-primary-active-text-color: $light-color;
 
 // Select2 styling
 $select2-text-color: #000000;

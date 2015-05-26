@@ -408,14 +408,62 @@
   .btn.btn-primary {
     border-color: #E74C3C;
     background: #FFFFFF;
-    color: #000000; }
+    color: #000; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
       border-color: #E74C3C;
       background: #eb6f62;
-      color: #FFFFFF; }
+      color: #000; }
     .btn.btn-primary:active, .btn.btn-primary.active {
       border-color: #E74C3C;
       background: #cf4436;
+      color: #000; }
+  .btn.btn-warning {
+    border-color: #f0ad4e;
+    background: #FFFFFF;
+    color: #000; }
+    .btn.btn-warning:hover, .btn.btn-warning:focus {
+      border-color: #f0ad4e;
+      background: #f3bd71;
+      color: #000; }
+    .btn.btn-warning:active, .btn.btn-warning.active {
+      border-color: #f0ad4e;
+      background: #d89b46;
+      color: #000; }
+  .btn.btn-danger {
+    border-color: #d9534f;
+    background: #FFFFFF;
+    color: #000; }
+    .btn.btn-danger:hover, .btn.btn-danger:focus {
+      border-color: #d9534f;
+      background: #e07572;
+      color: #FFFFFF; }
+    .btn.btn-danger:active, .btn.btn-danger.active {
+      border-color: #d9534f;
+      background: #c34a47;
+      color: #FFFFFF; }
+  .btn.btn-info {
+    border-color: #5bc0de;
+    background: #FFFFFF;
+    color: #000; }
+    .btn.btn-info:hover, .btn.btn-info:focus {
+      border-color: #5bc0de;
+      background: #7bcce4;
+      color: #000; }
+    .btn.btn-info:active, .btn.btn-info.active {
+      border-color: #5bc0de;
+      background: #51acc7;
+      color: #000; }
+  .btn.btn-success {
+    border-color: #5cb85c;
+    background: #FFFFFF;
+    color: #000; }
+    .btn.btn-success:hover, .btn.btn-success:focus {
+      border-color: #5cb85c;
+      background: #7cc67c;
+      color: #FFFFFF; }
+    .btn.btn-success:active, .btn.btn-success.active {
+      border-color: #5cb85c;
+      background: #52a552;
       color: #FFFFFF; }
 
 .form-group .select2 {
@@ -563,7 +611,7 @@ input[type=submit].btn:focus, input[type=button].btn:focus, a.btn:focus {
       height: 17px;
       left: 0;
       margin-left: -20px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 3px;
       background-color: #fff;
       -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
@@ -587,7 +635,8 @@ input[type=submit].btn:focus, input[type=button].btn:focus, a.btn:focus {
     .checkbox input[type="checkbox"]:focus + label::before {
       outline: thin dotted;
       outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px; }
+      outline-offset: -2px;
+      border-color: #46b8da; }
     .checkbox input[type="checkbox"]:checked + label::after {
       font-family: 'FontAwesome';
       content: "\f00c"; }
@@ -607,11 +656,17 @@ input[type="checkbox"].checkbox-primary:checked + label::before {
 input[type="checkbox"].checkbox-primary:checked + label::after {
   color: #fff; }
 
+input[type="checkbox"].checkbox-primary:focus + label::before {
+  border-color: #337ab7; }
+
 input[type="checkbox"].checkbox-danger:checked + label::before {
   background-color: #d9534f;
   border-color: #d9534f; }
 input[type="checkbox"].checkbox-danger:checked + label::after {
   color: #fff; }
+
+input[type="checkbox"].checkbox-danger:focus + label::before {
+  border-color: #d9534f; }
 
 input[type="checkbox"].checkbox-info:checked + label::before {
   background-color: #5bc0de;
@@ -619,17 +674,26 @@ input[type="checkbox"].checkbox-info:checked + label::before {
 input[type="checkbox"].checkbox-info:checked + label::after {
   color: #fff; }
 
+input[type="checkbox"].checkbox-info:focus + label::before {
+  border-color: #5bc0de; }
+
 input[type="checkbox"].checkbox-warning:checked + label::before {
   background-color: #f0ad4e;
   border-color: #f0ad4e; }
 input[type="checkbox"].checkbox-warning:checked + label::after {
   color: #fff; }
 
+input[type="checkbox"].checkbox-warning:focus + label::before {
+  border-color: #f0ad4e; }
+
 input[type="checkbox"].checkbox-success:checked + label::before {
   background-color: #5cb85c;
   border-color: #5cb85c; }
 input[type="checkbox"].checkbox-success:checked + label::after {
   color: #fff; }
+
+input[type="checkbox"].checkbox-success:focus + label::before {
+  border-color: #5cb85c; }
 
 .radio {
   padding-left: 20px; }
@@ -646,7 +710,7 @@ input[type="checkbox"].checkbox-success:checked + label::after {
       height: 17px;
       left: 0;
       margin-left: -20px;
-      border: 1px solid #ccc;
+      border: 2px solid #ccc;
       border-radius: 50%;
       background-color: #fff;
       -webkit-transition: border 0.15s ease-in-out;
@@ -677,7 +741,8 @@ input[type="checkbox"].checkbox-success:checked + label::after {
     .radio input[type="radio"]:focus + label::before {
       outline: thin dotted;
       outline: 5px auto -webkit-focus-ring-color;
-      outline-offset: -2px; }
+      outline-offset: -2px;
+      border-color: #46b8da; }
     .radio input[type="radio"]:checked + label::after {
       -webkit-transform: scale(1, 1);
       -ms-transform: scale(1, 1);
@@ -697,12 +762,18 @@ input[type="radio"].radio-primary:checked + label::before {
 input[type="radio"].radio-primary:checked + label::after {
   background-color: #337ab7; }
 
+input[type="radio"].radio-primary:focus + label::before {
+  border-color: #337ab7; }
+
 input[type="radio"].radio-danger + label::after {
   background-color: #d9534f; }
 input[type="radio"].radio-danger:checked + label::before {
   border-color: #d9534f; }
 input[type="radio"].radio-danger:checked + label::after {
   background-color: #d9534f; }
+
+input[type="radio"].radio-danger:focus + label::before {
+  border-color: #d9534f; }
 
 input[type="radio"].radio-info + label::after {
   background-color: #5bc0de; }
@@ -711,6 +782,9 @@ input[type="radio"].radio-info:checked + label::before {
 input[type="radio"].radio-info:checked + label::after {
   background-color: #5bc0de; }
 
+input[type="radio"].radio-info:focus + label::before {
+  border-color: #5bc0de; }
+
 input[type="radio"].radio-warning + label::after {
   background-color: #f0ad4e; }
 input[type="radio"].radio-warning:checked + label::before {
@@ -718,12 +792,18 @@ input[type="radio"].radio-warning:checked + label::before {
 input[type="radio"].radio-warning:checked + label::after {
   background-color: #f0ad4e; }
 
+input[type="radio"].radio-warning:focus + label::before {
+  border-color: #f0ad4e; }
+
 input[type="radio"].radio-success + label::after {
   background-color: #5cb85c; }
 input[type="radio"].radio-success:checked + label::before {
   border-color: #5cb85c; }
 input[type="radio"].radio-success:checked + label::after {
   background-color: #5cb85c; }
+
+input[type="radio"].radio-success:focus + label::before {
+  border-color: #5cb85c; }
 
 input[type="checkbox"].styled:checked + label:after {
   font-family: 'FontAwesome';
