@@ -70,6 +70,36 @@
     -webkit-transform: translate3d(3px, 0, 0);
     transform: translate3d(3px, 0, 0); } }
 
+@-moz-keyframes blinking_error {
+  0% {
+    opacity: 1.0; }
+
+  50% {
+    opacity: 0.0; }
+
+  100% {
+    opacity: 1.0; } }
+
+@-webkit-keyframes blinking_error {
+  0% {
+    opacity: 1.0; }
+
+  50% {
+    opacity: 0.0; }
+
+  100% {
+    opacity: 1.0; } }
+
+@keyframes blinking_error {
+  0% {
+    opacity: 1.0; }
+
+  50% {
+    opacity: 0.0; }
+
+  100% {
+    opacity: 1.0; } }
+
 .topbar {
   width: 100%;
   top: 0px;
@@ -517,6 +547,27 @@
 input[type=submit].btn:focus, input[type=button].btn:focus, a.btn:focus {
   outline: none;
   border-color: #46b8da; }
+
+.event-container {
+  margin: 20px; }
+  .event-container .glyphicon {
+    font-size: 1.6em;
+    padding-right: 5px;
+    top: -2px;
+    float: left; }
+  .event-container .alert-danger .glyphicon {
+    -webkit-animation-name: blinking_error;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 5;
+    -moz-animation-name: blinking_error;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: 5;
+    animation-name: blinking_error;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 5; }
 
 .navbar {
   border-radius: 0px;

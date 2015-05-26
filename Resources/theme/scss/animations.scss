@@ -109,3 +109,38 @@ $animation-duration: 0.7s;
   -webkit-transform: rotate(0deg) !important; /* Chrome, Safari, Opera */
   transform: rotate(0deg) !important;
 }
+
+@-moz-keyframes blinking_error {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinking_error {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blinking_error {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@mixin blinking_error {
+  -webkit-animation-name: blinking_error;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 5;
+
+  -moz-animation-name: blinking_error;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: 5;
+
+  animation-name: blinking_error;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 5;
+}

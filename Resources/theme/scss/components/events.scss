@@ -1,0 +1,16 @@
+.event-container {
+  margin: 20px;
+
+  .glyphicon {
+    font-size: 1.6em;
+    padding-right: 5px;
+    top: -2px;
+    float:left;
+  }
+
+  .alert-danger {
+    .glyphicon {
+      @include blinking_error;
+    }
+  }
+}
