@@ -27,8 +27,10 @@
                     </div>
 
                     <div class="form-group">
-                        <input class="checkbox" type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        <div class="checkbox">
+                            <input class="checkbox checkbox-primary" type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label class="control-label" for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                        </div>
                     </div>
 
 

@@ -7,7 +7,7 @@ $font-family-icon: 'FontAwesome' !default;
 @mixin checkbox-variant($element, $color) {
   input[type="checkbox"]#{$element}:checked + label{
     &::before {
-      background-color: $color;
+      background-color: $color !important;
       border-color: $color;
     }
 
@@ -17,7 +17,7 @@ $font-family-icon: 'FontAwesome' !default;
   }
 
   input[type="checkbox"]#{$element}:focus + label::before {
-    border-color: $color;
+    border-color: $color  !important;
   }
 }
 
@@ -64,8 +64,11 @@ $font-family-icon: 'FontAwesome' !default;
     z-index: 1;
 
     &:focus + label::before{
-      @include tab-focus();
-      border-color: $focus-color;
+      border-color: $focus-color !important;
+    }
+
+    &:checked:focus + label:before {
+      background-color: $focus-color;
     }
 
     &:checked + label::after{
@@ -81,7 +84,6 @@ $font-family-icon: 'FontAwesome' !default;
         cursor: not-allowed;
       }
     }
-
   }
 
   &.checkbox-circle label::before{
@@ -93,7 +95,7 @@ $font-family-icon: 'FontAwesome' !default;
   }
 }
 
-@include checkbox-variant('.checkbox-primary', $brand-primary);
+@include checkbox-variant('.checkbox-primary', $brand-color);
 @include checkbox-variant('.checkbox-danger', $brand-danger);
 @include checkbox-variant('.checkbox-info', $brand-info);
 @include checkbox-variant('.checkbox-warning', $brand-warning);

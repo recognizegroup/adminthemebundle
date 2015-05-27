@@ -16,6 +16,9 @@ gulp.task('sass', function() {
         .pipe(sass())
         .pipe(concat('theme.css'))
         .pipe(gulp.dest('Resources/public/css'));
+
+    gulp.src("Resources/theme/images/default/*")
+        .pipe(gulp.dest('Resources/public/images'));
 });
 
 gulp.task('qualitheme', function() {
@@ -28,6 +31,9 @@ gulp.task('qualitheme', function() {
         .pipe(sass())
         .pipe(concat('theme.css'))
         .pipe(gulp.dest('Resources/public/css'));
+
+    gulp.src("Resources/theme/images/qualizorg/*")
+        .pipe(gulp.dest('Resources/public/images'));
 });
 
 gulp.task('js', function() {
