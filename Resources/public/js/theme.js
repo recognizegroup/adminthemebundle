@@ -1,4 +1,12 @@
 /**
+ * Remove an event that is on top of the content
+ */
+$(document).ready(function() {
+    $('.close-alert').on("click", function (event) {
+        $(event.target).parent().hide();
+    });
+});
+/**
  * Opens the menu and starts the animations
  */
 $(document).ready(function(){
@@ -6,6 +14,27 @@ $(document).ready(function(){
         $(this).toggleClass("open");
         $('.content-area .mainmenu').toggleClass("open").attr("style", "");
         $('.content-area .content').toggleClass("open").attr("style", "");
+    });
+});
+/**
+ * Fix an issue with Chrome that makes the scrolling to an invalid input field show an arrow to the header bar
+ * Instead of the input field.
+ *
+ * http://stackoverflow.com/questions/19814673/html5-input-required-scroll-to-input-with-fixed-navbar-on-submit
+ */
+$(document).ready(function() {
+    $('input').on('invalid', function (event) {
+        setTimeout(function () {
+            var offset = 0;
+            var parent = $(event.target).parent();
+            if (parent.has(".form-group")) {
+                offset = parent.position().top;
+            }
+
+            if (offset) {
+                window.scroll(0, offset);
+            }
+        }, 2);
     });
 });
 /**
@@ -98,6 +127,24 @@ $(document).ready(function(){
     }
 
     profile_element.on('click', toggleBigAvatar);
+});
+/**
+ * Remove the error message and styling if the input has changed
+ */
+$(document).ready(function() {
+    $('.form-group input').on("change", function (event) {
+        $(event.target).parent().removeClass("has-error").find('.help-block').hide();
+    });
+});
+/**
+ * Swap the styling of a button with a loading animation on submit
+ */
+$(document).ready(function() {
+    $('form').on("submit", function( event ){
+        $( event.target).find('.btn').on("click", function( event ){
+            event.preventDefault();
+        }).html("<i class=\"fa fa-2x fa-pulse fa-spinner\"></i>");
+    });
 });
 /**
  * Trigger a faux active state when the enter key is pressed on a btn element

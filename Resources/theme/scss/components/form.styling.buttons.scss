@@ -69,7 +69,7 @@
     @include button_press_animation;
   }
 
-  @include feedback_button_color(".btn-primary", $brand-color, $button-text-color, $button-text-color);
+  @include feedback_button_color(".btn-primary", $brand-color, $button-text-color, $button-light-text-color);
   @include feedback_button_color(".btn-warning", $brand-warning, $button-text-color, $button-text-color);
   @include feedback_button_color(".btn-danger", $brand-danger, $button-text-color, $button-light-text-color);
   @include feedback_button_color(".btn-info", $brand-info, $button-text-color, $button-text-color);

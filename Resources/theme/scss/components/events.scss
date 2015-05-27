@@ -9,8 +9,15 @@
   }
 
   .alert-danger {
-    .glyphicon {
+    .blinking-icon {
       @include blinking_error;
+    }
+  }
+
+  .close-alert {
+    &:hover {
+      cursor: pointer;
+      color: white;
     }
   }
 }

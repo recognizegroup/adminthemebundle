@@ -100,6 +100,59 @@
   100% {
     opacity: 1.0; } }
 
+@-webkit-keyframes small-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0); }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -7px, 0);
+    transform: translate3d(0, -7px, 0); }
+
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0); } }
+
+@keyframes small-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0); }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    -webkit-transform: translate3d(0, -7px, 0);
+    transform: translate3d(0, -7px, 0); }
+
+  90% {
+    -webkit-transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -4px, 0); } }
+
+.small-bounce {
+  -webkit-animation-name: small-bounce;
+  animation-name: small-bounce;
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom; }
+
 .topbar {
   width: 100%;
   top: 0px;
@@ -412,11 +465,11 @@
     .btn.btn-primary:hover, .btn.btn-primary:focus {
       border-color: #E74C3C;
       background: #eb6f62;
-      color: #000; }
+      color: #FFFFFF; }
     .btn.btn-primary:active, .btn.btn-primary.active {
       border-color: #E74C3C;
       background: #cf4436;
-      color: #000; }
+      color: #FFFFFF; }
   .btn.btn-warning {
     border-color: #f0ad4e;
     background: #FFFFFF;
@@ -741,6 +794,7 @@ input[type="checkbox"].checkbox-success:focus + label::before {
       outline: thin dotted;
       outline: 5px auto -webkit-focus-ring-color;
       outline-offset: -2px;
+      outline: none;
       border-color: #46b8da; }
     .radio input[type="radio"]:checked + label::after {
       -webkit-transform: scale(1, 1);
@@ -812,6 +866,75 @@ input[type="checkbox"] .styled:checked + label::before {
 input[type="checkbox"] .styled:checked + label::after {
   color: #fff; }
 
+/**
+ * Styling used from http://cssdeck.com/labs/better-css-toggle-switches and editted
+ */
+input.switch:empty {
+  margin-left: -999px; }
+
+input.switch:empty ~ label {
+  position: relative;
+  float: left;
+  line-height: 2em;
+  text-indent: 4.5em;
+  margin: 0.2em 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+input.switch:empty ~ label:before, input.switch:empty ~ label:after {
+  font-family: 'FontAwesome';
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: "\f00d";
+  width: 4em;
+  text-indent: 2.35em;
+  color: #900;
+  background-color: #c33;
+  border-radius: 0.3em;
+  border: 2px solid transparent;
+  line-height: 1.8em; }
+
+input.switch:empty ~ label:after {
+  content: ' ';
+  width: 1.8em;
+  top: 0.15em;
+  bottom: 0.1em;
+  text-align: center;
+  text-indent: 0;
+  margin-left: 0.1em;
+  color: #f88;
+  background-color: #fff;
+  border-radius: 0.15em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in; }
+
+/* toggle on */
+input.switch:checked ~ label:before {
+  content: "\f00c";
+  text-indent: 0.5em;
+  color: #6f6;
+  background-color: #393;
+  line-height: 1.8em; }
+
+input.switch:checked ~ label:after {
+  margin-left: 2.05em;
+  color: #6c6; }
+
+/* focus styles */
+input.switch:focus ~ label {
+  color: #000; }
+
+input.switch:focus ~ label:before {
+  top: 0em;
+  border-color: #46b8da; }
+
 .event-container {
   margin: 20px; }
   .event-container .glyphicon {
@@ -819,7 +942,7 @@ input[type="checkbox"] .styled:checked + label::after {
     padding-right: 5px;
     top: -2px;
     float: left; }
-  .event-container .alert-danger .glyphicon {
+  .event-container .alert-danger .blinking-icon {
     -webkit-animation-name: blinking_error;
     -webkit-animation-duration: 0.5s;
     -webkit-animation-timing-function: linear;
@@ -832,6 +955,9 @@ input[type="checkbox"] .styled:checked + label::after {
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: 5; }
+  .event-container .close-alert:hover {
+    cursor: pointer;
+    color: white; }
 
 .navbar {
   border-radius: 0px;

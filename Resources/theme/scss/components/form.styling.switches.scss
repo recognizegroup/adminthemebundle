@@ -1,0 +1,85 @@
+/**
+ * Styling used from http://cssdeck.com/labs/better-css-toggle-switches and editted
+ */
+input.switch:empty
+{
+  margin-left: -999px;
+}
+
+input.switch:empty ~ label
+{
+  position: relative;
+  float: left;
+  line-height: 2em;
+  text-indent: 4.5em;
+  margin: 0.2em 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input.switch:empty ~ label:before,
+input.switch:empty ~ label:after
+{
+  font-family: 'FontAwesome';
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: "\f00d";
+  width: 4em;
+  text-indent: 2.35em;
+  color: #900;
+  background-color: #c33;
+  border-radius: 0.3em;
+  border: $input-border-width solid transparent;
+  line-height: 1.8em;
+}
+
+input.switch:empty ~ label:after
+{
+  content: ' ';
+  width: 1.8em;
+  top: 0.15em;
+  bottom: 0.1em;
+  text-align: center;
+  text-indent: 0;
+  margin-left: 0.1em;
+  color: #f88;
+  background-color: #fff;
+  border-radius: 0.15em;
+  border-bottom: $input-border-width solid rgba(0,0,0,0.2);
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+}
+
+/* toggle on */
+input.switch:checked ~ label:before
+{
+  content: "\f00c";
+  text-indent: 0.5em;
+  color: #6f6;
+  background-color: #393;
+  line-height: 1.8em;
+}
+
+input.switch:checked ~ label:after
+{
+  margin-left: 2.05em;
+  color: #6c6;
+}
+
+/* focus styles */
+input.switch:focus ~ label
+{
+  color: #000;
+}
+
+input.switch:focus ~ label:before
+{
+  top: 0em;
+  border-color: $focus-color;
+}

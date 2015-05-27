@@ -175,6 +175,7 @@ $font-family-icon: 'FontAwesome' !default;
 
     &:focus + label::before{
       @include tab-focus();
+      outline: none;
       border-color: $focus-color;
     }
 

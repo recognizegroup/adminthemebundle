@@ -8,7 +8,7 @@
     {% set event = defaultevent|merge(event) %}
     {% if event["type"] == 'error' %}
     <div class="alert alert-danger" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="glyphicon blinking-icon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span>
 
     {% elseif event['type'] == 'warning' %}
@@ -27,6 +27,7 @@
     {% endif %}
 
         {{ event['message']|trans  }}
+        <span class="close-alert glyphicon glyphicon-remove pull-right"></span>
     </div>
     {% endfor %}
 </div>

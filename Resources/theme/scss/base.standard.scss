@@ -1,6 +1,8 @@
 @import "vendor/bootstrap/variables";
 @import "vendor/bootstrap/mixins";
 
+$input-border-width: 2px;
+
 @import 'utils';
 @import 'brand.scss';
 @import 'colors.scss';
