@@ -1,48 +1,5 @@
-@mixin feedback_button( $border-height ){
-  margin-top: 0px;
-  border-width: 1px !important;
-  border-bottom-width: $border-height !important;
-
-  &:focus {
-    border-bottom-width: $border-height !important;
-  }
-
-  &:active,
-  &.active {
-    margin-top: $border-height !important;
-    border-bottom-width: 0px !important;
-  }
-
-  &:hover {
-    margin-top: 0px;
-    border-bottom-width: ($border-height + 1);
-  }
-}
-
-@mixin feedback_button_color( $class, $bordercolor, $textcolor, $textcolor-hover ){
-  &#{$class} {
-    border-color: $bordercolor;
-    background: $button-light-bg-color;
-    color: $textcolor;
-
-    &:hover,
-    &:focus {
-      border-color: $bordercolor;
-      background: mix( $bordercolor, #FFF, 80% );
-      color: $textcolor-hover;
-    }
-
-    &:active,
-    &.active {
-      border-color: $bordercolor;
-      background: mix( $bordercolor, #000, 90%);
-      color: $textcolor-hover;
-    }
-  }
-}
-
 .btn {
-  @include feedback_button( 4px );
+  @include feedback_button( $input-border-width * 2 );
   border-color: $button-border-color;
   background: $button-bg-color;
   color: $button-text-color;
@@ -69,10 +26,10 @@
     @include button_press_animation;
   }
 
-  @include feedback_button_color(".btn-primary", $brand-color, $button-text-color, $button-light-text-color);
-  @include feedback_button_color(".btn-warning", $brand-warning, $button-text-color, $button-text-color);
-  @include feedback_button_color(".btn-danger", $brand-danger, $button-text-color, $button-light-text-color);
-  @include feedback_button_color(".btn-info", $brand-info, $button-text-color, $button-text-color);
-  @include feedback_button_color(".btn-success", $brand-success, $button-text-color, $button-light-text-color);
+  @include feedback_button_brand(".btn-primary", $brand-primary, $button-text-color, $button-light-text-color);
+  @include feedback_button_brand(".btn-warning", $brand-warning, $button-text-color, $button-text-color);
+  @include feedback_button_brand(".btn-danger", $brand-danger, $button-text-color, $button-light-text-color);
+  @include feedback_button_brand(".btn-info", $brand-info, $button-text-color, $button-text-color);
+  @include feedback_button_brand(".btn-success", $brand-success, $button-text-color, $button-light-text-color);
 
 }

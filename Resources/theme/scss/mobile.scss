@@ -60,3 +60,40 @@
     padding-left: 0px;
   }
 }
+
+@media (max-width: 768px) {
+
+  .vcenter_sm_parent {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+}
+
+.no-r-c-right {
+  @include no-rounded-corners-right;
+}
+
+.no-r-c-left {
+  @include no-rounded-corners-left;
+}
+
+@media (min-width: 769px){
+  .no-r-c-left-xs {
+    @include no-rounded-corners-right;
+  }
+
+  .no-r-c-right-xs {
+    @include no-rounded-corners-left;
+  }
+}
+
+@media (max-width: 768px) {
+  .no-r-c-right-xs {
+    @include no-rounded-corners-right;
+  }
+
+  .no-r-c-left-xs {
+    @include no-rounded-corners-left;
+  }
+}

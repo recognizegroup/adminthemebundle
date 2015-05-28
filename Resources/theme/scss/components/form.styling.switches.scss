@@ -1,13 +1,11 @@
 /**
  * Styling used from http://cssdeck.com/labs/better-css-toggle-switches and editted
  */
-input.switch:empty
-{
+input.switch:empty {
   margin-left: -999px;
 }
 
-input.switch:empty ~ label
-{
+input.switch:empty ~ label {
   position: relative;
   float: left;
   line-height: 2em;
@@ -21,8 +19,7 @@ input.switch:empty ~ label
 }
 
 input.switch:empty ~ label:before,
-input.switch:empty ~ label:after
-{
+input.switch:empty ~ label:after {
   font-family: 'FontAwesome';
   position: absolute;
   display: block;
@@ -32,15 +29,14 @@ input.switch:empty ~ label:after
   content: "\f00d";
   width: 4em;
   text-indent: 2.35em;
-  color: #900;
-  background-color: #c33;
+  color: #FFF;
+  background-color: $button-border-color;
   border-radius: 0.3em;
   border: $input-border-width solid transparent;
   line-height: 1.8em;
 }
 
-input.switch:empty ~ label:after
-{
+input.switch:empty ~ label:after {
   content: ' ';
   width: 1.8em;
   top: 0.15em;
@@ -48,38 +44,53 @@ input.switch:empty ~ label:after
   text-align: center;
   text-indent: 0;
   margin-left: 0.1em;
-  color: #f88;
   background-color: #fff;
   border-radius: 0.15em;
-  border-bottom: $input-border-width solid rgba(0,0,0,0.2);
+  border-bottom: $input-border-width solid mix( $button-bg-color, #000, 70% );
   -webkit-transition: all 100ms ease-in;
   transition: all 100ms ease-in;
 }
 
+input.switch.switch-circle ~ label:before,
+input.switch.switch-circle ~ label:after {
+  border-radius: 2em;
+  border-bottom: $input-border-width solid transparent;
+}
+
+input.switch:empty ~ label:before {
+  border-color: $button-border-color;
+}
+
 /* toggle on */
-input.switch:checked ~ label:before
-{
+input.switch:checked ~ label:before {
   content: "\f00c";
   text-indent: 0.5em;
-  color: #6f6;
-  background-color: #393;
+  color: #FFF;
+  background-color: $brand-success;
+  border-color: $brand-success;
   line-height: 1.8em;
 }
 
-input.switch:checked ~ label:after
-{
+@include switch-brand( ".switch-primary", $brand-primary );
+@include switch-brand( ".switch-warning", $brand-warning );
+@include switch-brand( ".switch-danger", $brand-danger );
+@include switch-brand( ".switch-success", $brand-success );
+@include switch-brand( ".switch-info", $brand-info );
+
+@include switch-icon( ".switch-lock", "\f13e", "\f023");
+@include switch-icon( ".switch-unlock", "\f023", "\f13e");
+
+
+input.switch:checked ~ label:after {
   margin-left: 2.05em;
-  color: #6c6;
 }
 
 /* focus styles */
-input.switch:focus ~ label
-{
+input.switch:focus ~ label {
   color: #000;
 }
 
-input.switch:focus ~ label:before
-{
+input.switch:focus ~ label:before {
   top: 0em;
   border-color: $focus-color;
 }

@@ -1,14 +1,12 @@
 @import "vendor/bootstrap/variables";
 @import "vendor/bootstrap/mixins";
+@import 'bootstrap_overwrites.scss';
 
-$input-border-width: 2px;
-
-@import 'utils';
 @import 'brand.scss';
 @import 'colors.scss';
 @import 'fonts.scss';
+@import "mixins.scss";
 @import 'animations.scss';
 @import 'components.scss';
 
-@import 'bootstrap_overwrites.scss';
 @import 'mobile.scss';

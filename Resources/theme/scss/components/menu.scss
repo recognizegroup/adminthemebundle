@@ -1,17 +1,3 @@
-@mixin scroll-without-scrollbar {
-  overflow-y:scroll;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    width: 0 !important
-  }
-}
-
-@mixin menu-inset-shadow {
-  -moz-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
-  -webkit-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
-  box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
-}
-
 $menu-text-size: 14px;
 
 @media (min-width: 768px){

@@ -1,0 +1,152 @@
+@mixin disable-bootstrap-glow {
+  -webkit-appearance:none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+@mixin bootstrap-glow( $color ){
+  -webkit-appearance:none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($color, 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px rgba($color, 0.4);
+}
+
+@mixin no-rounded-corners-right {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+@mixin no-rounded-corners-left {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+@mixin checkbox-variant($element, $color) {
+  input[type="checkbox"]#{$element}:checked + label{
+    &::before {
+      background-color: $color !important;
+      border-color: $color;
+    }
+
+    &::after{
+      color: #fff;
+    }
+  }
+
+  input[type="checkbox"]#{$element}:focus + label::before {
+    border-color: $color  !important;
+  }
+}
+
+@mixin radio-variant($element, $color) {
+  input[type="radio"]#{$element}{
+    & + label{
+      &::after{
+        background-color: $color;
+      }
+    }
+
+    &:checked + label{
+      &::before {
+        border-color: $color;
+      }
+      &::after{
+        background-color: $color;
+      }
+    }
+  }
+
+  input[type="radio"]#{$element}:focus + label::before {
+    border-color: $color;
+  }
+}
+
+/**
+ * Bootstrap branding for switches
+ */
+@mixin switch-brand( $class, $color ){
+  input.switch#{$class}:checked ~ label:before {
+    background-color: $color;
+    border-color: $color;
+  }
+}
+
+/**
+ * Allow different icons for switches
+ */
+@mixin switch-icon( $class, $on-text, $off-text) {
+  input.switch#{$class}:empty ~ label:before,
+  input.switch#{$class}:empty ~ label:after {
+    content: $off-text;
+  }
+
+  input.switch#{$class}:checked ~ label:before {
+    content: $on-text;
+
+  }
+}
+
+@mixin feedback_button( $border-height ){
+  margin-top: 0px;
+  border-width: 1px !important;
+  border-bottom-width: $border-height !important;
+
+  &:focus {
+    border-bottom-width: $border-height !important;
+  }
+
+  &:active,
+  &.active {
+    margin-top: $border-height !important;
+    border-bottom-width: 0px !important;
+  }
+
+  &:hover {
+    margin-top: 0px;
+    border-bottom-width: ($border-height + 1);
+  }
+}
+
+@mixin feedback_button_brand( $class, $bordercolor, $textcolor, $textcolor-hover ){
+  &#{$class} {
+    border-color: $bordercolor;
+    background: $button-light-bg-color;
+    color: $textcolor;
+
+    &:hover,
+    &:focus {
+      border-color: $bordercolor;
+      background: mix( $bordercolor, #FFF, 80% );
+      color: $textcolor-hover;
+    }
+
+    &:active,
+    &.active {
+      border-color: $bordercolor;
+      background: mix( $bordercolor, #000, 90%);
+      color: $textcolor-hover;
+    }
+  }
+}
+
+@mixin hamburger-line {
+  display: inline-block;
+  width: $hamburger-size;
+  height: $hamburger-size/7;
+  background: $hamburger-icon-line-color;
+  border-radius: $hamburger-size/14;
+  transition: $transition;
+}
+
+@mixin scroll-without-scrollbar {
+  overflow-y:scroll;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0 !important
+  }
+}
+
+@mixin menu-inset-shadow {
+  -moz-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+  -webkit-box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+  box-shadow: 0px 3px 3px 0px $menu-shadow-color inset;
+}

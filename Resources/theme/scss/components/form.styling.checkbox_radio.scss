@@ -4,23 +4,6 @@
 
 $font-family-icon: 'FontAwesome' !default;
 
-@mixin checkbox-variant($element, $color) {
-  input[type="checkbox"]#{$element}:checked + label{
-    &::before {
-      background-color: $color !important;
-      border-color: $color;
-    }
-
-    &::after{
-      color: #fff;
-    }
-  }
-
-  input[type="checkbox"]#{$element}:focus + label::before {
-    border-color: $color  !important;
-  }
-}
-
 .checkbox{
   padding-left: 20px;
 
@@ -38,7 +21,7 @@ $font-family-icon: 'FontAwesome' !default;
       height: 17px;
       left: 0;
       margin-left: -20px;
-      border: 2px solid $input-border;
+      border: $input-border-width solid $input-border;
       border-radius: 3px;
       background-color: #fff;
       @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out);
@@ -95,7 +78,7 @@ $font-family-icon: 'FontAwesome' !default;
   }
 }
 
-@include checkbox-variant('.checkbox-primary', $brand-color);
+@include checkbox-variant('.checkbox-primary', $brand-primary);
 @include checkbox-variant('.checkbox-danger', $brand-danger);
 @include checkbox-variant('.checkbox-info', $brand-info);
 @include checkbox-variant('.checkbox-warning', $brand-warning);
@@ -104,29 +87,6 @@ $font-family-icon: 'FontAwesome' !default;
 //
 // Radios
 // --------------------------------------------------
-
-@mixin radio-variant($element, $color) {
-  input[type="radio"]#{$element}{
-    & + label{
-      &::after{
-        background-color: $color;
-      }
-    }
-
-    &:checked + label{
-      &::before {
-        border-color: $color;
-      }
-      &::after{
-        background-color: $color;
-      }
-    }
-  }
-
-  input[type="radio"]#{$element}:focus + label::before {
-    border-color: $color;
-  }
-}
 
 .radio{
   padding-left: 20px;
@@ -145,7 +105,7 @@ $font-family-icon: 'FontAwesome' !default;
       height: 17px;
       left: 0;
       margin-left: -20px;
-      border: 2px solid $input-border;
+      border: $input-border-width solid $input-border;
       border-radius: 50%;
       background-color: #fff;
       @include transition(border 0.15s ease-in-out);

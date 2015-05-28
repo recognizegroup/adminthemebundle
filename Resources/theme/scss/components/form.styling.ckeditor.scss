@@ -13,7 +13,7 @@
       top: 0px;
       background: #FFFFFF;
       padding: 4px 8px;
-      border-bottom: 2px solid #CCC;
+      border-bottom: $input-border-width solid #CCC;
 
       &:hover,
       &.cke_button_on {
@@ -21,7 +21,7 @@
         top: 2px;
         background: $cke-button-hover-bg-color;
         color: $cke-button-hover-text-color;
-        border-bottom: 2px solid $cke-bg-color;
+        border-bottom: $input-border-width solid $cke-bg-color;
       }
 
       &.cke_button_on:hover {
@@ -48,18 +48,18 @@
 
 .cke_inner {
   .cke_contents {
-    border: 2px solid $cke-border-color;
+    border: $input-border-width solid $cke-border-color;
   }
 }
 
 .cke_focus {
   .cke_contents {
-    border: 2px solid $cke-focus-color;
+    border: $input-border-width solid $cke-focus-color;
     @include bootstrap-glow( $cke-focus-color );
   }
 
   &.cke_textarea_inline {
-    border: 2px solid $cke-focus-color;
+    border: $input-border-width solid $cke-focus-color;
     border-radius: 4px;
     @include bootstrap-glow( $cke-focus-color );
   }

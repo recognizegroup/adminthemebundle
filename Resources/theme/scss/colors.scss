@@ -13,8 +13,8 @@ $hamburger-icon-line-color: $light-color;
 $menu-bg-color: $dark-bg-color;
 $menu-dark-bg-color: $darkest-bg-color;
 $menu-shadow-color: #000000;
-$menu-selected-color: $brand-color;
-$menu-highlight-color: $brand-color-faded;
+$menu-selected-color: $brand-primary;
+$menu-highlight-color: mix($brand-primary, #000, 60%);
 $menu-text-color: $light-color;
 $menu-divider-color: $dark-bg-selected-color;
 
@@ -23,8 +23,8 @@ $profile-text-color: $light-color;
 $profile-bg-color: $dark-bg-color;
 $profile-options-bg-color: $dark-bg-color;
 $profile-options-divider-color: $dark-bg-highlight-color;
-$profile-options-hover-color: $brand-color;
-$profile-options-selected-color: $brand-color;
+$profile-options-hover-color: $brand-primary;
+$profile-options-selected-color: $brand-primary;
 $profile-options-text-color: $profile-text-color;
 $profile-options-icon-color: $profile-options-text-color;
 
@@ -47,7 +47,7 @@ $button-focus-color: $focus-color;
 $button-focus-pressed-bg-color: mix( $button-focus-color, #000000, 80% );
 $button-focus-pressed-text-color: $light-color;
 $button-active-bg-color: rgba( #000000, 0.6 );
-$button-hover-bg-color: rgba( $brand-color, 0.6 );
+$button-hover-bg-color: rgba( $brand-primary, 0.6 );
 $button-hover-text-color: $light-color;
 $button-active-text-color: $light-color;
 
@@ -63,7 +63,7 @@ $select2-border-color: $input-border-color;
 // CKEditor styling
 $cke-bg-color: #EEE;
 $cke-button-hover-text-color: #FFFFFF;
-$cke-button-hover-bg-color: $brand-color;
+$cke-button-hover-bg-color: $brand-primary;
 $cke-button-text-color: #000000;
 $cke-button-bg-color: #FFFFFF;
 $cke-focus-color: $focus-color;

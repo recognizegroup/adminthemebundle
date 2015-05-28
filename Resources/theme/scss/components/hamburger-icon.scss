@@ -1,15 +1,6 @@
 $hamburger-size : 35px;
 $transition: .35s; // increase this to see the transformations in slow-motion
 
-@mixin line {
-  display: inline-block;
-  width: $hamburger-size;
-  height: $hamburger-size/7;
-  background: $hamburger-icon-line-color;
-  border-radius: $hamburger-size/14;
-  transition: $transition;
-}
-
 html.js {
 
   .hamburger-icon {
@@ -32,13 +23,13 @@ html.js {
     .lines {
 
       //create middle line
-      @include line;
+      @include hamburger-line;
       position: relative;
 
       /*create the upper and lower lines as pseudo-elements of the middle line*/
       &:before, &:after {
 
-        @include line;
+        @include hamburger-line;
         position: absolute;
         left:0;
         content: '';

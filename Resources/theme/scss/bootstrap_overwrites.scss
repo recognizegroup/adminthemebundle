@@ -3,3 +3,28 @@
   margin-bottom: 0px;
   border: none;
 }
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Used for centering
+@media (min-width: 768px) {
+  .vcenter_sm_parent {
+    display: table;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+  }
+
+  .vcenter_sm {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+$input-border-width: 2px;

@@ -1,15 +1,15 @@
 @import "vendor/bootstrap/variables";
 @import "vendor/bootstrap/mixins";
+@import 'bootstrap_overwrites.scss';
 
-@import 'utils';
 @import 'quali.brand.scss';
 @import 'colors.scss';
-
-$topbar-bg-color: $brand-color;
-
 @import 'fonts.scss';
+
+$topbar-bg-color: $brand-primary;
+
+@import "mixins.scss";
 @import 'animations.scss';
 @import 'components.scss';
 
-@import 'bootstrap_overwrites.scss';
 @import 'mobile.scss';
