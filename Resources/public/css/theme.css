@@ -852,7 +852,8 @@ input[type="checkbox"] .styled:checked + label::after {
  * Styling used from http://cssdeck.com/labs/better-css-toggle-switches and editted
  */
 input.switch:empty {
-  margin-left: -999px; }
+  opacity: 0;
+  z-index: 1; }
 
 input.switch:empty ~ label {
   position: relative;
