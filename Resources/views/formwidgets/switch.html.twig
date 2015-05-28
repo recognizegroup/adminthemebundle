@@ -1,0 +1,28 @@
+{% block switch_widget %}
+    {% spaceless %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' switch')}) %}
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        {{- block('switch_label') -}}
+    {% endspaceless %}
+{% endblock %}
+
+{% block switch_label %}
+    {% set default_label_attr = {'for': id} %}
+
+    {% if required %}
+        {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+    {% endif %}
+    {% if parent_label_class is defined %}
+        {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) %}
+    {% endif %}
+    {% if label is not sameas(false) and label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    {% set label_attr = default_label_attr|merge( label_attr ) %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{ label is not sameas(false) ? label|trans({}, translation_domain) }}
+    </label>
+{% endblock switch_label %}

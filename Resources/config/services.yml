@@ -4,3 +4,8 @@ services:
         arguments: ["%kernel.default_locale%"]
         tags:
             - { name: kernel.event_subscriber }
+
+    recognize.admintheme.form.type.switch:
+         class: Recognize\AdminThemeBundle\Form\Type\SwitchType
+         tags:
+            -  { name: form.type, alias: "switch" }
