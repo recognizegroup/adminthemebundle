@@ -1,4 +1,5 @@
-/**
+/**Allow phone
+
  * Make keyboard navigation possible on tables
  *
 $(document).ready(function() {

@@ -410,13 +410,17 @@
     color: #FFFFFF;
     background: #E74C3C; }
 
+.form-group :not(.checkbox):not(.radio) label {
+  font: normal bold 14px Verdana, sans-serif; }
+
 .btn {
   margin-top: 0px;
   border-width: 1px !important;
   border-bottom-width: 4px !important;
   border-color: #CCC;
   background: #EEEEEE;
-  color: #000; }
+  color: #000;
+  font: normal bold 14px/1.45 Verdana, sans-serif; }
   .btn:focus {
     border-bottom-width: 4px !important; }
   .btn:active, .btn.active {
@@ -443,7 +447,7 @@
   .btn.btn-primary {
     border-color: #E74C3C;
     background: #FFFFFF;
-    color: #000; }
+    color: #b83c30; }
     .btn.btn-primary:hover, .btn.btn-primary:focus {
       border-color: #E74C3C;
       background: #eb6f62;
@@ -455,7 +459,7 @@
   .btn.btn-warning {
     border-color: #f0ad4e;
     background: #FFFFFF;
-    color: #000; }
+    color: #c08a3e; }
     .btn.btn-warning:hover, .btn.btn-warning:focus {
       border-color: #f0ad4e;
       background: #f3bd71;
@@ -467,7 +471,7 @@
   .btn.btn-danger {
     border-color: #d9534f;
     background: #FFFFFF;
-    color: #000; }
+    color: #ad423f; }
     .btn.btn-danger:hover, .btn.btn-danger:focus {
       border-color: #d9534f;
       background: #e07572;
@@ -479,7 +483,7 @@
   .btn.btn-info {
     border-color: #5bc0de;
     background: #FFFFFF;
-    color: #000; }
+    color: black; }
     .btn.btn-info:hover, .btn.btn-info:focus {
       border-color: #5bc0de;
       background: #7bcce4;
@@ -491,7 +495,7 @@
   .btn.btn-success {
     border-color: #5cb85c;
     background: #FFFFFF;
-    color: #000; }
+    color: #499349; }
     .btn.btn-success:hover, .btn.btn-success:focus {
       border-color: #5cb85c;
       background: #7cc67c;

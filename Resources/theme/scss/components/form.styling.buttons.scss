@@ -3,6 +3,7 @@
   border-color: $button-border-color;
   background: $button-bg-color;
   color: $button-text-color;
+  font: $button-font;
 
   &:focus {
     outline: none;
@@ -26,10 +27,10 @@
     @include button_press_animation;
   }
 
-  @include feedback_button_brand(".btn-primary", $brand-primary, $button-text-color, $button-light-text-color);
-  @include feedback_button_brand(".btn-warning", $brand-warning, $button-text-color, $button-text-color);
-  @include feedback_button_brand(".btn-danger", $brand-danger, $button-text-color, $button-light-text-color);
-  @include feedback_button_brand(".btn-info", $brand-info, $button-text-color, $button-text-color);
-  @include feedback_button_brand(".btn-success", $brand-success, $button-text-color, $button-light-text-color);
+  @include feedback_button_brand(".btn-primary", $brand-primary, mix($brand-primary, #000, 80%), $button-light-text-color);
+  @include feedback_button_brand(".btn-warning", $brand-warning, mix($brand-warning, #000, 80%), $button-text-color);
+  @include feedback_button_brand(".btn-danger", $brand-danger, mix($brand-danger, #000, 80%), $button-light-text-color);
+  @include feedback_button_brand(".btn-info", $brand-info, mix($button-text-color, #000, 80%), $button-text-color);
+  @include feedback_button_brand(".btn-success", $brand-success, mix($brand-success, #000, 80%), $button-light-text-color);
 
 }
