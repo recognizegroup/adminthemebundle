@@ -24,11 +24,11 @@ Add the bundle to your composer.json
 	"repositories": [
 		{
 			"type": "git",
-			"url":  "git@bitbucket.org:recognize/admintheme-bundle.git"
+			"url":  "git@bitbucket.org:recognize/adminthemebundle.git"
 		}
 	],
 	 "require": {
-		"recognize/admintheme-bundle": "dev-master",
+		"recognize/adminthemebundle": "dev-master",
 	}
 }
 ```

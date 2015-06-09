@@ -4,7 +4,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 var webfolder = "web/";
-var defaultfolder = "src/Recognize/AdminThemeBundle/Resources/";
+var defaultfolder = "vendor/recognize/admintheme-bundle/Recognize/AdminThemeBundle/Resources/";
 
 module.exports = function( gulp ){
     gulp.task('default-theme-sass', function() {
