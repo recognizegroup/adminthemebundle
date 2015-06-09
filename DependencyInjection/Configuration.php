@@ -15,10 +15,13 @@ class Configuration implements ConfigurationInterface {
      */
     public function getConfigTreeBuilder() {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('recognize_admin_theme');
+        $rootNode = $treeBuilder->root('recognize_admintheme');
 
         $rootNode
             ->children()
+                ->arrayNode('languages')
+                    ->prototype('scalar')->end()
+                ->end()
             ->end()
         ;
 

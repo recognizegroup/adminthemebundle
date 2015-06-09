@@ -1,0 +1,10 @@
+{
+  "name": "AdminTheme",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-jshint": "latest",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest"
+  }
+}

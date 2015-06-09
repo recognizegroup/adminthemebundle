@@ -9,3 +9,9 @@ services:
          class: Recognize\AdminThemeBundle\Form\Type\SwitchType
          tags:
             -  { name: form.type, alias: "switch" }
+
+    twig.recognize.admintheme.variables:
+         class: Recognize\AdminThemeBundle\Service\AdminthemeTwigInitializer
+         arguments: ["%recognize_admin_theme.config%", @twig, @security.token_storage]
+         tags:
+            -  { name: twig.extension }

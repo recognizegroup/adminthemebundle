@@ -1,5 +1,7 @@
 <!--Top bar -->
-{% set accepted_languages = ['nl', 'en', 'de'] %}
+{% if admin_profile_languages is not defined %}
+{% set admin_profile_languages = [] %}
+{% endif %}
 <div class="topbar" style="z-index: 1000">
     <nav class="navbar navbar-inverse">
 
@@ -12,8 +14,8 @@
         </div>
 
         <span class="brand-area xs-text-left">
-            <img src="{{ asset('bundles/recognizeadmintheme/images/logo.png') }}" class="brand-logo hidden-xxs" />
-            <img src="{{ asset('bundles/recognizeadmintheme/images/icon.png') }}" class="brand-icon visible-xxs" />
+            <img src="{{ asset('admintheme/images/logo.png') }}" class="brand-logo hidden-xxs" />
+            <img src="{{ asset('admintheme/images/icon.png') }}" class="brand-icon visible-xxs" />
         </span>
 
         <div class="pull-right">

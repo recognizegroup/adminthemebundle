@@ -6,40 +6,35 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
+var webfolder = "../../../web/";
+
 gulp.task('sass', function() {
     gulp.src('Resources/theme/scss/vendor/bootstrap.scss')
         .pipe(sass())
         .pipe(concat('bootstrap.css'))
-        .pipe(gulp.dest('Resources/public/vendor/css'));
+        .pipe(gulp.dest(webfolder + "admintheme/css"));
 
     gulp.src('Resources/theme/scss/base.standard.scss')
         .pipe(sass())
         .pipe(concat('theme.css'))
-        .pipe(gulp.dest('Resources/public/css'));
+        .pipe(gulp.dest(webfolder + "admintheme/css"));
 
-    gulp.src("Resources/theme/images/default/*")
-        .pipe(gulp.dest('Resources/public/images'));
-});
-
-gulp.task('qualitheme', function() {
-    gulp.src('Resources/theme/scss/vendor/bootstrap.scss')
-        .pipe(sass())
-        .pipe(concat('bootstrap.css'))
-        .pipe(gulp.dest('Resources/public/vendor/css'));
-
-    gulp.src('Resources/theme/scss/base.quali.scss')
-        .pipe(sass())
-        .pipe(concat('theme.css'))
-        .pipe(gulp.dest('Resources/public/css'));
-
-    gulp.src("Resources/theme/images/qualizorg/*")
-        .pipe(gulp.dest('Resources/public/images'));
 });
 
 gulp.task('js', function() {
     return gulp.src('Resources/theme/js/*.js')
         .pipe(concat('theme.js'))
-        .pipe(gulp.dest('Resources/public/js'));
+        .pipe(gulp.dest(webfolder + "admintheme/js"));
+});
+
+gulp.task('vendors', function() {
+    return gulp.src('Resources/public/vendor/*/*')
+        .pipe(gulp.dest(webfolder + "admintheme"));
+});
+
+gulp.task('watch', function() {
+    gulp.watch('Resources/js/*.js', ['scripts']);
+    gulp.watch('Resources/theme/scss/*.scss', ['sass']);
 });
 
 gulp.task('test', function() {
@@ -53,9 +48,5 @@ gulp.task('test', function() {
     );
 });
 
-gulp.task('watch', function() {
-    gulp.watch('Resources/js/*.js', ['scripts']);
-    gulp.watch('Resources/theme/scss/*.scss', ['sass']);
-});
-
+gulp.task("theme", ['vendors', 'sass', 'js']);
 gulp.task('default', ['sass'] );

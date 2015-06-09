@@ -1,23 +1,23 @@
 {% trans_default_domain 'RecognizeAdminThemeBundle' %}
 
 {% if profile_image is not defined %}
-    {% set profile_image = asset('bundles/recognizeadmintheme/images/default-profile-image.png') %}
+    {% set profile_image = asset('admintheme/images/default-profile-image.png') %}
 {% endif %}
-{% if username is not defined %}
-    {% set username = "Account" %}
+{% if admin_profile_username is not defined %}
+    {% set admin_profile_username = "Account" %}
 {% endif %}
 
 <div class="profile tabfocus" aria-label="Toggle account options" tabindex="0">
     <div class="clearfix">
         <img src="{{ profile_image }}" class="avatar" />
-        <p class="username">{{ username }}</p>
+        <p class="username">{{ admin_profile_username }}</p>
     </div>
 
     <ul class="options" role="menu">
-        {% if accepted_languages is defined %}
+        {% if admin_profile_languages is defined and admin_profile_languages is not empty %}
         <li class="no-hover-style"><p class="language-title">{{ 'select.languages'|trans }}</p></li>
         <li class="no-hover-style">{% include 'RecognizeAdminThemeBundle::components/languagepicker.html.twig'
-            with {'accepted_languages': accepted_languages, 'current': app.request.locale } %}
+            with {'admin_profile_languages': admin_profile_languages, 'current': app.request.locale } %}
         </li>
         <li class="divider"></li>
         {% endif %}
