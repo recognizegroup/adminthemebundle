@@ -10,6 +10,10 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
             $twig->addGlobal("admin_profile_languages", $config['languages']);
         }
 
+        if( array_key_exists("leftmenu", $config ) ) {
+            $twig->addGlobal("left_menu_builder", $config['leftmenu']);
+        }
+
         $token = $storage->getToken();
         if( $token != null ){
             $twig->addGlobal("admin_profile_username", ucfirst( $token->getUsername() ) );

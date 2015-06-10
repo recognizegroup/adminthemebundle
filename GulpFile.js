@@ -27,6 +27,12 @@ gulp.task('js', function() {
         .pipe(gulp.dest(webfolder + "admintheme/js"));
 });
 
+gulp.task('images', function() {
+    return gulp.src('Resources/public/images/*')
+        .pipe(gulp.dest(webfolder + "admintheme/images"));
+});
+
+
 gulp.task('vendors', function() {
     return gulp.src('Resources/public/vendor/*/*')
         .pipe(gulp.dest(webfolder + "admintheme"));
@@ -48,5 +54,5 @@ gulp.task('test', function() {
     );
 });
 
-gulp.task("theme", ['vendors', 'sass', 'js']);
+gulp.task("theme", ['vendors', 'sass', 'js', 'images']);
 gulp.task('default', ['sass'] );

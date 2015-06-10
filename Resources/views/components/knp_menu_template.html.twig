@@ -1,0 +1,42 @@
+{% extends 'knp_menu.html.twig' %}
+{% import 'knp_menu.html.twig' as knp_menu %}
+
+{% block list %}
+    {% if item.hasChildren and options.depth is not sameas(0) and item.displayChildren %}
+        {# Add a collapse class if the item doesn't contain the current page #}
+        {% set collapseclass = "collapse " %}
+        {% if matcher.isAncestor( item ) %}
+        {% set collapseclass = collapseclass ~ "in " %}
+        {% endif %}
+
+        {% if item.isRoot == false %}
+            {% set listAttributes = listAttributes|merge({'class': collapseclass ~ "menu-list-" ~ item.level ~ '-' ~ loop.index}) %}
+        {% endif %}
+        <ul{{ knp_menu.attributes(listAttributes) }}>
+            {{ block('children') }}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+
+{% block linkElement %}
+<span>
+    <a href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>
+</span>
+{% endblock %}
+
+{% block spanElement %}
+    {% set caretclass = '' %}
+    {% set toggleattributes = '' %}
+    {% if item.hasChildren %}
+        {% set toggleattributes = 'data-toggle=collapse data-target=.menu-list-' ~ item.level ~ '-' ~ loop.index ~ ' '  %}
+        {% if matcher.isAncestor( item ) %}
+            {% set caretclass = 'fa-caret-up' %}
+        {% else %}
+            {% set caretclass = 'fa-caret-down' %}
+        {% endif %}
+    {% endif %}
+    <span{{ knp_menu.attributes(item.labelAttributes) }}><a {{ toggleattributes }}href="#">{{ block('label') }}
+    <i class="fa {{ caretclass }}"></i></a></span>
+{% endblock %}
+

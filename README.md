@@ -102,6 +102,7 @@ Add this to your app/config.yml file
 // app/config.yml
 recognize_admin_theme:
 	languages: [] // Array containing locale strings of the languages that are supported in the interface
+	leftmenu: '' // KNP menu builder method that generates the main navigation menu - example RecognizeCMSBundle:Builder:leftmenu
 ```
 
 Usage
