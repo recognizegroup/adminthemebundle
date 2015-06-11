@@ -102,8 +102,14 @@ Add this to your app/config.yml file
 // app/config.yml
 recognize_admin_theme:
 	languages: [] // Array containing locale strings of the languages that are supported in the interface
-	leftmenu: '' // KNP menu builder method that generates the main navigation menu - example RecognizeCMSBundle:Builder:leftmenu
+	leftmenu: 'RecognizeCMS:Builder:dashboard' // KNP menu builder method that generates the main navigation menu - example RecognizeCMSBundle:Builder:leftmenu
 ```
+
+Keeping the languages array empty will result in the languages not being switchable in the Profile dropdown.
+If you need to know more about KNPMenuBundle, refer to [the official documentation][1]
+
+[1]: http://symfony.com/doc/master/bundles/KnpMenuBundle/index.html
+
 
 Usage
 --------------
