@@ -12,10 +12,10 @@
 		}
 	],
   	"repositories": [
-	  	{
-			"type": "git",
-			"url":  "git@bitbucket.org:recognize/security-bundle.git"
-	  	}
+		{
+		  "type": "git",
+		  "url":  "git@bitbucket.org:recognize/security-bundle.git"
+		}
 	],
 	"require": {
 	  "friendsofsymfony/user-bundle": "~2.0@dev",
