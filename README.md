@@ -49,7 +49,7 @@ Enable the bundle in the kernel
     {
         $bundles = array(
             // ...
-            new Recognize\AdminThemBundle\RecognizeAdminThemBundle(),
+            new Recognize\AdminThemeBundle\RecognizeAdminThemeBundle(),
         );
     }
 ```
