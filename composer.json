@@ -18,7 +18,7 @@
 			"name": "recognize/security-bundle",
 			"version": "dev-master",
 			"source": {
-			  "url": "git@bitbucket.org:recognize/security-bundle.git"
+			  "url": "git@bitbucket.org:recognize/security-bundle.git",
 			  "type": "git",
 			  "reference": "origin/master"
 			}
