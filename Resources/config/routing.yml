@@ -1,0 +1,3 @@
+_admin_set_language:
+    path:     /settings/language
+    defaults: { _controller: RecognizeAdminThemeBundle:Controller:index }

@@ -39,7 +39,7 @@ Run composer install
 php ./composer.phar install
 ```
 
-Enable the bundle in the kernel
+Enable the bundle in the kernel - Also don't forget to enable FOSUserBundle and KnpMenuBundle
 
 ```php
 	<?php
@@ -92,6 +92,13 @@ gulp default-theme
 
 This will build the sass files and combine the javascript files, before loading the required resources into the web/admintheme folder.
 
+To turn on the translations, make sure the translation fallback is set
+
+```yml
+// app/config.yml
+framework:
+	translator: { fallbacks: ['nl'] }
+```
 
 Configuration
 --------------
@@ -101,8 +108,8 @@ Add this to your app/config.yml file
 ```yml
 // app/config.yml
 recognize_admin_theme:
-	languages: [] // Array containing locale strings of the languages that are supported in the interface
-	leftmenu: 'RecognizeCMS:Builder:dashboard' // KNP menu builder method that generates the main navigation menu - example RecognizeCMSBundle:Builder:leftmenu
+	languages: [] ## Array containing locale strings of the languages that are supported in the interface
+	leftmenu: 'RecognizeAdminThemeBundle:Builder:sample' ## KNP menu builder method that generates the main navigation menu
 ```
 
 Keeping the languages array empty will result in the languages not being switchable in the Profile dropdown.
@@ -115,6 +122,10 @@ Usage
 --------------
 
 Simply extend the bundles index.html.twig file in your own twig files to get the basic template.
+
+```twig
+{% extends 'RecognizeAdminThemeBundle::index.html.twig' %}
+```
 
 Enabling check- and radiobutton styling in the forms
 ----------------

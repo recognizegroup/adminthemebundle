@@ -11,8 +11,15 @@
 		  "homepage": "http://www.recognize.nl/"
 		}
 	],
+  	"repositories": [
+	  	{
+			"type": "git",
+			"url":  "git@bitbucket.org:recognize/security-bundle.git"
+	  	}
+	],
 	"require": {
 	  "friendsofsymfony/user-bundle": "~2.0@dev",
+	  "recognize/security-bundle": "dev-master",
 	  "knplabs/knp-menu-bundle": "~2.0"
 	},
 	"target-dir": "Recognize/AdminThemeBundle",
