@@ -1,5 +1,5 @@
 {
-	"name": "recognize/admintheme-bundle",
+	"name": "recognize/adminthemebundle",
 	"type": "symfony-bundle",
 	"description": "Symfony2 RecognizeAdminThemeBundle",
 	"keywords": ["recognize-adminthemebundle", "AdminThemeBundle"],
