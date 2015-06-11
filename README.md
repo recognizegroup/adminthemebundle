@@ -49,7 +49,7 @@ Enable the bundle in the kernel
     {
         $bundles = array(
             // ...
-            new Recognize\AdminThemBundle\RecognizeAdminThemBundle(),
+            new Recognize\AdminThemeBundle\RecognizeAdminThemeBundle(),
         );
     }
 ```
@@ -81,7 +81,7 @@ Also add the following line of code to your GulpFile.js to add the default theme
 
 ```sh
 // GulpFile.js
-require("./vendor/recognize/admintheme-bundle/Recognize/AdminThemeBundle/tasks.js")( gulp );
+require("./vendor/recognize/adminthemebundle/Recognize/AdminThemeBundle/tasks.js")( gulp );
 ```
 
 To build the default admintheme, run the following command:
