@@ -11,20 +11,6 @@
 		  "homepage": "http://www.recognize.nl/"
 		}
 	],
-  	"repositories": [
-		{
-		  "type": "package",
-		  "package": {
-			"name": "recognize/security-bundle",
-			"version": "dev-master",
-			"source": {
-			  "url": "git@bitbucket.org:recognize/security-bundle.git",
-			  "type": "git",
-			  "reference": "origin/master"
-			}
-		  }
-		}
-	],
 	"require": {
 	  "friendsofsymfony/user-bundle": "~2.0@dev",
 	  "recognize/security-bundle": "dev-master",
