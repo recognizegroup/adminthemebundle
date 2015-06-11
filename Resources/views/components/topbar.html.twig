@@ -5,6 +5,7 @@
 <div class="topbar" style="z-index: 1000">
     <nav class="navbar navbar-inverse">
 
+        {% if leftmenu is defined %}
         <div class="pull-left">
             <div class="visible-xs-inline">
                 <a class="hamburger-icon" role="button" aria-label="Toggle Navigation">
@@ -12,6 +13,7 @@
                 </a>
             </div>
         </div>
+        {% endif %}
 
         <span class="brand-area xs-text-left">
             <img src="{{ asset('admintheme/images/logo.png') }}" class="brand-logo hidden-xxs" />

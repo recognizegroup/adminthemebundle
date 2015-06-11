@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface {
                 ->arrayNode('languages')
                     ->prototype('scalar')->end()
                 ->end()
-                ->scalarNode('leftmenu')->isRequired()->end()
+                ->scalarNode('leftmenu')->end()
             ->end()
         ;
 
