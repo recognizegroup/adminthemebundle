@@ -1,6 +1,6 @@
 $profile-big-size: 120px;
 $profile-big-avatar-size: 70px;
-$profile-small-size: 30px;
+$profile-small-size: 40px;
 $profile-padding: 10px;
 $profile-scrollbar-padding: 10px;
 
@@ -34,6 +34,9 @@ $profile-scrollbar-padding: 10px;
     display: inline-block;
     height: $profile-small-size;
     width: $profile-small-size;
+    top: -5px;
+    border-radius: 50%;
+    position: relative;
     float: right;
     border: none;
   }
@@ -44,6 +47,7 @@ $profile-scrollbar-padding: 10px;
     background: $profile-bg-color;
 
     .avatar {
+      top: 0px;
       float: right;
       display: block;
       height: $profile-big-avatar-size;
