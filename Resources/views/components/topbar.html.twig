@@ -15,13 +15,17 @@
         </div>
         {% endif %}
 
+        {% block brand %}
         <span class="brand-area xs-text-left">
             <img src="{{ asset('admintheme/images/logo.png') }}" class="brand-logo hidden-xxs" />
             <img src="{{ asset('admintheme/images/icon.png') }}" class="brand-icon visible-xxs" />
         </span>
+        {% endblock %}
 
         <div class="pull-right">
+            {% block profile %}
             {% include 'RecognizeAdminThemeBundle::components/profile.html.twig' %}
+            {% endblock profile %}
         </div>
     </nav>
 </div>

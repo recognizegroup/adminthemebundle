@@ -9,25 +9,29 @@
     <link rel="icon" href="{{ asset('admintheme/images/favicon.ico') }}"/>
     {% endblock %}
 
+    {% block styles %}
     <link href="{{ asset('admintheme/css/bootstrap.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('admintheme/css/font-awesome.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('admintheme/css/flags.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('admintheme/css/animate.css') }}" rel="stylesheet" media="screen">
     <link href="{{ asset('admintheme/css/theme.css') }}" rel="stylesheet" media="screen">
-    {% block styles %}{% endblock %}
+    {% endblock %}
 
+    {% block scripts %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('admintheme/js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('admintheme/js/theme.js') }}"></script>
-    {% block scripts %}{% endblock %}
+    {% endblock %}
     <script type="text/javascript">
         document.documentElement.className = "js";
     </script>
 
 </head>
+{% block bodytag %}
 <body>
 {% block body %}{% endblock %}
 </body>
+{% endblock bodytag %}
 {# Maak zelf een <script> tag aan voor formatting in je editor #}
 {% block lateScript %}{% endblock %}
 </html>

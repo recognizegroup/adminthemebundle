@@ -95,3 +95,7 @@ input.switch:focus ~ label:before {
   top: 0em;
   border-color: $focus-color;
 }
+
+.form-group .switch {
+  margin-bottom: 15px;
+}
