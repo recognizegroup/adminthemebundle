@@ -38,7 +38,10 @@ $profile-scrollbar-padding: 10px;
     border-radius: 50%;
     position: relative;
     float: right;
-    border: none;
+  }
+
+  &:focus .avatar {
+    border: 2px solid $brand-primary;
   }
 
   &.big {
