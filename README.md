@@ -127,6 +127,16 @@ Simply extend the bundles index.html.twig file in your own twig files to get the
 {% extends 'RecognizeAdminThemeBundle::index.html.twig' %}
 ```
 
+Profile image
+--------------
+
+To set the profile image to be something different than the default image, inject the admin_profile_image into twig.
+
+```php
+// Some controller
+    $this->get('twig')->addGlobal("admin_profile_image", "http://i.imgur.com/FB3MnKv.png" );
+```
+
 Enabling check- and radiobutton styling in the forms
 ----------------
 

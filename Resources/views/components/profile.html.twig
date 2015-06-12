@@ -1,7 +1,7 @@
 {% trans_default_domain 'RecognizeAdminThemeBundle' %}
 
-{% if profile_image is not defined %}
-    {% set profile_image = asset('admintheme/images/default-profile-image.png') %}
+{% if admin_profile_image is not defined %}
+    {% set admin_profile_image = asset('admintheme/images/default-profile-image.png') %}
 {% endif %}
 {% if admin_profile_username is not defined %}
     {% set admin_profile_username = "Account" %}
@@ -9,7 +9,7 @@
 
 <div class="profile tabfocus" aria-label="Toggle account options" tabindex="0">
     <div class="clearfix">
-        <img src="{{ profile_image }}" class="avatar" />
+        <img src="{{ admin_profile_image }}" class="avatar" />
         <p class="username">{{ admin_profile_username }}</p>
     </div>
 

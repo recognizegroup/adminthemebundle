@@ -5,7 +5,11 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class AdminthemeTwigInitializer extends \Twig_Extension {
 
+    protected $twig;
+
     public function __construct( $config, \Twig_Environment $twig, TokenStorage $storage ){
+        $this->twig = $twig;
+
         if( array_key_exists("languages", $config ) ) {
             $twig->addGlobal("admin_profile_languages", $config['languages']);
         }
