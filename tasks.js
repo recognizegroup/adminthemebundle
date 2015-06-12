@@ -20,19 +20,27 @@ module.exports = function( gulp ){
             .pipe(gulp.dest(webfolder + "admintheme/js"));
     });
 
-    gulp.task('default-theme-move', function(){
-        gulp.src(defaultfolder + "public/css/*")
+    gulp.task('default-theme-move-css', function(){
+        return gulp.src(defaultfolder + "public/css/*")
             .pipe(gulp.dest(webfolder + "admintheme/css"));
+    });
 
-        gulp.src(defaultfolder + "public/js/*")
+    gulp.task('default-theme-move-js', function(){
+        return gulp.src(defaultfolder + "public/js/*")
             .pipe(gulp.dest(webfolder + "admintheme/js"));
+    });
 
-        gulp.src(defaultfolder + "theme/images/default/*")
+    gulp.task('default-theme-move-images', function(){
+        return gulp.src(defaultfolder + "theme/images/default/*")
             .pipe(gulp.dest(webfolder + "admintheme/images"));
+    });
 
-        gulp.src(defaultfolder + "public/vendor/*/*")
+    gulp.task('default-theme-move-vendors', function(){
+        return gulp.src(defaultfolder + "public/vendor/*/*")
             .pipe(gulp.dest(webfolder + "admintheme"));
     });
+
+    gulp.task('default-theme-move', ['default-theme-move-vendors', 'default-theme-move-css', 'default-theme-move-js', 'default-theme-move-images']);
 
     gulp.task('default-theme', ['default-theme-sass', 'default-theme-js', 'default-theme-move']);
     return gulp;
