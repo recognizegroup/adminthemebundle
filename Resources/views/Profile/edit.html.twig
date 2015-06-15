@@ -1,0 +1,19 @@
+{% extends "RecognizeAdminThemeBundle::index.html.twig" %}
+{% form_theme form 'RecognizeAdminThemeBundle:Form:bootstrap_3_layout_fa_checkboxes.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+    <div class="container-padding">
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <h2>{{ 'profile.settings'|trans({}, 'RecognizeAdminThemeBundle') }}</h2>
+                <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+                    {{ form_widget(form) }}
+                    <div class="form-group">
+                        <button class="btn" type="submit">{{ 'profile.edit.submit'|trans }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,5 +1,6 @@
 select:
     languages: Language
 profile:
-    settings: Settings
+    settings: Account settings
     logout: Log out
+    edit: Edit

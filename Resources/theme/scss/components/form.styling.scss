@@ -30,6 +30,13 @@
   }
 }
 
+.control-label-text {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
 @import 'form.styling.buttons';
 @import 'form.styling.select2';
 @import 'form.styling.ckeditor';

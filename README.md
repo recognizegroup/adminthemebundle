@@ -137,6 +137,43 @@ To set the profile image to be something different than the default image, injec
     $this->get('twig')->addGlobal("admin_profile_image", "http://i.imgur.com/FB3MnKv.png" );
 ```
 
+Or define a service
+
+```php
+<?php
+class AvatarInjectionService extends \Twig_Extension {
+
+    protected $avatar;
+
+    public function __construct( TokenStorage $storage ){
+        $token = $storage->getToken();
+
+        if( $token != null){
+            $this->avatar = "http://i.imgur.com/FB3MnKv.png";
+        }
+    }
+
+    public function getGlobals() {
+        $globals = parent::getGlobals();
+
+        if( $this->avatar != null ){
+            $globals['admin_profile_image'] = $this->avatar;
+        }
+
+        return $globals;
+    }
+
+    /**
+     * Returns the name of the extension.
+     *
+     * @return string The extension name
+     */
+    public function getName() {
+        return "twig.recognize.variables";
+    }
+}
+```
+
 Enabling check- and radiobutton styling in the forms
 ----------------
 

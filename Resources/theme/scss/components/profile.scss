@@ -38,6 +38,7 @@ $profile-scrollbar-padding: 10px;
     border-radius: 50%;
     position: relative;
     float: right;
+    border: 2px solid $gray;
   }
 
   &:focus .avatar {
@@ -102,7 +103,7 @@ $profile-scrollbar-padding: 10px;
       }
 
       a {
-        display: block;
+        display: table;
         width: 100%;
         padding: ( $profile-padding / 2 ) $profile-padding;
         color: $profile-options-text-color;
@@ -114,13 +115,16 @@ $profile-scrollbar-padding: 10px;
           border: 0px solid #000000;
           outline: 0px;
         }
+
+        i {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: right;
+        }
       }
 
       i {
         color: $profile-options-icon-color;
-        position: relative;
-        top: 3px;
-        float: right;
       }
 
       &.no-hover-style:hover {
@@ -142,13 +146,8 @@ $profile-scrollbar-padding: 10px;
   }
 }
 
-@media (min-width: 768px ){
-  .profile {
-    .tabfocus:focus {
-      outline: 2px auto $profile-options-hover-color;
-      &:hover {
-        outline: 0px auto #000000;
-      }
-    }
+.profile {
+  .tabfocus {
+    outline: 0px auto #000000;
   }
 }

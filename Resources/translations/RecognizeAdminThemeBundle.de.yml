@@ -1,5 +1,6 @@
 select:
     languages: Sprache wählen
 profile:
-    settings: Einstellungen
+    settings: Account einstellungen
     logout: Ausloggen
+    edit: Änderen

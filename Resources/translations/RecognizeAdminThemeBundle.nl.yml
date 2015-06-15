@@ -1,5 +1,6 @@
 select:
     languages: Taal kiezen
 profile:
-    settings: Instellingen
+    settings: Account instellingen
     logout: Uitloggen
+    edit: Aanpassen

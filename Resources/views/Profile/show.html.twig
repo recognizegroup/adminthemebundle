@@ -1,0 +1,22 @@
+{% extends "RecognizeAdminThemeBundle::index.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block content %}
+    <div class="container-padding">
+        <div class="row">
+            <div class="col-xs-12 col-md-3">
+                <h1>{{ 'profile.settings'|trans({}, 'RecognizeAdminThemeBundle') }}</h1>
+                <div class="fos_user_user_show">
+                    <p class="control-label-text">{{ 'profile.show.username'|trans }}:</p><p>{{ user.username }}</p>
+                    <p class="control-label-text" >{{ 'profile.show.email'|trans }}:</p><p>{{ user.email }}</p>
+                </div>
+
+                <div class="form-group">
+                    <a class="btn tabfocus" href="{{ path('fos_user_profile_edit') }}">
+                        {{ 'profile.edit'|trans({}, 'RecognizeAdminThemeBundle') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
