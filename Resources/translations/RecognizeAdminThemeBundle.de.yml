@@ -3,4 +3,6 @@ select:
 profile:
     settings: Account einstellungen
     logout: Ausloggen
-    edit: Änderen
+    edit: Account ändern
+    image:
+        change: Profilbild ändern

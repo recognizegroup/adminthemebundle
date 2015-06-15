@@ -5,15 +5,23 @@
     <div class="container-padding">
         <div class="row">
             <div class="col-xs-12 col-md-3">
-                <h1>{{ 'profile.settings'|trans({}, 'RecognizeAdminThemeBundle') }}</h1>
+                <h1 class="text-center">{{ 'profile.settings'|trans({}, 'RecognizeAdminThemeBundle') }}</h1>
+                {% include 'RecognizeAdminThemeBundle::components/profile_image.html.twig' %}
+
                 <div class="fos_user_user_show">
-                    <p class="control-label-text">{{ 'profile.show.username'|trans }}:</p><p>{{ user.username }}</p>
-                    <p class="control-label-text" >{{ 'profile.show.email'|trans }}:</p><p>{{ user.email }}</p>
+                    <p class="text-center">Gegevens</p>
+                    <p class="text-center">{{ user.username }}</p>
+                    <p class="text-center">{{ user.email }}</p>
                 </div>
 
                 <div class="form-group">
                     <a class="btn tabfocus" href="{{ path('fos_user_profile_edit') }}">
                         {{ 'profile.edit'|trans({}, 'RecognizeAdminThemeBundle') }}
+                    </a>
+                </div>
+                <div class="form-group">
+                    <a class="btn tabfocus" href="{{ path('fos_user_change_password') }}">
+                        <i class="fa fa-lock"></i> {{ 'change_password.submit'|trans }}
                     </a>
                 </div>
             </div>

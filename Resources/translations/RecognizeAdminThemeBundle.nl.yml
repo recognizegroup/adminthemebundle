@@ -3,4 +3,6 @@ select:
 profile:
     settings: Account instellingen
     logout: Uitloggen
-    edit: Aanpassen
+    edit: Account aanpassen
+    image:
+        change: Afbeelding aanpassen

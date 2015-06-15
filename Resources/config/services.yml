@@ -5,6 +5,12 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    app.fosuser_listener:
+        class: Recognize\AdminThemeBundle\EventListener\FOSEventListener
+        arguments: [@twig, @security.token_storage]
+        tags:
+            - { name: kernel.event_subscriber }
+
     recognize.admintheme.form.type.switch:
          class: Recognize\AdminThemeBundle\Form\Type\SwitchType
          tags:

@@ -3,4 +3,6 @@ select:
 profile:
     settings: Account settings
     logout: Log out
-    edit: Edit
+    edit: Edit account
+    image:
+        change: Edit image
