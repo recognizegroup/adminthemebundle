@@ -37,6 +37,22 @@
   font-weight: bold;
 }
 
+.input-group-addon.focusable {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.form-group-bottom-margin {
+  margin-bottom: 15px;
+}
+
 @import 'form.styling.buttons';
 @import 'form.styling.select2';
 @import 'form.styling.ckeditor';
+@import 'form.styling.checkbox_radio.scss';
+@import 'form.styling.switches.scss';
+@import 'form.styling.datepicker.scss';

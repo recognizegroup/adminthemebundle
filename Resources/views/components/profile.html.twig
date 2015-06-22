@@ -6,8 +6,12 @@
 {% if admin_profile_username is not defined %}
     {% set admin_profile_username = "Account" %}
 {% endif %}
+{% set container_class = "" %}
+{% if mobile_open_profile is defined %}
+{% set container_class = "mobile-open" %}
+{% endif %}
 
-<div class="profile tabfocus" aria-label="Toggle account options" tabindex="0">
+<div class="profile tabfocus {{ container_class }}" aria-label="Toggle account options" tabindex="0">
     <div class="clearfix">
         <img src="{{ admin_profile_image }}" class="avatar" />
         <p class="username">{{ admin_profile_username }}</p>

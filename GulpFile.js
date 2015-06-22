@@ -38,21 +38,4 @@ gulp.task('vendors', function() {
         .pipe(gulp.dest(webfolder + "admintheme"));
 });
 
-gulp.task('watch', function() {
-    gulp.watch('Resources/js/*.js', ['scripts']);
-    gulp.watch('Resources/theme/scss/*.scss', ['sass']);
-});
-
-gulp.task('test', function() {
-    var jasmine = require('gulp-jasmine');
-    var jasmine_spec_reporter = require('jasmine-spec-reporter');
-
-    return gulp.src('Tests/Resources/*Test.js')
-        .pipe(jasmine({
-            reporter: new jasmine_spec_reporter()
-        })
-    );
-});
-
 gulp.task("theme", ['vendors', 'sass', 'js', 'images']);
-gulp.task('default', ['sass'] );

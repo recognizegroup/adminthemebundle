@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     // Open the big profile picture on mobile
     var mobile_screen_width = 768;
-    if( window.innerWidth <= mobile_screen_width ){
+    if( window.innerWidth <= mobile_screen_width && profile_element.hasClass("mobile-open") ){
         profile_element.addClass('big');
 
         $(window).on('scroll', function( event ){

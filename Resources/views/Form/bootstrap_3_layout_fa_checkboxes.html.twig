@@ -22,3 +22,55 @@
     {% endif %}
 {% endblock checkbox_radio_label %}
 
+{% block datepicker_widget %}
+    {% spaceless %}
+
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+        <div class="input-group">
+            <input type="text" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+            <span class="input-group-addon focusable">
+                <i class="fa fa-calendar"></i>
+            </span>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#{{ id }}").siblings('.input-group-addon').on("click", function(){
+                        $("#{{ id }}").focus();
+                    });
+                });
+            </script>
+        </div>
+
+        {% if locale is not defined %}
+            {% if app.request is not null %}
+                {% set locale = app.request.getLocale() %}
+            {% else %}
+                {% set locale = 'en' %}
+            {% endif %}
+        {% endif %}
+
+        {% set translation_js = datepicker_locale( locale ) %}
+        {% if translation_js != "" %}
+            <script type="text/javascript">
+                {{ translation_js | raw }}
+            </script>
+        {% endif %}
+        <script type="text/javascript">
+            $( document).ready(function() {
+                {% if app.environment == "dev" %}
+                if( $.isFunction("datepicker")){
+                    console.error("Bootstrap datepicker wasn't included in the HTML");
+                } else {
+                    $( "#{{ id }}").datepicker({
+                        "language": '{{ locale }}'
+                    });
+                }
+                {% else %}
+                $( "#{{ id }}").datepicker({
+                    "language": '{{ locale }}'
+                });
+                {% endif %}
+            });
+        </script>
+    {% endspaceless %}
+{% endblock %}
+

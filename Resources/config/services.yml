@@ -7,7 +7,7 @@ services:
 
     app.fosuser_listener:
         class: Recognize\AdminThemeBundle\EventListener\FOSEventListener
-        arguments: [@twig, @security.token_storage]
+        arguments: [@twig, @session]
         tags:
             - { name: kernel.event_subscriber }
 
@@ -18,6 +18,6 @@ services:
 
     twig.recognize.admintheme.variables:
          class: Recognize\AdminThemeBundle\Service\AdminthemeTwigInitializer
-         arguments: ["%recognize_admin_theme.config%", @twig, @security.token_storage]
+         arguments: ["%recognize_admin_theme.config%", @twig, @security.token_storage, @session]
          tags:
             -  { name: twig.extension }
