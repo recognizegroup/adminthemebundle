@@ -3,7 +3,6 @@ namespace Recognize\AdminThemeBundle\Service;
 
 use FOS\UserBundle\FOSUserEvents;
 use Recognize\AdminThemeBundle\Utils\AdminEventBuilder;
-use Recognize\AdminThemeBundle\Utils\FOSFeedback;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
@@ -14,6 +13,8 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
     protected $leftmenu = null;
     protected $languages = null;
     protected $session = null;
+
+    const LOGIN_FEEDBACK_VALUE = "just_logged_in";
 
     public function __construct( $config, \Twig_Environment $twig, TokenStorage $storage, Session $session ){
         $this->twig = $twig;
@@ -71,7 +72,7 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
      */
     protected function checkForFOSFeedback( $globals ){
         if( $this->session != null ){
-            if( $this->session->getFlashBag()->get( FOSFeedback::LOGIN_FEEDBACK_VALUE ) != null ){
+            if( $this->session->getFlashBag()->get( self::LOGIN_FEEDBACK_VALUE ) != null ){
                 $this->session->save();
 
                 $globals['mobile_open_profile'] = 1;

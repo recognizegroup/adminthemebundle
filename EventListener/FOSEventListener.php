@@ -2,6 +2,7 @@
 namespace Recognize\AdminThemeBundle\EventListener;
 
 use FOS\UserBundle\FOSUserEvents;
+use Recognize\AdminThemeBundle\Service\AdminthemeTwigInitializer;
 use Recognize\AdminThemeBundle\Utils\FOSFeedback;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -20,7 +21,7 @@ class FOSEventListener implements EventSubscriberInterface {
     }
 
     public function onLoggedIn(){
-        $this->session->getFlashBag()->set( FOSFeedback::LOGIN_FEEDBACK_VALUE , 1);
+        $this->session->getFlashBag()->set( AdminthemeTwigInitializer::LOGIN_FEEDBACK_VALUE , 1);
         $this->session->save();
     }
 
