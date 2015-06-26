@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface {
                     ->prototype('scalar')->end()
                 ->end()
                 ->scalarNode('leftmenu')->end()
+                ->scalarNode('themecolor')->end()
             ->end()
         ;
 

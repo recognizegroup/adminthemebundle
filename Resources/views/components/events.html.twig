@@ -2,7 +2,7 @@
 {% if admin_event is defined and admin_events is not defined %}
 {% set admin_events = [admin_event] %}
 {% endif %}
-{% if admin_events is defined %}
+{% if admin_events is defined and admin_events|length > 0 %}
 <div class="event-container">
     {% for event in admin_events %}
     {% set event = defaultevent|merge(event) %}

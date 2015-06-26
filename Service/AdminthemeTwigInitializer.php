@@ -12,6 +12,8 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
     protected $username;
     protected $leftmenu = null;
     protected $languages = null;
+    protected $themecolor = null;
+
     protected $session = null;
 
     const LOGIN_FEEDBACK_VALUE = "just_logged_in";
@@ -25,6 +27,10 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
 
         if( array_key_exists("leftmenu", $config ) ) {
             $this->leftmenu = $config['leftmenu'];
+        }
+
+        if( array_key_exists("themecolor", $config ) ) {
+            $this->themecolor = $config['themecolor'];
         }
 
         $this->session = $session;
@@ -45,6 +51,10 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
 
         if( $this->languages != null ){
             $globals['admin_profile_languages'] = $this->languages;
+        }
+
+        if( $this->themecolor != null ){
+            $globals['admin_theme_color'] = $this->themecolor;
         }
 
         $globals = $this->checkForFOSFeedback( $globals );
@@ -80,13 +90,6 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
 
             // Add feedback messages
             $eventbuilder = new AdminEventBuilder();
-            $successmessages = $this->session->getFlashBag()->get( "success" );
-            if( $successmessages !== null ){
-                $this->session->save();
-                for( $i = 0, $length = count( $successmessages ); $i < $length; $i++ ){
-                    $eventbuilder->addSuccessMessage( $successmessages[$i] );
-                }
-            }
 
             $errormessages = $this->session->getFlashBag()->get( "error" );
             if( $errormessages !== null ){
@@ -96,6 +99,29 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
                 }
             }
 
+            $warningmessages = $this->session->getFlashBag()->get( "warning" );
+            if( $warningmessages !== null ){
+                $this->session->save();
+                for( $i = 0, $length = count( $warningmessages ); $i < $length; $i++ ){
+                    $eventbuilder->addWarning( $warningmessages[$i] );
+                }
+            }
+
+            $successmessages = $this->session->getFlashBag()->get( "success" );
+            if( $successmessages !== null ){
+                $this->session->save();
+                for( $i = 0, $length = count( $successmessages ); $i < $length; $i++ ){
+                    $eventbuilder->addSuccessMessage( $successmessages[$i] );
+                }
+            }
+
+            $infomessages = $this->session->getFlashBag()->get( "info" );
+            if( $infomessages !== null ){
+                $this->session->save();
+                for( $i = 0, $length = count( $infomessages ); $i < $length; $i++ ){
+                    $eventbuilder->addMessage( $infomessages[$i] );
+                }
+            }
 
             $globals['admin_events'] = $eventbuilder->build();
         }

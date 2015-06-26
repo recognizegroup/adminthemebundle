@@ -110,6 +110,7 @@ Add this to your app/config.yml file
 recognize_admin_theme:
 	languages: [] ## Array containing locale strings of the languages that are supported in the interface
 	leftmenu: 'RecognizeAdminThemeBundle:Builder:sample' ## KNP menu builder method that generates the main navigation menu
+	themecolor: '#E74C3C' ## Color for theming the Chrome interface on Android
 ```
 
 Keeping the languages array empty will result in the languages not being switchable in the Profile dropdown.

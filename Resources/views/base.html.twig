@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>{% block title %}Company backend{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    {% if admin_theme_color is defined %}
+    <meta name="theme-color" content="{{ admin_theme_color }}">
+    {% endif %}
 
     {% block favicons %}
     <link rel="icon" href="{{ asset('admintheme/images/favicon.ico') }}"/>
