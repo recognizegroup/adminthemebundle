@@ -4,9 +4,18 @@
     <meta charset="utf-8" />
     <title>{% block title %}Company backend{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
+	
+    {% if app.request is defined %}
+        {% set is_quali = app.request.query.get('is_quali') %}
+    {% endif %}
+    {% if is_quali is not defined %}
+        {% set is_quali = false %}
+    {% endif %}
     {% if admin_theme_color is defined %}
-    <meta name="theme-color" content="{{ admin_theme_color }}">
+        {% if is_quali == true %}
+            {% set admin_theme_color = '#7BB342' %}
+        {% endif %}
+        <meta name="theme-color" content="{{ admin_theme_color }}">
     {% endif %}
 
     {% block favicons %}
@@ -22,7 +31,7 @@
     {% endblock %}
 
     {% block scripts %}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('admintheme/js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('admintheme/js/theme.js') }}"></script>
     {% endblock %}
