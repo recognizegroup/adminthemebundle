@@ -20,7 +20,7 @@ module.exports = function( gulp, folder, sourcefolder ){
         gulp.src(sourcefolder + "theme/scss/base.standard.scss")
             .pipe(sass())
             .pipe(concat('theme.css'))
-            .pipe(gulp.dest(folder + "/css"));
+            .pipe(gulp.dest(webfolder + folder + "/css"));
     });
 
     gulp.task('default-theme-js', function() {
