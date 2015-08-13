@@ -1,5 +1,5 @@
 {% if total is not defined %}{% set total = 0 %}{% endif %}
-{% if page is not defined %}{% set page = app.request.get('offset') %}{% endif %}
+{% if page is not defined %}{% set page = app.request.get('offset', 1) %}{% endif %}
 {% if limit is not defined %}{% set limit = app.request.get('limit') %}{% endif %}
 {% set routeParams = app.request.attributes.get('_route_params')|merge( app.request.query.all() ) %}
 {% set qString = app.request.queryString|query_string %}
@@ -14,26 +14,26 @@
             {% set offSet = offSet - (((page + center) - pages) - 1) %}
         {% endif %}
     {% endif %}
-    <ul class="pagination">
+    <ul class="pagination btn-group">
 
-        <li{% if page == 1 %} class="disabled"{% endif %}>
-            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: 1, limit: limit }) ) }}" title="{{ 'pagination.first_page'|trans({}, "RecognizeAdminThemeBundle") }}">&laquo;</a>
+        <li class="{% if page == 1 %}disabled{% endif %}">
+            <a class="btn generic_link" {% if page != 1 %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: 1, limit: limit }) ) }}" title="{{ 'pagination.first_page'|trans({}, "RecognizeAdminThemeBundle") }}"{% endif %}>&laquo;</a>
         </li>
         <li{% if page == 1 %} class="disabled"{% endif %}>
-            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: ((page != 1) ? (page - 1) : (page)), limit: limit }) ) }}" title="{{ 'pagination.previous_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.previous'|trans({}, "RecognizeAdminThemeBundle") }}</a>
+            <a class="btn generic_link" {% if page != 1 %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: ((page != 1) ? (page - 1) : (page)), limit: limit }) ) }}"{% endif %} title="{{ 'pagination.previous_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.previous'|trans({}, "RecognizeAdminThemeBundle") }}</a>
         </li>
         {% for i in (1 + offSet)..(maxPages + offSet) %}
-            <li{% if page == i %} class="disabled"{% endif %}>
-                <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: i, limit: limit }) ) }}" title="{{ 'pagination.page'|trans({page: i}, "RecognizeAdminThemeBundle") }}">
+            <li>
+                <a class="btn generic_link page-{{ i }} {% if page == i %}btn-primary active focus{% endif %}" {% if page != i %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: i, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.page'|trans({page: i}, "RecognizeAdminThemeBundle") }}">
                     {{ i }}
                 </a>
             </li>
         {% endfor %}
         <li{% if (page == pages) %} class="disabled"{% endif %}>
-            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: ((page == pages) ? page : (page + 1)), limit: limit }) ) }}" title="{{ 'pagination.next_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.next'|trans({}, "RecognizeAdminThemeBundle") }}</a>
+            <a class="btn generic_link" {% if page != pages %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: ((page == pages) ? page : (page + 1)), limit: limit }) ) }}"{% endif %} title="{{ 'pagination.next_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.next'|trans({}, "RecognizeAdminThemeBundle") }}</a>
         </li>
         <li{% if (page == pages) %} class="disabled"{% endif %}>
-            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: pages, limit: limit }) ) }}" title="{{ 'pagination.last_page'|trans({}, "RecognizeAdminThemeBundle") }}">&raquo;</a>
+            <a class="btn generic_link" {% if page != pages %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: pages, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.last_page'|trans({}, "RecognizeAdminThemeBundle") }}">&raquo;</a>
         </li>
         <li>
             {% if page == pages %}

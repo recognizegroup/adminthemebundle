@@ -1,5 +1,5 @@
 /**
- * Search and sorting controls
+ * Search, sorting and pagination controls
  */
 $(document).ready( function(){
 

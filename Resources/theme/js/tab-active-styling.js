@@ -21,8 +21,10 @@ $(document).ready(function() {
         if (event.keyCode == 13) {
 
             // Prevent the action from being triggered immediately
-            event.preventDefault();
             $( event.currentTarget ).addClass('active');
+            if( $( event.currentTarget).hasClass("generic_link") == false ){
+                event.preventDefault();
+            }
         }
     });
 
