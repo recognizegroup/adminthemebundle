@@ -1874,6 +1874,14 @@ img.login-logo {
       color: #000;
       display: block; }
 
+.table-header-search {
+  display: inline-block; }
+  .table-header-search input {
+    -webkit-transition: width 0.3s; }
+
+.bla {
+  color: red; }
+
 .container-padding {
   padding: 20px; }
 

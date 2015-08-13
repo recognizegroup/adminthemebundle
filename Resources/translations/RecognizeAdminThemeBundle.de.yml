@@ -1,5 +1,14 @@
 select:
     languages: Sprache wählen
+pagination:
+    first_page: Erste Seite
+    last_page: Letzte Seite
+    next: Nächste
+    next_page: Nächste Seite
+    previous: Vorige
+    previous_page: Vorige Seite
+    page: Seite page
+    rows_x_until_y_of_z: Zeile %x bis %y von %z
 profile:
     settings: Account einstellungen
     logout: Ausloggen

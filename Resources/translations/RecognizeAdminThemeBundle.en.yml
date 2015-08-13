@@ -1,5 +1,14 @@
 select:
     languages: Language
+pagination:
+    first_page: First page
+    last_page: Last page
+    next: Next
+    next_page: Next page
+    previous: Previous
+    previous_page: Previous page
+    page: Page page
+    rows_x_until_y_of_z: Row %x until %y of %z
 profile:
     settings: Account settings
     logout: Log out

@@ -1,0 +1,36 @@
+{% block all %}
+<div class="table-responsive custom-table">
+    <form method="GET" name="queries">
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                {% block table_head %}
+                {% if columns is defined %}
+                    {% for column in columns %}
+                    {% include "RecognizeAdminThemeBundle:Table:heading.html.twig" with column %}
+                    {% endfor %}
+                {% endif %}
+                {% endblock %}
+            </tr>
+        </thead>
+        <tbody>
+        {% block table_body %}
+            {% if rows is defined %}
+            {% for row in rows %}
+            <tr>
+                {% for column in columns %}
+                {{ row[column.column_name] }}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            {% endif %}
+        {% endblock %}
+        </tbody>
+    </table>
+    </form>
+</div>
+
+{% block pagination %}
+    {% include "RecognizeAdminThemeBundle:components:pagination.html.twig" %}
+{% endblock %}
+{% endblock %}

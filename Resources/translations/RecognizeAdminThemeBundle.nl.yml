@@ -1,5 +1,14 @@
 select:
     languages: Taal kiezen
+pagination:
+    first_page: Eerste pagina
+    last_page: Laatste pagina
+    next: Volgende
+    next_page: Volgende pagina
+    previous: Vorige
+    previous_page: Vorige pagina
+    page: Pagina page
+    rows_x_until_y_of_z: Rij %x tot %y van %z
 profile:
     settings: Account instellingen
     logout: Uitloggen

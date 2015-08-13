@@ -21,3 +21,10 @@ services:
          arguments: ["%recognize_admin_theme.config%", @twig, @security.token_storage, @session]
          tags:
             -  { name: twig.extension }
+
+    twig.recognize.admintheme.tablefunctions:
+        class: Recognize\AdminThemeBundle\Twig\TableFunctions
+        arguments: [ @service_container ]
+        public: false
+        tags:
+             - { name: twig.extension }

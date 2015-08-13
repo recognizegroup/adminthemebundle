@@ -1,0 +1,47 @@
+{% if total is not defined %}{% set total = 0 %}{% endif %}
+{% if page is not defined %}{% set page = app.request.get('offset') %}{% endif %}
+{% if limit is not defined %}{% set limit = app.request.get('limit') %}{% endif %}
+{% set routeParams = app.request.attributes.get('_route_params')|merge( app.request.query.all() ) %}
+{% set qString = app.request.queryString|query_string %}
+{% set pages = (total/ (limit == 0 ? 1 : limit) )|round(0, 'ceil') %}
+{% if pages >= 2 %}
+    {% set offSet = 0 %}
+    {% set maxPages = (pages >= 7) ? 7 : pages %}
+    {% set center = (maxPages/2)|round(0, 'ceil') %}
+    {% if (pages > maxPages) and (page >= center) %}
+        {% set offSet = (page - center) %}
+        {% if ((page + center) > pages) %}
+            {% set offSet = offSet - (((page + center) - pages) - 1) %}
+        {% endif %}
+    {% endif %}
+    <ul class="pagination">
+
+        <li{% if page == 1 %} class="disabled"{% endif %}>
+            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: 1, limit: limit }) ) }}" title="{{ 'pagination.first_page'|trans({}, "RecognizeAdminThemeBundle") }}">&laquo;</a>
+        </li>
+        <li{% if page == 1 %} class="disabled"{% endif %}>
+            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: ((page != 1) ? (page - 1) : (page)), limit: limit }) ) }}" title="{{ 'pagination.previous_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.previous'|trans({}, "RecognizeAdminThemeBundle") }}</a>
+        </li>
+        {% for i in (1 + offSet)..(maxPages + offSet) %}
+            <li{% if page == i %} class="disabled"{% endif %}>
+                <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: i, limit: limit }) ) }}" title="{{ 'pagination.page'|trans({page: i}, "RecognizeAdminThemeBundle") }}">
+                    {{ i }}
+                </a>
+            </li>
+        {% endfor %}
+        <li{% if (page == pages) %} class="disabled"{% endif %}>
+            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: ((page == pages) ? page : (page + 1)), limit: limit }) ) }}" title="{{ 'pagination.next_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.next'|trans({}, "RecognizeAdminThemeBundle") }}</a>
+        </li>
+        <li{% if (page == pages) %} class="disabled"{% endif %}>
+            <a href="{{ path(app.request.get('_route'), routeParams|merge({ offset: pages, limit: limit }) ) }}" title="{{ 'pagination.last_page'|trans({}, "RecognizeAdminThemeBundle") }}">&raquo;</a>
+        </li>
+        <li>
+            {% if page == pages %}
+                {% set untilrows = (pages * limit) - ((pages * limit) - (total)) %}
+            {% else %}
+                {% set untilrows = page * limit %}
+            {% endif %}
+            <small style="padding-left: 4px; line-height: 34px;">&nbsp;{{ 'pagination.rows_x_until_y_of_z'|trans({'%x': (page * limit)- limit + 1, '%y': untilrows, '%z': total}, "RecognizeAdminThemeBundle") }}</small>
+        </li>
+    </ul>
+{% endif %}

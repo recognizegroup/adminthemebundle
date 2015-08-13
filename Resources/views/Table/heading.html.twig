@@ -1,0 +1,33 @@
+{% if column_name is not defined %}{% set column_name = "" %}{% endif %}
+{% if title is not defined %}{% set title = "" %}{% endif %}
+{% if is_sortable is not defined %}{% set is_sortable = true %}{% endif %}
+{% if sort is not defined %}{% set sort = null %}{% if app is defined %}{% set sort = app.request.get("sort_" ~ column_name) %}{% endif %}{% endif %}
+{% if is_searchable is not defined %}{% set is_searchable = true %}{% endif %}
+{% if search is not defined %}{% set search = "" %}{% if app is defined %}{% set search = app.request.get("search_" ~ column_name) %}{% endif %}{% endif %}
+<th>
+    <span>{{ title }}</span>
+    {% if is_searchable or is_sortable %}
+    <div class="table-header-query query_{{ column_name }}">
+    {% if is_searchable %}
+        <div class="table-header-search">
+            <div class="search-container {% if search != "" %}open{% endif %}">
+                <input class="form-control" type="search" name="search_{{ column_name }}" value="{{ search }}" />
+            </div>
+            <a href="#" class="search-toggle"><i class="fa {% if search != "" %}fa-close{% else %}fa-search{% endif %}"></i></a>
+        </div>
+    {% endif %}
+
+    {% if is_sortable %}
+        <div class="table-header-sort">
+            {% if sort == null %}
+            <input class="sorting_button" name="sort_{{ column_name }}" type="checkbox" value="asc" /><i class="fa fa-sort"></i>
+            {% elseif sort == "asc" %}
+            <input class="sorting_button" name="sort_{{ column_name }}" type="checkbox" value="desc" /><i class="fa fa-sort-down"></i>
+            {% else %}
+            <input class="sorting_button" name="sort_{{ column_name }}" type="checkbox" value="desc" checked="checked" /><i class="fa fa-sort-up"></i>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% endif %}
+    </div>
+</th>
