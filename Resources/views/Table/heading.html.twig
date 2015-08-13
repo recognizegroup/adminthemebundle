@@ -21,6 +21,7 @@
     {% if is_sortable %}
         <div class="table-header-sort">
             {% set sort_column = "sort_" ~ column_name %}
+            <input type="hidden" name="sort_{{ column_name }}" value="{{ sort }}" />
             {% if sort == null %}
                 <a href="{{ url(app.request.get('_route'), routeParams|merge({ ( sort_column ): "asc" }) ) }}"><i class="fa fa-sort"></i></a>
             {% elseif sort == "asc" %}
