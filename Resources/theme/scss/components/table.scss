@@ -1,9 +1,11 @@
 .custom-table {
 
-  thead th span {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: inline-block;
+  thead th {
+    span {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
   }
 
   .table-header-query {
@@ -17,7 +19,7 @@
       font-size: 18px;
       padding: 5px;
     }
-
+    
     .table-header-search {
       display: table-cell;
 
@@ -33,11 +35,19 @@
         display: inline-block;
 
         &.open {
-          width: 80%;
+          width: 140px;
+        }
+
+        .cross {
+          display: none;
         }
 
         input {
+          float: left;
           display: inline;
+          -webkit-transition: width 0.25s ease-in;
+          transition: width 0.25s ease-in;
+          -moz-transition: width 0.25s ease-in;
         }
       }
 
@@ -46,8 +56,8 @@
         float: right;
         text-decoration: none;
         color: inherit;
-        width: 10%;
         display: inline-block;
+        background: white;
 
         &:focus {
           border: none;
@@ -82,5 +92,111 @@
   .explanation {
     clear: both;
     display: block;
+  }
+}
+
+@media (min-width: 769px ){
+  .custom-table {
+    thead th span {
+      width: 0;
+      overflow-x: visible;
+      float: left;
+    }
+
+    .table-header-query {
+
+      .search-container.open {
+        position: relative;
+        z-index: 1000;
+        background: white;
+      }
+
+      a {
+        i.fa-close {
+          height: 30px;
+          padding-right: 4px;
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px ){
+  .custom-table {
+
+    th {
+      position: relative;
+    }
+
+    .table-header-query {
+      display: block;
+      min-width: 100px;
+
+      i {
+        display: inline-block;
+
+        &::after {
+          content: "";
+          height: 0px;
+          display: block;
+        }
+      }
+
+      .table-header-search {
+        display: block;
+
+        .search-container {
+          position: relative;
+          float: none;
+          -webkit-transition: width 0s ease-in;
+          transition: width 0s ease-in;
+          -moz-transition: width 0s ease-in;
+
+          input {
+            width: 0px;
+          }
+
+          &.open {
+            width: 140px;
+
+            input {
+              display: inline-block;
+              float: left;
+              width: 110px;
+            }
+
+            .cross {
+              width: 30px;
+              text-align: right;
+
+              .fa-close {
+                display: inline-block;
+                width: 30px;
+                padding-right: 4px;
+              }
+
+              display: inline-block;
+            }
+          }
+        }
+
+        a i.fa-close {
+          display: none;
+        }
+
+        input {
+          float: none;
+        }
+      }
+
+      .table-header-sort {
+        display: inline;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+      }
+
+    }
   }
 }

@@ -13,25 +13,47 @@ $(document).ready( function(){
     });
 
     $('.search-toggle').on("click", function( event ){
+        var inparent = false;
         var container = $( this ).siblings(".search-container").eq(0);
+
+        // If the toggle is in the parent itself,
+        if( container.length == 0 ){
+            inparent = true;
+            container = $( this ).parent(".search-container").eq(0);
+        }
 
         container.toggleClass('open');
         if( container.hasClass("open")){
+
+            // Make sure there is enough room for the search input field
+            if( window.outerWidth > 768 ){
+                var th = container.parents("th");
+                if( th.outerWidth() > 220 ){
+                    th.css("min-width", th.outerWidth() + "px");
+                } else {
+                    th.css("min-width", "220px");
+                }
+            }
             container.children("input").focus();
         } else {
             container.children("input").blur();
         }
 
         // Toggle to open and close icon
-        $( this).children("i").toggleClass('fa-close')
-            .toggleClass('fa-search');
+        if( inparent == false ){
+            $( this).children("i").toggleClass('fa-close')
+                .toggleClass('fa-search');
 
-        // Clear the value on close and submit
-        if( $( this).children("i").hasClass("fa-search") ){
-            if( container.children("input").val() != "" ){
-                container.children("input").val( "" );
-                container.children("input").get(0).form.submit();
+            // Clear the value on close and submit
+            if( $( this).children("i").hasClass("fa-search") ){
+                if( container.children("input").val() != "" ){
+                    container.children("input").val( "" );
+                    container.children("input").get(0).form.submit();
+                }
             }
+        } else {
+            container.siblings("a").children("i").removeClass("fa-close")
+                .addClass("fa-search");
         }
     });
 
