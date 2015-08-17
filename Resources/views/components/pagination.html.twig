@@ -23,11 +23,11 @@
             <a class="btn generic_link" {% if page != 1 %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: ((page != 1) ? (page - 1) : (page)), limit: limit }) ) }}"{% endif %} title="{{ 'pagination.previous_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.previous'|trans({}, "RecognizeAdminThemeBundle") }}</a>
         </li>
         {% for i in (1 + offSet)..(maxPages + offSet) %}
-            <li>
-                <a class="btn generic_link page-{{ i }} {% if page == i %}btn-primary active focus{% endif %}" {% if page != i %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: i, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.page'|trans({page: i}, "RecognizeAdminThemeBundle") }}">
-                    {{ i }}
-                </a>
-            </li>
+        <li {% if i != page - 2 and i != page - 1 and page != i and i != page + 1 and i != page + 2 %}class="hidden-xs"{% endif %}>
+            <a class="btn generic_link page-{{ i }} {% if page == i %}btn-primary active focus{% endif %}" {% if page != i %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: i, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.page'|trans({page: i}, "RecognizeAdminThemeBundle") }}">
+                {{ i }}
+            </a>
+        </li>
         {% endfor %}
         <li{% if (page == pages) %} class="disabled"{% endif %}>
             <a class="btn generic_link" {% if page != pages %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: ((page == pages) ? page : (page + 1)), limit: limit }) ) }}"{% endif %} title="{{ 'pagination.next_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.next'|trans({}, "RecognizeAdminThemeBundle") }}</a>
@@ -35,7 +35,7 @@
         <li{% if (page == pages) %} class="disabled"{% endif %}>
             <a class="btn generic_link" {% if page != pages %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: pages, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.last_page'|trans({}, "RecognizeAdminThemeBundle") }}">&raquo;</a>
         </li>
-        <li>
+        <li class="explanation">
             {% if page == pages %}
                 {% set untilrows = (pages * limit) - ((pages * limit) - (total)) %}
             {% else %}
