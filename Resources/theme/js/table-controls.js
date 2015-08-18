@@ -22,16 +22,17 @@ $(document).ready( function(){
             container = $( this ).parent(".search-container").eq(0);
         }
 
+        var th = container.parents("th");
+        var thwidth = th.innerWidth();
         container.toggleClass('open');
         if( container.hasClass("open")){
 
             // Make sure there is enough room for the search input field
             if( window.outerWidth > 768 ){
-                var th = container.parents("th");
-                if( th.outerWidth() > 220 ){
-                    th.css("min-width", th.outerWidth() + "px");
-                } else {
+                if( th.outerWidth() < 220 ){
                     th.css("min-width", "220px");
+                } else {
+                    th.css("width", thwidth + "px" );
                 }
             }
             container.children("input").focus();
