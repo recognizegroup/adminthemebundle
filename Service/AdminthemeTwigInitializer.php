@@ -2,6 +2,7 @@
 namespace Recognize\AdminThemeBundle\Service;
 
 use FOS\UserBundle\FOSUserEvents;
+use Recognize\AdminThemeBundle\Doctrine\RequestQueryBuilder;
 use Recognize\AdminThemeBundle\Utils\AdminEventBuilder;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
@@ -13,6 +14,7 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
     protected $leftmenu = null;
     protected $languages = null;
     protected $themecolor = null;
+    protected $default_table_limit = null;
 
     protected $session = null;
 
@@ -31,6 +33,12 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
 
         if( array_key_exists("themecolor", $config ) ) {
             $this->themecolor = $config['themecolor'];
+        }
+
+        if( array_key_exists("default_table_limit", $config ) ) {
+            $this->default_table_limit = $config['default_table_limit'];
+        } else {
+            $this->default_table_limit = RequestQueryBuilder::DEFAULT_LIMIT;
         }
 
         $this->session = $session;
@@ -56,6 +64,12 @@ class AdminthemeTwigInitializer extends \Twig_Extension {
         if( $this->themecolor != null ){
             $globals['admin_theme_color'] = $this->themecolor;
         }
+
+        if( $this->themecolor != null ){
+            $globals['admin_theme_color'] = $this->themecolor;
+        }
+
+        $globals['default_table_limit'] = $this->default_table_limit;
 
         $globals = $this->checkForFOSFeedback( $globals );
 

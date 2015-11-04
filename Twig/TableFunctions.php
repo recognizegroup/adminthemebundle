@@ -9,26 +9,22 @@ class TableFunctions extends \Twig_Extension {
 
     public function getFunctions(){
         return array(
-            "table_header" => new \Twig_Function_Method($this, "renderTableHeader", array('is_safe' => array('html')))
+            "sort_header" => new \Twig_Function_Method($this, "renderTableSortHeader", array('is_safe' => array('html'))),
         );
     }
 
     /**
-     * Render the table header with all the required input fieldsd
+     * Render the table sorting header
      *
      * @param string $locale
      */
-    public function renderTableHeader( $column_name, $title = "", $searchable = false, $sortable = false, $search = null, $sort = null ){
+    public function renderTableSortHeader( $column_name, $title = "", $sort = null ){
         if( $column_name == "" ){
             throw new \Twig_Error_Runtime( 'You must supply a column name for the table_header function ( table_header("name") )' );
         }
 
         $twigvalues = array("column_name" => $column_name,
-            "title" => $title, "is_searchable" => $searchable, "is_sortable" => $sortable);
-
-        if( $search != null ){
-            $twigvalues['search'] = $search;
-        }
+            "title" => $title);
 
         if( $sort != null ){
             $twigvalues['sort'] = $sort;
@@ -36,10 +32,11 @@ class TableFunctions extends \Twig_Extension {
 
         return $this->container->get('templating')
             ->render(
-                "RecognizeAdminThemeBundle::Table/heading.html.twig",
+                "RecognizeAdminThemeBundle::Table/sortheading.html.twig",
                 $twigvalues
             );
     }
+
 
     public function getName() {
         return "twig.recognize.adminthemebundle.tablefunctions";

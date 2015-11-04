@@ -75,4 +75,22 @@ $(document).ready( function(){
         this.form.submit();
     });
 
+
+    // Make table rows linkable if they have a data-href element on them
+    $('.custom-table [data-href]').css('cursor', 'pointer').on('click', function( evt ){
+        window.location = $( evt.currentTarget ).data("href");
+
+        // Add styling on interaction
+    }).on("mousedown", function( evt ){
+        $( evt.currentTarget ).addClass('active')
+            .on("mouseenter", function( event ) {
+                $( event.currentTarget).addClass("active");
+            })
+            .on("mouseleave", function( event ){
+                $( event.currentTarget).removeClass("active").off("mouseleave", "mouseup");
+            })
+            .on("mouseup", function( event ) {
+                $( event.currentTarget).removeClass("active").addClass("focus").off("mouseleave", "mouseup");
+            });
+    });
 });

@@ -8,7 +8,9 @@ pagination:
     previous: Previous
     previous_page: Previous page
     page: Page page
+    amount_of_rows_per_page: Amount of rows per page
     rows_x_until_y_of_z: Row %x until %y of %z
+    page_x_of_y: Page %x of %y
 profile:
     settings: Account settings
     logout: Log out

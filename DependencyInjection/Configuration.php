@@ -24,6 +24,7 @@ class Configuration implements ConfigurationInterface {
                 ->end()
                 ->scalarNode('leftmenu')->end()
                 ->scalarNode('themecolor')->end()
+                ->scalarNode('default_table_limit')->end()
             ->end()
         ;
 
