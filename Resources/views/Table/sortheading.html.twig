@@ -1,5 +1,5 @@
 {% if column_name is not defined %}{% set column_name = "" %}{% endif %}
-{% set route_column = "sort_" ~ column_name|replace({".": "__"}) %}
+{% set route_column = sort_name( column_name ) %}
 
 {% if title is not defined %}{% set title = "" %}{% endif %}
 {% if sort is not defined %}{% set sort = null %}{% if app is defined %}{% set sort = app.request.get( route_column ) %}{% endif %}{% endif %}

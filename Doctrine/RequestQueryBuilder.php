@@ -22,7 +22,7 @@ class RequestQueryBuilder {
         $this->entity = $entity;
         $this->em = $em;
 
-        $this->available_options = array( "search", "sort");
+        $this->available_options = array( "search", "sort", "exact");
     }
 
     /**
@@ -125,7 +125,12 @@ class RequestQueryBuilder {
                 if( $queryoption == "search" && empty( $value ) == false ) {
 
                     $where_queries[] = $querykey . ' LIKE :' . $parameter_key;
-                    $qb->setParameter($parameter_key , '%' . $value . '%');
+                    $qb->setParameter($parameter_key, '%' . $value . '%');
+
+                } else if ( $queryoption == "exact" && empty( $value ) == false ) {
+
+                    $where_queries[] = $querykey . ' = :' . $parameter_key;
+                    $qb->setParameter($parameter_key , $value);
 
                 } else if ( $queryoption == "sort" ) {
                     if(in_array(strtoupper($value), array('ASC','DESC'))) {
