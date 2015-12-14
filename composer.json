@@ -12,8 +12,8 @@
 		}
 	],
 	"require": {
-	  "friendsofsymfony/user-bundle": "~2.0@dev",
-	  "knplabs/knp-menu-bundle": "~2.0"
+	  "friendsofsymfony/user-bundle": "~2.0@dev|2.0.x-dev",
+	  "knplabs/knp-menu-bundle": "~2.0|2.1.x-dev"
 	},
 	"target-dir": "Recognize/AdminThemeBundle",
 	"autoload": {
