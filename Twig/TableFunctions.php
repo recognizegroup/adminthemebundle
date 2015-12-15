@@ -1,4 +1,5 @@
 <?php
+
 namespace Recognize\AdminThemeBundle\Twig;
 
 class TableFunctions extends \Twig_Extension {
@@ -9,10 +10,10 @@ class TableFunctions extends \Twig_Extension {
 
     public function getFunctions(){
         return array(
-            "sort_header" => new \Twig_Function_Method($this, "renderTableSortHeader", array('is_safe' => array('html'))),
-            "search_name" => new \Twig_Function_Method($this, "generateSearchName", array('is_safe' => array('html'))),
-            "sort_name" => new \Twig_Function_Method($this, "generateSortName", array('is_safe' => array('html'))),
-            "exact_name" => new \Twig_Function_Method($this, "generateExactName", array('is_safe' => array('html')))
+            "sort_header"   => new \Twig_SimpleFunction("renderTableSortHeader",    array('is_safe' => array('html'))),
+            "search_name"   => new \Twig_SimpleFunction("generateSearchName",       array('is_safe' => array('html'))),
+            "sort_name"     => new \Twig_SimpleFunction("generateSortName",         array('is_safe' => array('html'))),
+            "exact_name"    => new \Twig_SimpleFunction("generateExactName",        array('is_safe' => array('html')))
         );
     }
 
@@ -20,6 +21,7 @@ class TableFunctions extends \Twig_Extension {
      * Generate a search name field for the generic RequestQueryBuilder
      *
      * @param $column_name
+     * @return string
      */
     public function generateSearchName( $column_name ){
         return "search_" . $this->replaceDots( $column_name );
@@ -29,6 +31,7 @@ class TableFunctions extends \Twig_Extension {
      * Generate an exact name field for the generic RequestQueryBuilder
      *
      * @param $column_name
+     * @return string
      */
     public function generateExactName( $column_name ){
         return "exact_" . $this->replaceDots( $column_name );
@@ -38,6 +41,7 @@ class TableFunctions extends \Twig_Extension {
      * Generate a sort name field for the generic RequestQueryBuilder
      *
      * @param $column_name
+     * @return string
      */
     public function generateSortName( $column_name ){
         return "sort_" . $this->replaceDots( $column_name );
@@ -55,11 +59,15 @@ class TableFunctions extends \Twig_Extension {
     }
 
 
-
     /**
      * Render the table sorting header
      *
-     * @param string $locale
+     * @param $column_name
+     * @param string $title
+     * @param null $sort
+     * @return
+     * @throws \Twig_Error_Runtime
+     * @internal param string $locale
      */
     public function renderTableSortHeader( $column_name, $title = "", $sort = null ){
         if( $column_name == "" ){

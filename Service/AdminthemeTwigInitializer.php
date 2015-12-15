@@ -7,7 +7,7 @@ use Recognize\AdminThemeBundle\Utils\AdminEventBuilder;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
-class AdminthemeTwigInitializer extends \Twig_Extension {
+class AdminthemeTwigInitializer extends \Twig_Extension implements \Twig_Extension_GlobalsInterface{
 
     protected $twig;
     protected $username;

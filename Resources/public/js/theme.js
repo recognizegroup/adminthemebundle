@@ -239,3 +239,16 @@ $(document).ready(function() {
         $( event.target ).children("tr").children("th").removeClass("focussed");
     });
 });*/
+
+/**
+ * Modal display code, used as confirmation dialog
+ */
+$(function() {
+    $('.display-modal').click(function(e) {
+        e.preventDefault(); // Stop default action
+        var $target = $(e.currentTarget), $modal = $($target.attr('data-target'));
+        $modal.modal('show'); // Display it
+        $('a.confirm', $modal).attr('href', $target.attr('href'));
+    });
+
+});
