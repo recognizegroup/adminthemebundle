@@ -78,7 +78,11 @@ $(document).ready( function(){
 
     // Make table rows linkable if they have a data-href element on them
     $('.custom-table [data-href]').css('cursor', 'pointer').on('click', function( evt ){
-        window.location = $( evt.currentTarget ).data("href");
+
+        // Only change the location if we didn't click on a button
+        if( $( evt.target ).hasClass("btn") == false && $( evt.target).parents(".btn").length == 0 ) {
+            window.location = $(evt.currentTarget).data("href");
+        }
 
         // Add styling on interaction
     }).on("mousedown", function( evt ){
