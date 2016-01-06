@@ -36,7 +36,7 @@
             {% set caretclass = 'fa-caret-down' %}
         {% endif %}
     {% endif %}
-    <span{{ knp_menu.attributes(item.labelAttributes) }}><a {{ toggleattributes }}href="#">{{ block('label') }}
+    <span{{ knp_menu.attributes(item.labelAttributes) }}><a {{ toggleattributes }}>{{ block('label') }}
     <i class="fa {{ caretclass }}"></i></a></span>
 {% endblock %}
 
