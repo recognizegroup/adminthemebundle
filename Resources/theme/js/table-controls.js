@@ -80,6 +80,10 @@ $(document).ready( function(){
     $('.custom-table [data-href]').css('cursor', 'pointer').on('click', function( evt ){
         window.location = $( evt.currentTarget ).data("href");
 
+        if( $( evt.target ).hasClass("btn") == false && $( evt.target).parents(".btn").length == 0 ) {
+            window.location = $(evt.currentTarget).data("href");
+        }
+
         // Add styling on interaction
     }).on("mousedown", function( evt ){
         $( evt.currentTarget ).addClass('active')
