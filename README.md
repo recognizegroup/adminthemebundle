@@ -81,6 +81,7 @@ Also add the following line of code to your GulpFile.js to add the default theme
 
 ```sh
 // GulpFile.js
+var gulp = require('gulp');
 require("./vendor/recognize/adminthemebundle/Recognize/AdminThemeBundle/tasks.js")( gulp );
 ```
 
