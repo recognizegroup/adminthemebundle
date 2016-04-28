@@ -7,7 +7,7 @@ $(document).ready(function() {
     $('.removable-image-upload').each(function() {
         var path = $(this).attr('data-path');
 
-        if(path != '/' && path != '/initial') {
+        if(path != '' && path != '/' && path != '/initial') {
             var wrapper = $('<div class="uploaded-image-container"></div>');
 
             var image = $('<img width="85" src="">');
