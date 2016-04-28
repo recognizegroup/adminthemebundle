@@ -16,6 +16,12 @@ services:
          tags:
             -  { name: form.type, alias: "switch" }
 
+    recognize.admintheme.form.type.removable_file:
+         class: Recognize\AdminThemeBundle\Form\Type\RemovableImageType
+         arguments: ["@request_stack"]
+         tags:
+            -  { name: form.type, alias: "removable_file" }
+
     twig.recognize.admintheme.variables:
          class: Recognize\AdminThemeBundle\Service\AdminthemeTwigInitializer
          arguments: ["%recognize_admin_theme.config%", "@twig", "@security.token_storage", "@session"]

@@ -1,0 +1,6 @@
+{% block removable_image_widget %}
+    {% spaceless %}
+        {{ form_widget(form) }}
+        <input type="hidden" name="{{ form.vars.name }}_remove_upload" class="remove-image-hidden-field" value="false">
+    {% endspaceless %}
+{% endblock %}
