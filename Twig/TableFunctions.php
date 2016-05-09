@@ -3,17 +3,16 @@
 namespace Recognize\AdminThemeBundle\Twig;
 
 class TableFunctions extends \Twig_Extension {
-
     public function __construct( $container ) {
         $this->container = $container;
     }
 
     public function getFunctions(){
         return array(
-            "sort_header"   => new \Twig_SimpleFunction("renderTableSortHeader",    array('is_safe' => array('html'))),
-            "search_name"   => new \Twig_SimpleFunction("generateSearchName",       array('is_safe' => array('html'))),
-            "sort_name"     => new \Twig_SimpleFunction("generateSortName",         array('is_safe' => array('html'))),
-            "exact_name"    => new \Twig_SimpleFunction("generateExactName",        array('is_safe' => array('html')))
+            new \Twig_SimpleFunction("sort_header", array( $this, "renderTableSortHeader"), array('is_safe' => array('html')) ),
+            new \Twig_SimpleFunction("search_name", array( $this, "generateSearchName"), array('is_safe' => array('html')) ),
+            new \Twig_SimpleFunction("sort_name", array( $this, "generateSortName"), array('is_safe' => array('html')) ),
+            new \Twig_SimpleFunction("exact_name", array( $this, "generateExactName"), array('is_safe' => array('html')) )
         );
     }
 
@@ -70,12 +69,14 @@ class TableFunctions extends \Twig_Extension {
      * @internal param string $locale
      */
     public function renderTableSortHeader( $column_name, $title = "", $sort = null ){
+
         if( $column_name == "" ){
             throw new \Twig_Error_Runtime( 'You must supply a column name for the table_header function ( table_header("name") )' );
         }
 
         $twigvalues = array("column_name" => $column_name,
             "title" => $title);
+
 
         if( $sort != null ){
             $twigvalues['sort'] = $sort;

@@ -192,6 +192,10 @@ class RequestQueryBuilder {
             $keys['joins'] = $joins;
         }
 
+        if( strpos( $elements[0], "$" ) === 0 ){
+            $keys[ "key" ] = str_replace("$", "", $elements[0] );
+        }
+
         return $keys;
     }
 
