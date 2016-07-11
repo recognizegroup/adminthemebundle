@@ -55,7 +55,7 @@ class RequestQueryBuilder {
 
         $resultMapping = new ResultSetMapping();
         $resultMapping->addScalarResult('count', 'count');
-        $newQB = $this->em->createNativeQuery( "SELECT COUNT(*) as `count` FROM (" . $subquery . ") A", $resultMapping);
+        $newQB = $this->em->createNativeQuery( "SELECT COUNT(*) as count FROM (" . $subquery . ") A", $resultMapping);
         $values = $params->getValues();
         for( $i = 0, $length = count( $values ); $i < $length; $i++ ){
             $newQB->setParameter( $i + 1, $values[$i]->getValue() );
