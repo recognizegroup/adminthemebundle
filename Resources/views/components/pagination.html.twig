@@ -39,7 +39,11 @@
         <li{% if page == 1 %} class="disabled"{% endif %}>
             <a class="btn generic_link" {% if page != 1 %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: ((page != 1) ? (page - 2) * limit : 0), limit: limit }) ) }}"{% endif %} title="{{ 'pagination.previous_page'|trans({}, "RecognizeAdminThemeBundle") }}">{{ 'pagination.previous'|trans({}, "RecognizeAdminThemeBundle") }}</a>
         </li>
-        {% for i in offSet..(maxPages + offSet) %}
+        {% set pageLength = maxPages + offSet %}
+        {% if( maxPages < 7 ) %}
+            {% set pageLength = maxPages + offSet - 1 %}
+        {% endif %}
+        {% for i in offSet..pageLength %}
             <li {% if i != page - 2 and i != page - 1 and page != i and i != page + 1 and i != page + 2 %}class="hidden-xs"{% endif %}>
                 <a class="btn generic_link page-{{ page }} {% if page == i + 1 %}btn-primary active focus{% endif %}" {% if page != i + 1 %}href="{{ url(app.request.get('_route'), routeParams|merge({ offset: i * limit, limit: limit }) ) }}"{% endif %} title="{{ 'pagination.page'|trans({page: i + 1}, "RecognizeAdminThemeBundle") }}">
                     {{ i + 1}}
