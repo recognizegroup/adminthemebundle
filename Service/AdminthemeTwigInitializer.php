@@ -6,8 +6,10 @@ use Recognize\AdminThemeBundle\Doctrine\RequestQueryBuilder;
 use Recognize\AdminThemeBundle\Utils\AdminEventBuilder;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Twig_Extension;
+use Twig_Extension_GlobalsInterface;
 
-class AdminthemeTwigInitializer extends \Twig_Extension implements \Twig_Extension_GlobalsInterface{
+class AdminthemeTwigInitializer extends Twig_Extension implements Twig_Extension_GlobalsInterface {
 
     protected $twig;
     protected $username;
@@ -50,7 +52,7 @@ class AdminthemeTwigInitializer extends \Twig_Extension implements \Twig_Extensi
     }
 
     public function getGlobals() {
-        $globals = parent::getGlobals();
+        $globals = [];
         $globals['admin_profile_username'] = $this->username;
 
         if( $this->leftmenu != null ){
