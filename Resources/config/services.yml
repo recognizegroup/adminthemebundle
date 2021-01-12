@@ -7,7 +7,7 @@ services:
 
     app.fosuser_listener:
         class: Recognize\AdminThemeBundle\EventListener\FOSEventListener
-        arguments: [@twig, @session]
+        arguments: ['@twig', '@session']
         tags:
             - { name: kernel.event_subscriber }
 
@@ -24,7 +24,7 @@ services:
 
     twig.recognize.admintheme.tablefunctions:
         class: Recognize\AdminThemeBundle\Twig\TableFunctions
-        arguments: [ @service_container ]
+        arguments: [ '@service_container' ]
         public: false
         tags:
              - { name: twig.extension }
