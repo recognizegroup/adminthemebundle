@@ -5,7 +5,7 @@ use FOS\UserBundle\FOSUserEvents;
 use Recognize\AdminThemeBundle\Doctrine\RequestQueryBuilder;
 use Recognize\AdminThemeBundle\Utils\AdminEventBuilder;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Twig_Extension;
 use Twig_Extension_GlobalsInterface;
 
@@ -22,7 +22,7 @@ class AdminthemeTwigInitializer extends Twig_Extension implements Twig_Extension
 
     const LOGIN_FEEDBACK_VALUE = "just_logged_in";
 
-    public function __construct( $config, \Twig_Environment $twig, TokenStorage $storage, Session $session ){
+    public function __construct( $config, \Twig_Environment $twig, TokenStorageInterface $storage, Session $session ){
         $this->twig = $twig;
 
         if( array_key_exists("languages", $config ) ) {
