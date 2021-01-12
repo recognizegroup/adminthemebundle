@@ -2,7 +2,7 @@
 {% import 'knp_menu.html.twig' as knp_menu %}
 
 {% block list %}
-    {% if item.hasChildren and options.depth is not sameas(0) and item.displayChildren %}
+    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         {# Add a collapse class if the item doesn't contain the current page #}
         {% set collapseclass = "collapse " %}
         {% if matcher.isAncestor( item ) %}

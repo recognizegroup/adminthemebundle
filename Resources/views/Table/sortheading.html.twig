@@ -5,7 +5,7 @@
 {% if sort is not defined %}{% set sort = null %}{% if app is defined %}{% set sort = app.request.get( route_column ) %}{% endif %}{% endif %}
 {% set routeParams = app.request.attributes.get('_route_params')|merge( app.request.query.all() ) %}
 <th>
-    <span>{{ title }}</span>
+    <span>{{ title | trans }}</span>
     <div class="table-header query_{{ column_name }}">
         <input type="hidden" name="{{ route_column }}" value="{{ sort }}" />
         {% if sort == null %}

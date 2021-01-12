@@ -5,6 +5,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -45,13 +46,22 @@ class RequestQueryBuilder {
      * @param QueryBuilder $builder
      */
     public function getCountForQuery( \Doctrine\ORM\QueryBuilder $builder ){
-        $builder->resetDQLPart("select");
+        $params = $builder->getParameters();
+
         $builder->resetDQLPart("orderBy");
-        $builder->select("COUNT(entity.id)");
         $builder->setMaxResults( null );
         $builder->setFirstResult(0);
+        $subquery = $builder->getQuery()->getSQL();
 
-        return $builder->getQuery()->getSingleScalarResult();
+        $resultMapping = new ResultSetMapping();
+        $resultMapping->addScalarResult('count', 'count');
+        $newQB = $this->em->createNativeQuery( "SELECT COUNT(*) as count FROM (" . $subquery . ") A", $resultMapping);
+        $values = $params->getValues();
+        for( $i = 0, $length = count( $values ); $i < $length; $i++ ){
+            $newQB->setParameter( $i + 1, $values[$i]->getValue() );
+        }
+
+        return $newQB->getSingleScalarResult();
     }
 
     /**
@@ -107,7 +117,7 @@ class RequestQueryBuilder {
 
         $join_parts = array();
         $where_queries = array();
-        $order_queries = array();
+        $having_queries = array();
         foreach( $container as $queryoption => $queries ){
             foreach( $queries as $entitykey => $value ){
 
@@ -115,6 +125,12 @@ class RequestQueryBuilder {
                 $detectedvalues = $this->detectKeyAndJoins( $entitykey, $queryoption );
                 $querykey = $detectedvalues['key'];
                 $parameter_key = $detectedvalues['parameter_key'];
+
+                $isHaving = false;
+                if( strpos( $parameter_key, "$" ) !== false ){
+                    $isHaving = true;
+                    $parameter_key = str_replace('$', '', $parameter_key );
+                }
 
                 if( $detectedvalues['joins'] > 0 ){
                     foreach( $detectedvalues['joins'] as $alias => $join ){
@@ -124,12 +140,21 @@ class RequestQueryBuilder {
 
                 if( $queryoption == "search" && empty( $value ) == false ) {
 
-                    $where_queries[] = $querykey . ' LIKE :' . $parameter_key;
+                    if( $isHaving ){
+                        $having_queries[] = $querykey . ' LIKE :' . $parameter_key;
+                    } else {
+                        $where_queries[] = $querykey . ' LIKE :' . $parameter_key;
+                    }
+
                     $qb->setParameter($parameter_key, '%' . $value . '%');
 
                 } else if ( $queryoption == "exact" && empty( $value ) == false ) {
+                    if( $isHaving ) {
+                        $having_queries[] = $querykey . ' = :' . $parameter_key;
+                    } else {
+                        $where_queries[] = $querykey . ' = :' . $parameter_key;
+                    }
 
-                    $where_queries[] = $querykey . ' = :' . $parameter_key;
                     $qb->setParameter($parameter_key , $value);
 
                 } else if ( $queryoption == "sort" ) {
@@ -142,6 +167,10 @@ class RequestQueryBuilder {
 
         if( count( $where_queries ) > 0 ){
             $qb->where( join(" AND ", $where_queries ) );
+        }
+
+        if( count( $having_queries ) > 0 ){
+            $qb->having( join(" AND ", $having_queries ) );
         }
 
         /**
@@ -190,6 +219,10 @@ class RequestQueryBuilder {
             }
 
             $keys['joins'] = $joins;
+        }
+
+        if( strpos( $elements[0], "$" ) === 0 ){
+            $keys[ "key" ] = str_replace("$", "", $elements[0] );
         }
 
         return $keys;
