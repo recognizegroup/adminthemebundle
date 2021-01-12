@@ -23,7 +23,7 @@
 {% endblock checkbox_radio_label %}
 
 {% block datepicker_widget %}
-    {% spaceless %}
+    {% apply spaceless %}
 
         {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
         <div class="input-group">
@@ -71,6 +71,6 @@
                 {% endif %}
             });
         </script>
-    {% endspaceless %}
+    {% endapply %}
 {% endblock %}
 
