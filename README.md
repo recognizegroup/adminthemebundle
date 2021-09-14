@@ -24,7 +24,7 @@ Add the bundle to your composer.json
 	"repositories": [
 		{
 			"type": "git",
-			"url":  "git@bitbucket.org:recognize/adminthemebundle.git"
+			"url":  "https://github.com/recognizegroup/adminthemebundle.git"
 		}
 	],
 	 "require": {
