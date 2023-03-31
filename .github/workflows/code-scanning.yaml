@@ -2,9 +2,9 @@ name: "Code scanning"
 
 on:
   push:
-    branches: [ develop, main, master, release/*, hotfix/* ]
+    branches: [ master ]
   pull_request:
-    branches: [ develop ]
+    branches: [ master ]
   schedule:
     - cron: '0 9 * * 1'
 
