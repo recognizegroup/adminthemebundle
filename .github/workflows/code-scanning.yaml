@@ -1,0 +1,128 @@
+name: "Code scanning"
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  code-scanning-php-analyze:
+    name: Perform code scanning (PHP) - Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Upgrade PHP version
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      # Install Psalm
+      - name: Install Psalm
+        shell: bash
+        run: composer global require vimeo/psalm --prefer-dist --no-progress --dev
+
+      - name: Composer install
+        shell: bash
+        run: composer install --no-scripts --no-progress
+
+      - name: Run psalm init before installing any plugins
+        shell: bash
+        run: |-
+          ~/.composer/vendor/bin/psalm --version
+          ~/.composer/vendor/bin/psalm --root=. --init
+
+      # Perform analysis
+      - name: Psalm run taint analysis
+        run: |-
+          ~/.composer/vendor/bin/psalm --root=. --version
+          ~/.composer/vendor/bin/psalm --root=. --output-format=github --taint-analysis --report=results-taint-analysis.sarif
+
+      # Upload SARIF format (supported by GitHub) to the repository
+      - name: Upload Security Analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results-taint-analysis.sarif
+
+  code-scanning-php-codescan:
+    name: Perform code scanning (PHP) - Code scan
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Upgrade PHP version
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      # Install Psalm
+      - name: Install Psalm
+        shell: bash
+        run: composer global require vimeo/psalm --prefer-dist --no-progress --dev
+
+      - name: Composer install
+        shell: bash
+        run: composer install --no-scripts --no-progress
+
+      - name: Run psalm init before installing any plugins
+        shell: bash
+        run: |-
+          ~/.composer/vendor/bin/psalm --version
+          ~/.composer/vendor/bin/psalm --root=. --init
+
+      # Perform analysis
+      - name: Psalm run normal
+        continue-on-error: true
+        run: |-
+          ~/.composer/vendor/bin/psalm --root=. --version
+          ~/.composer/vendor/bin/psalm --root=. --output-format=github --report=results-normal.sarif --report-show-info=false
+
+      # Upload SARIF format (supported by GitHub) to the repository
+      - name: Upload normal results to GitHub
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results-normal.sarif
+
+  code-scanning-javascript:
+    name: Perform code scanning (JavaScript)
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: javascript
+          packs: codeql/javascript-queries
+
+      # Autobuild the language if possible
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
